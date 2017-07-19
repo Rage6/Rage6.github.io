@@ -14,6 +14,7 @@ body {
   margin: 0;
   border:1px solid blue;
   padding: 0;
+  display: flex;
   height: 90%;
 }
 
@@ -27,7 +28,7 @@ body {
 }
 
 .dice {
-  margin: 20px;
+  margin: 20px 0px;
   border: 1px solid black;
   padding-left: 0;
   background-color: white;
@@ -61,13 +62,16 @@ body {
   margin: 0;
   border: 1px solid black;
   padding: 0;
-  display: inline-block;
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-width: 200px;
+  width: 20%;
   height: 100%;
 }
 
 .user {
-  margin: 5% 0;
+  margin: 0;
   /*border: 1px solid yellow;*/
   padding: 0;
   background-color: peru;
@@ -82,17 +86,50 @@ body {
   font-style: italic;
 }
 
+#name1 {}
+
+#name2 {}
+
 .total {
   border: 1px solid red;
   font-size: 3em;
-
 }
+
+#total1{}
+
+#total2{}
 
 #shuffle {
   margin-top: 10px;
   border: 1px solid black;
   padding-top: 10px;
   background-color: peru;
+  font-size: 2em;
+  text-align: center;
+  height: 50px;
+  width: 150px;
+}
+
+#startButton {
+  margin-top: 10px;
+  margin-left: 10px;
+  border: 1px solid black;
+  padding-top: 10px;
+  color: white;
+  background-color: red;
+  font-size: 2em;
+  text-align: center;
+  height: 50px;
+  width: 150px;
+}
+
+#pointsButton {
+  margin-top: 10px;
+  margin-left: 10px;
+  border: 1px solid black;
+  padding-top: 10px;
+  color: white;
+  background-color: green;
   font-size: 2em;
   text-align: center;
   height: 50px;
