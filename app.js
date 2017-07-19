@@ -11,6 +11,32 @@ $(()=>{
   let pickedThird = false;
   let pickedFourth = false;
   let pickedFifth = false;
+  let choice = 'test';
+  let scoreTotal = 0;
+  let selectedArray = [];
+  // console.log(selectedArray);
+
+  const userOneOptions = {
+    'aces': 0,
+    'twos': 0,
+    'threes': 0,
+    'fours': 0,
+    'fives': 0,
+    'sixes': 0,
+    'chance': 0,
+    'yahtzee': 0
+  }
+
+  const userTwoOptions = {
+    'aces': 0,
+    'twos': 0,
+    'threes': 0,
+    'fours': 0,
+    'fives': 0,
+    'sixes': 0,
+    'chance': 0,
+    'yahtzee': 0
+  }
 
   //This generates an integer between 1 and 6
   const rollDice = ()=>{
@@ -110,37 +136,138 @@ $(()=>{
     };
   }
 
-  //This function is used when the user decides on which dice values they want to use and place it in an array
+  //To select choice
+  const acesChoice = $('#aces');
+  acesChoice.on('click',()=>{
+    choice = 'aces'
+  })
+
+  //This function is used after the user decides on which dice values they want. It takes those values, converts them back into numbers, and place it all in an array
   const submitValues = ()=>{
-    let selectedArray = []
     if (pickedFirst === true) {
       const firstValue = parseInt($('#first').text(),10);
       selectedArray.push(firstValue);
-      console.log(selectedArray);
     };
     if (pickedSecond === true) {
       const secondValue = parseInt($('#second').text(),10);
       selectedArray.push(secondValue);
-      console.log(selectedArray);
     };
     if (pickedThird === true) {
       const thirdValue = parseInt($('#third').text(),10);
       selectedArray.push(thirdValue);
-      console.log(selectedArray);
     };
     if (pickedFourth === true) {
       const fourthValue = parseInt($('#fourth').text(),10);
       selectedArray.push(fourthValue);
-      console.log(selectedArray);
     };
     if (pickedFifth === true) {
       const fifthValue = parseInt($('#fifth').text(),10);
       selectedArray.push(fifthValue);
-      console.log(selectedArray);
     };
+    console.log(selectedArray);
+    console.log(choice);
+    checkValues();
+    turnTotal();
+    console.log(scoreTotal)
+    //add total to user's total score
   }
   const pointsButton = $('#pointsButton');
   pointsButton.on('click',submitValues);
+
+  const chooseAces = $('#aces');
+  chooseAces.on('click', ()=>{
+    choice = 'aces'
+  });
+  const chooseTwos = $('#twos');
+  chooseTwos.on('click', ()=>{
+    choice = 'twos'
+  });
+  const chooseThrees = $('#threes');
+  chooseThrees.on('click', ()=>{
+    choice = 'threes'
+  });
+  const chooseFours = $('#fours');
+  chooseFours.on('click', ()=>{
+    choice = 'fours'
+  });
+  const chooseFives = $('#fives');
+  chooseFives.on('click', ()=>{
+    choice = 'fives'
+  });
+  const chooseSixes = $('#sixes');
+  chooseSixes.on('click', ()=>{
+    choice = 'sixes'
+  });
+
+  //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
+  const checkValues = ()=>{
+    if (choice == 'aces'){
+      for (let i = 0; i < selectedArray.length; i++){
+        if (selectedArray[i] != 1) {
+          alert("The chosen dice do not work for the option that you have selected.");
+          selectedArray = [];
+        } else {
+          console.log('Passed inspection')
+        }
+      }
+    } else if (choice == 'twos'){
+      for (let i = 0; i < selectedArray.length; i++){
+        if (selectedArray[i] != 2) {
+          alert("The chosen dice do not work for the option that you have selected.")
+          selectedArray = []
+        } else {
+          console.log('Passed inspection')
+        }
+      }
+    } else if (choice == 'threes'){
+      for (let i = 0; i < selectedArray.length; i++){
+        if (selectedArray[i] != 3) {
+          alert("The chosen dice do not work for the option that you have selected.")
+          selectedArray = []
+        } else {
+          console.log('Passed inspection')
+        }
+      }
+    } else if (choice == 'fours'){
+      for (let i = 0; i < selectedArray.length; i++){
+        if (selectedArray[i] != 4) {
+          alert("The chosen dice do not work for the option that you have selected.")
+          selectedArray = []
+        } else {
+          console.log('Passed inspection')
+        }
+      }
+    } else if (choice == 'fives'){
+      for (let i = 0; i < selectedArray.length; i++){
+        if (selectedArray[i] != 5) {
+          alert("The chosen dice do not work for the option that you have selected.")
+          selectedArray = []
+        } else {
+          console.log('Passed inspection')
+        }
+      }
+    } else if (choice == 'sixes'){
+      for (let i = 0; i < selectedArray.length; i++){
+        if (selectedArray[i] != 6) {
+          alert("The chosen dice do not work for the option that you have selected.")
+          selectedArray = []
+        } else {
+          console.log('Passed inspection')
+        }
+      }
+    } else {
+      alert('Please select your category.')
+      selectedArray = [];
+    }
+  }
+
+  //After the game knows that the user has followed the rules, this function will get the total sum of an array
+  const turnTotal = ()=>{
+    scoreTotal = 0;
+    for (let i = 0; i < selectedArray.length; i++){
+      scoreTotal+=selectedArray[i];
+    }
+  }
 
   //Now we can assign a button to shuffling everything
   const shuffleButton = $('#shuffle');

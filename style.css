@@ -58,10 +58,29 @@ body {
 
 }
 
+#optionsBox {
+  margin: 0;
+  border: 1px solid orange;
+  padding: 0;
+  height: 100%;
+  width: 300px;
+}
+
+#diceOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: tan;
+  height: 50%;
+  width: 100%;
+}
+
+.optionButton {}
+
 #userBox {
   margin: 0;
   border: 1px solid black;
-  padding: 0;
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
