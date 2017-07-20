@@ -19,8 +19,6 @@ $(()=>{
 
   //'trigger' will is part of clicking on/off of dice
   let trigger = true;
-  let user1Total = 0;
-  let user2Total = 0;
   let pickedFirst = false;
   let pickedSecond = false;
   let pickedThird = false;
@@ -29,14 +27,15 @@ $(()=>{
   let choice = 'test';
   let scoreTotal = 0;
   let selectedArray = [];
-  let player = true;
-  let currentPlayer = '';
+  let toSwitchPlayer = false;
+  let howManyRolls = 0;
+  let hasSubmit = false;
 
   //This displays the names and values on the website
-  $('#name1').text(user1);
-  $('#name2').text(user2);
-  $('#total1').text(user1Total);
-  $('#total2').text(user2Total);
+  // $('#name1').text(userOneOptions.name);
+  // $('#name2').text(userTwoOptions.name);
+  // $('#total1').text(userOneOptions.total);
+  // $('#total2').text(userTwoOptions.total);
 
   const userOneOptions = {
     'name': user1,
@@ -64,20 +63,49 @@ $(()=>{
     'yahtzee': 0
   }
 
+  //All of these have to follow the two user objects
+  //Display the names on the website
+  $('#name1').text(userOneOptions.name);
+  $('#name2').text(userTwoOptions.name);
+  //This sets the first player
+  let currentPlayer = userOneOptions;
+  //These display the total of each player's total. The functions are used again in 'submitValues' in order to update the total
+  const displayTotal1 = ()=>{
+    $('#total1').text(userOneOptions.total);
+  }
+  const displayTotal2 = ()=>{
+    $('#total2').text(userTwoOptions.total);
+  }
+  displayTotal1();
+  displayTotal2();
+
   //This is how to switch between the users' objects.
   const switchPlayers = ()=>{
-    if (player == true) {
-      currentPlayer = userOneOptions;
-      player = false;
+    if (hasSubmit == true) {
+      if (toSwitchPlayer == true) {
+        currentPlayer = userOneOptions;
+        console.log(currentPlayer);
+        $('#name1').css('background-color','yellow');
+        $('#name2').css('background-color','peru');
+        howManyRolls = 0;
+        toSwitchPlayer = false;
+        hasSubmit = false;
+      } else {
+        currentPlayer = userTwoOptions;
+        console.log(currentPlayer);
+        $('#name2').css('background-color','yellow');
+        $('#name1').css('background-color','peru');
+        howManyRolls = 0;
+        toSwitchPlayer = true;
+        hasSubmit = false;
+      }
     } else {
-      currentPlayer = userTwoOptions;
-      player = true;
+      alert("Sorry, but the current player must submit their points before the next turn can begin.")
     }
   }
-
-  console.log(currentPlayer.name)
-  switchPlayers();
-  console.log(currentPlayer.name)
+  //This simply attaches switchPlayers to the 'Next Turn' button
+  const nextTurn = $('#startButton');
+  nextTurn.on('click',switchPlayers);
 
   //This generates an integer between 1 and 6
   const rollDice = ()=>{
@@ -160,27 +188,32 @@ $(()=>{
 
   //You can use this function to shuffle all of them at once, except for the ones in which 'picked' == true
   const shuffleAllDice = ()=>{
-    if (pickedFirst === false) {
-      makeNum(first);
-    };
-    if (pickedSecond === false) {
-      makeNum(second);
-    };
-    if (pickedThird === false) {
-      makeNum(third);
-    };
-    if (pickedFourth === false) {
-      makeNum(fourth);
-    };
-    if (pickedFifth === false) {
-      makeNum(fifth);
-    };
+    if (howManyRolls < 3) {
+      if (pickedFirst === false) {
+        makeNum(first);
+      };
+      if (pickedSecond === false) {
+        makeNum(second);
+      };
+      if (pickedThird === false) {
+        makeNum(third);
+      };
+      if (pickedFourth === false) {
+        makeNum(fourth);
+      };
+      if (pickedFifth === false) {
+        makeNum(fifth);
+      };
+      howManyRolls++;
+      console.log(howManyRolls);
+    } else {
+      alert("You have run out of rolls. Please choose your preferred option and submit your selected points.")
+    }
   }
-
-
 
   //This function is used after the user decides on which dice values they want. It takes those values, converts them back into numbers, and place it all in an array
   const submitValues = ()=>{
+    console.log(currentPlayer.name)
     if (pickedFirst === true) {
       const firstValue = parseInt($('#first').text(),10);
       selectedArray.push(firstValue);
@@ -201,13 +234,33 @@ $(()=>{
       const fifthValue = parseInt($('#fifth').text(),10);
       selectedArray.push(fifthValue);
     };
-    console.log(selectedArray);
-    console.log(choice);
     checkValues();
     //check to see if user has already used that category
     turnTotal();
-    console.log(scoreTotal)
-    //add total to user's total score
+    console.log(scoreTotal);
+    addToTotal();
+    displayTotal1();
+    displayTotal2();
+    hasSubmit = true;
+    resetSelections();
+  }
+
+  const addToTotal = ()=>{
+      currentPlayer.total+=scoreTotal;
+  }
+
+  //This "deselects" all of the previously selected values
+  const resetSelections = ()=>{
+    pickedFirst = false;
+    first.css('background-color','white');
+    pickedSecond = false;
+    second.css('background-color','white');
+    pickedThird = false;
+    third.css('background-color','white');
+    pickedFourth = false;
+    fourth.css('background-color','white');
+    pickedFifth = false;
+    fifth.css('background-color','white');
   }
 
   //This is for the "Submit Points" button
@@ -333,7 +386,7 @@ $(()=>{
 
   $('#name1').text(user1);
   $('#name2').text(user2);
-  $('#total1').text(user1Total);
-  $('#total2').text(user2Total);
+  // $('#total1').text(user1Total);
+  // $('#total2').text(user2Total);
 
 })

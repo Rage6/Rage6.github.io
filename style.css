@@ -105,7 +105,9 @@ body {
   font-style: italic;
 }
 
-#name1 {}
+#name1 {
+  background-color: yellow;
+}
 
 #name2 {}
 
