@@ -2,6 +2,21 @@ console.log('testing');
 
 $(()=>{
 
+  alert("Welcome to Yahtzee!")
+  //Here, we get into assigning someone's name to user 1 and user 2
+  const askName1 = ()=>{
+    return prompt("Player 1: What is your preferred name?");
+  }
+  const askName2 = ()=>{
+    return prompt("Player 2: What is your preferred name?",);
+  }
+
+  //Insert the two players' names
+  const user1 = askName1();
+  const user2 = askName2();
+
+  alert("Now we're ready to play! " + user1 + " will go first. During each turn, the player can roll the dice three times. Simply click any die in order to prevent it from being rolled. All selected die will be shaded grey. Once you have selected the dice that you want to use for points, click 'Submit'. When the next player (in this case, " + user2 + ") is ready to start their turn, they need only click 'Next Turn'. Good luck!")
+
   //'trigger' will is part of clicking on/off of dice
   let trigger = true;
   let user1Total = 0;
@@ -14,9 +29,18 @@ $(()=>{
   let choice = 'test';
   let scoreTotal = 0;
   let selectedArray = [];
-  // console.log(selectedArray);
+  let player = true;
+  let currentPlayer = '';
+
+  //This displays the names and values on the website
+  $('#name1').text(user1);
+  $('#name2').text(user2);
+  $('#total1').text(user1Total);
+  $('#total2').text(user2Total);
 
   const userOneOptions = {
+    'name': user1,
+    'total': 0,
     'aces': 0,
     'twos': 0,
     'threes': 0,
@@ -28,6 +52,8 @@ $(()=>{
   }
 
   const userTwoOptions = {
+    'name': user2,
+    'total': 0,
     'aces': 0,
     'twos': 0,
     'threes': 0,
@@ -37,6 +63,21 @@ $(()=>{
     'chance': 0,
     'yahtzee': 0
   }
+
+  //This is how to switch between the users' objects.
+  const switchPlayers = ()=>{
+    if (player == true) {
+      currentPlayer = userOneOptions;
+      player = false;
+    } else {
+      currentPlayer = userTwoOptions;
+      player = true;
+    }
+  }
+
+  console.log(currentPlayer.name)
+  switchPlayers();
+  console.log(currentPlayer.name)
 
   //This generates an integer between 1 and 6
   const rollDice = ()=>{
@@ -136,11 +177,7 @@ $(()=>{
     };
   }
 
-  //To select choice
-  const acesChoice = $('#aces');
-  acesChoice.on('click',()=>{
-    choice = 'aces'
-  })
+
 
   //This function is used after the user decides on which dice values they want. It takes those values, converts them back into numbers, and place it all in an array
   const submitValues = ()=>{
@@ -167,20 +204,24 @@ $(()=>{
     console.log(selectedArray);
     console.log(choice);
     checkValues();
+    //check to see if user has already used that category
     turnTotal();
     console.log(scoreTotal)
     //add total to user's total score
   }
+
+  //This is for the "Submit Points" button
   const pointsButton = $('#pointsButton');
   pointsButton.on('click',submitValues);
 
+  //These allow the user to choose which
   const chooseAces = $('#aces');
   chooseAces.on('click', ()=>{
-    choice = 'aces'
+    choice = 'aces';
   });
   const chooseTwos = $('#twos');
   chooseTwos.on('click', ()=>{
-    choice = 'twos'
+    choice = 'twos';
   });
   const chooseThrees = $('#threes');
   chooseThrees.on('click', ()=>{
@@ -197,6 +238,14 @@ $(()=>{
   const chooseSixes = $('#sixes');
   chooseSixes.on('click', ()=>{
     choice = 'sixes'
+  });
+  const chooseChance = $('#chance');
+  chooseChance.on('click', ()=>{
+    choice = 'chance'
+  });
+  const chooseYahtzee = $('#yahtzee');
+  chooseYahtzee.on('click', ()=>{
+    choice = 'yahtzee'
   });
 
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
@@ -255,6 +304,15 @@ $(()=>{
           console.log('Passed inspection')
         }
       }
+    } else if (choice == 'chance'){
+      for (let i = 0; i < selectedArray.length; i++){
+        if (selectedArray.length < 5) {
+          alert("Select all die when using the 'Chance' option.")
+          selectedArray = []
+        } else {
+          console.log('Passed inspection')
+        }
+      }
     } else {
       alert('Please select your category.')
       selectedArray = [];
@@ -273,17 +331,9 @@ $(()=>{
   const shuffleButton = $('#shuffle');
   shuffleButton.on('click',shuffleAllDice);
 
-  //Here, we get into assigning someone's name to user 1 and user 2
-  const askName = ()=>{
-    return prompt("What is your preferred name, player?");
-  }
-
-//These turn on the name request
-// const user1 = askName();
-// const user2 = askName();
-  // $('#name1').text(user1);
-  // $('#name2').text(user2);
-  // $('#total1').text(user1Total);
-  // $('#total2').text(user2Total);
+  $('#name1').text(user1);
+  $('#name2').text(user2);
+  $('#total1').text(user1Total);
+  $('#total2').text(user2Total);
 
 })
