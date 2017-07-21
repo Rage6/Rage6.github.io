@@ -109,7 +109,7 @@ $(()=>{
         $('#fourth').text('');
         $('#fifth').text('');
       } else {
-        alert("Sorry, but the current player must submit their points before the next turn can begin.")
+        alert("Sorry, but the current player must submit their points before the next turn can begin.");
       }
     } else {
       findWinnerName();
@@ -276,11 +276,11 @@ $(()=>{
   const blockResubmit = ()=>{
     console.log('blockResubmit: ' + firstSubmit);
     if (firstSubmit == true) {
-      // submitValues();
+      // I used to have 'submitValues()' here, but that's what kept causing it to block valid submits after
       firstSubmit = false;
       submitValues();
     } else {
-      alert("You can only submit your score once per turn. Check")
+      alert("You can only submit your score once per turn.")
     }
   }
 
@@ -491,6 +491,7 @@ $(()=>{
         if (selectedArray[i] != 1) {
           alert("The chosen dice do not work for the option that you have selected.");
           selectedArray = [];
+          firstSubmit = true;
         } else {
           turnTotal();
           addToTotal();
@@ -508,7 +509,8 @@ $(()=>{
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray[i] != 2) {
           alert("The chosen dice do not work for the option that you have selected.")
-          selectedArray = []
+          selectedArray = [];
+          firstSubmit = true;
         } else {
           turnTotal();
           addToTotal();
@@ -526,7 +528,8 @@ $(()=>{
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray[i] != 3) {
           alert("The chosen dice do not work for the option that you have selected.")
-          selectedArray = []
+          selectedArray = [];
+          firstSubmit = true;
         } else {
           turnTotal();
           addToTotal();
@@ -544,7 +547,8 @@ $(()=>{
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray[i] != 4) {
           alert("The chosen dice do not work for the option that you have selected.")
-          selectedArray = []
+          selectedArray = [];
+          firstSubmit = true;
         } else {
           turnTotal();
           addToTotal();
@@ -562,7 +566,8 @@ $(()=>{
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray[i] != 5) {
           alert("The chosen dice do not work for the option that you have selected.")
-          selectedArray = []
+          selectedArray = [];
+          firstSubmit = true;
         }  else {
           turnTotal();
           addToTotal();
@@ -580,7 +585,8 @@ $(()=>{
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray[i] != 6) {
           alert("The chosen dice do not work for the option that you have selected.")
-          selectedArray = []
+          selectedArray = [];
+          firstSubmit = true;
         } else {
           turnTotal();
           addToTotal();
@@ -598,7 +604,8 @@ $(()=>{
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray.length < 5) {
           alert("Select all die when using the 'Chance' option.")
-          selectedArray = []
+          selectedArray = [];
+          firstSubmit = true;
         } else {
           turnTotal();
           addToTotal();
@@ -617,6 +624,7 @@ $(()=>{
         if (selectedArray.length < 5) {
           alert("Select all die when using the 'Chance' option.");
           selectedArray = [];
+          firstSubmit = true;
         }
       };
       const testItem = selectedArray[0];
@@ -640,6 +648,7 @@ $(()=>{
   } else {
       alert('Please select your category.')
       selectedArray = [];
+      firstSubmit = true;
     }
   }
 
