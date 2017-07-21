@@ -266,6 +266,7 @@ $(()=>{
     hasSubmit = true;
     selectedArray = [];
     resetSelections();
+    resetOptions();
     howManyRolls = 1;
     adjustRound();
     displayRound();
@@ -314,7 +315,7 @@ $(()=>{
   //In this, the function inserts the appropriate category score on the site
   const categoryScores = ()=>{
     if (currentPlayer == userOneOptions) {
-      if (choice == 'ace') {
+      if (choice == 'aces') {
         $("#userOneAces").text(scoreTotal);
       } else if (choice == 'twos') {
         $('#userOneTwos').text(scoreTotal);
@@ -332,7 +333,7 @@ $(()=>{
         $('#userOneYahtzee').text(scoreTotal);
       }
     } else if (currentPlayer == userTwoOptions) {
-        if (choice == 'ace') {
+        if (choice == 'aces') {
           $('#userTwoAces').text(scoreTotal);
         } else if (choice == 'twos') {
           $('#userTwoTwos').text(scoreTotal);
@@ -415,9 +416,6 @@ $(()=>{
           alert("The chosen dice do not work for the option that you have selected.");
           selectedArray = [];
         }
-        // else {
-        //   console.log('Passed inspection')
-        // }
       }
     } else if (choice == 'twos'){
       for (let i = 0; i < selectedArray.length; i++){
@@ -425,9 +423,6 @@ $(()=>{
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
         }
-        // else {
-        //   console.log('Passed inspection')
-        // }
       }
     } else if (choice == 'threes'){
       for (let i = 0; i < selectedArray.length; i++){
@@ -435,9 +430,6 @@ $(()=>{
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
         }
-        // else {
-        //   console.log('Passed inspection')
-        // }
       }
     } else if (choice == 'fours'){
       for (let i = 0; i < selectedArray.length; i++){
@@ -445,9 +437,6 @@ $(()=>{
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
         }
-        // else {
-        //   console.log('Passed inspection')
-        // }
       }
     } else if (choice == 'fives'){
       for (let i = 0; i < selectedArray.length; i++){
@@ -455,9 +444,6 @@ $(()=>{
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
         }
-        // else {
-        //   console.log('Passed inspection')
-        // }
       }
     } else if (choice == 'sixes'){
       for (let i = 0; i < selectedArray.length; i++){
@@ -465,9 +451,6 @@ $(()=>{
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
         }
-        // else {
-        //   console.log('Passed inspection')
-        // }
       }
     } else if (choice == 'chance'){
       for (let i = 0; i < selectedArray.length; i++){
@@ -475,21 +458,22 @@ $(()=>{
           alert("Select all die when using the 'Chance' option.")
           selectedArray = []
         }
-        // else {
-        //   console.log('Passed inspection')
-        // }
       }
     } else if (choice == 'yahtzee'){
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray.length < 5) {
-          alert("Select all die when using the 'Chance' option.")
-          selectedArray = []
+          alert("Select all die when using the 'Chance' option.");
+          selectedArray = [];
         }
-        // else {
-        //   console.log('Passed inspection')
-        // }
+      const testItem = selectedArray[0];
+      for (let i = 1; i < selectedArray.length; i++) {
+        if (testItem != selectedArray[i]) {
+          alert("All die must be equal when using the 'Yahtzee' option.")
+          selectedArray = [];
+        }
       }
-    } else {
+    }
+  } else {
       alert('Please select your category.')
       selectedArray = [];
     }
