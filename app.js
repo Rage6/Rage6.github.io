@@ -239,7 +239,6 @@ $(()=>{
 
   //This function is used after the user decides on which dice values they want. It takes those values, converts them back into numbers, and place it all in an array
   const submitValues = ()=>{
-    console.log($("#userOneAces"));
     confirmEmpty();
     if (pickedFirst === true) {
       const firstValue = parseInt($('#first').text(),10);
@@ -262,24 +261,26 @@ $(()=>{
       selectedArray.push(fifthValue);
     };
     checkValues();
-    turnTotal();
-    addToTotal();
-    categoryScores();
-    displayTotal1();
-    displayTotal2();
-    hasSubmit = true;
-    selectedArray = [];
-    resetSelections();
-    resetOptions();
-    howManyRolls = 1;
+    // turnTotal();
+    // addToTotal();
+    // categoryScores();
+    // displayTotal1();
+    // displayTotal2();
+    // hasSubmit = true;
+    // selectedArray = [];
+    // resetSelections();
+    // resetOptions();
+    // howManyRolls = 1;
   }
 
   const blockResubmit = ()=>{
+    console.log('blockResubmit: ' + firstSubmit);
     if (firstSubmit == true) {
-      submitValues();
+      // submitValues();
       firstSubmit = false;
+      submitValues();
     } else {
-      alert("You can only submit your score once per turn.")
+      alert("You can only submit your score once per turn. Check")
     }
   }
 
@@ -329,38 +330,54 @@ $(()=>{
   const categoryScores = ()=>{
     if (currentPlayer == userOneOptions) {
       if (choice == 'aces') {
+        userOneOptions.aces = scoreTotal;
         $("#userOneAces").text(scoreTotal);
       } else if (choice == 'twos') {
+        userOneOptions.twos = scoreTotal;
         $('#userOneTwos').text(scoreTotal);
       } else if (choice == 'threes') {
+        userOneOptions.threes = scoreTotal;
         $('#userOneThrees').text(scoreTotal);
       } else if (choice == 'fours') {
+        userOneOptions.fours = scoreTotal;
         $('#userOneFours').text(scoreTotal);
       } else if (choice == 'fives') {
+        userOneOptions.fives = scoreTotal;
         $('#userOneFives').text(scoreTotal);
       } else if (choice == 'sixes') {
+        userOneOptions.sixes = scoreTotal;
         $('#userOneSixes').text(scoreTotal);
       } else if (choice == 'chance') {
+        userOneOptions.chance = scoreTotal;
         $('#userOneChance').text(scoreTotal);
       } else if (choice == 'yahtzee') {
+        userOneOptions.yahtzee = scoreTotal;
         $('#userOneYahtzee').text(scoreTotal);
       }
     } else if (currentPlayer == userTwoOptions) {
         if (choice == 'aces') {
+          userTwoOptions.aces = scoreTotal;
           $('#userTwoAces').text(scoreTotal);
         } else if (choice == 'twos') {
+          userTwoOptions.twos = scoreTotal;
           $('#userTwoTwos').text(scoreTotal);
         } else if (choice == 'threes') {
+          userTwoOptions.threes = scoreTotal;
           $('#userTwoThrees').text(scoreTotal);
         } else if (choice == 'fours') {
+          userTwoOptions.fours = scoreTotal;
           $('#userTwoFours').text(scoreTotal);
         } else if (choice == 'fives') {
+          userTwoOptions.fives = scoreTotal;
           $('#userTwoFives').text(scoreTotal);
         } else if (choice == 'sixes') {
+          userTwoOptions.sixes = scoreTotal;
           $('#userTwoSixes').text(scoreTotal);
         } else if (choice == 'chance') {
+          userTwoOptions.chance = scoreTotal;
           $('#userTwoChance').text(scoreTotal);
         } else if (choice == 'yahtzee') {
+          userTwoOptions.yahtzee = scoreTotal;
           $('#userTwoYahtzee').text(scoreTotal);
         }
     }
@@ -370,8 +387,44 @@ $(()=>{
   const confirmEmpty = ()=>{
     if (currentPlayer == userOneOptions) {
       if (choice == 'aces') {
-        if ($("#userOneAces") != "0") {
+        if (userOneOptions.aces != 0) {
           alert("The 'Aces' option has already been used. Please select an unused option.");
+          firstSubmit = true;
+        }
+      } else if (choice == 'twos') {
+        if (userOneOptions.twos != 0) {
+          alert("The 'Twos' option has already been used. Please select an unused option.");
+          firstSubmit = true;
+        }
+      } else if (choice == 'threes') {
+        if (userOneOptions.threes != 0) {
+          alert("The 'Threes' option has already been used. Please select an unused option.");
+          firstSubmit = true;
+        }
+      } else if (choice == 'fours') {
+        if (userOneOptions.fours != 0) {
+          alert("The 'Fours' option has already been used. Please select an unused option.");
+          firstSubmit = true;
+        }
+      } else if (choice == 'fives') {
+        if (userOneOptions.fives != 0) {
+          alert("The 'Fives' option has already been used. Please select an unused option.");
+          firstSubmit = true;
+        }
+      } else if (choice == 'sixes') {
+        if (userOneOptions.sixes != 0) {
+          alert("The 'Sixes' option has already been used. Please select an unused option.");
+          firstSubmit = true;
+        }
+      } else if (choice == 'chance') {
+        if (userOneOptions.chance != 0) {
+          alert("The 'Chance' option has already been used. Please select an unused option.");
+          firstSubmit = true;
+        }
+      } else if (choice == 'yahtzee') {
+        if (userOneOptions.yahtzee != 0) {
+          alert("The 'Twos' option has already been used. Please select an unused option.");
+          firstSubmit = true;
         }
       }
     }
@@ -438,6 +491,17 @@ $(()=>{
         if (selectedArray[i] != 1) {
           alert("The chosen dice do not work for the option that you have selected.");
           selectedArray = [];
+        } else {
+          turnTotal();
+          addToTotal();
+          categoryScores();
+          displayTotal1();
+          displayTotal2();
+          hasSubmit = true;
+          selectedArray = [];
+          resetSelections();
+          resetOptions();
+          howManyRolls = 1;
         }
       }
     } else if (choice == 'twos'){
@@ -445,6 +509,17 @@ $(()=>{
         if (selectedArray[i] != 2) {
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
+        } else {
+          turnTotal();
+          addToTotal();
+          categoryScores();
+          displayTotal1();
+          displayTotal2();
+          hasSubmit = true;
+          selectedArray = [];
+          resetSelections();
+          resetOptions();
+          howManyRolls = 1;
         }
       }
     } else if (choice == 'threes'){
@@ -452,6 +527,17 @@ $(()=>{
         if (selectedArray[i] != 3) {
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
+        } else {
+          turnTotal();
+          addToTotal();
+          categoryScores();
+          displayTotal1();
+          displayTotal2();
+          hasSubmit = true;
+          selectedArray = [];
+          resetSelections();
+          resetOptions();
+          howManyRolls = 1;
         }
       }
     } else if (choice == 'fours'){
@@ -459,6 +545,17 @@ $(()=>{
         if (selectedArray[i] != 4) {
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
+        } else {
+          turnTotal();
+          addToTotal();
+          categoryScores();
+          displayTotal1();
+          displayTotal2();
+          hasSubmit = true;
+          selectedArray = [];
+          resetSelections();
+          resetOptions();
+          howManyRolls = 1;
         }
       }
     } else if (choice == 'fives'){
@@ -466,6 +563,17 @@ $(()=>{
         if (selectedArray[i] != 5) {
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
+        }  else {
+          turnTotal();
+          addToTotal();
+          categoryScores();
+          displayTotal1();
+          displayTotal2();
+          hasSubmit = true;
+          selectedArray = [];
+          resetSelections();
+          resetOptions();
+          howManyRolls = 1;
         }
       }
     } else if (choice == 'sixes'){
@@ -473,6 +581,17 @@ $(()=>{
         if (selectedArray[i] != 6) {
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
+        } else {
+          turnTotal();
+          addToTotal();
+          categoryScores();
+          displayTotal1();
+          displayTotal2();
+          hasSubmit = true;
+          selectedArray = [];
+          resetSelections();
+          resetOptions();
+          howManyRolls = 1;
         }
       }
     } else if (choice == 'chance'){
@@ -480,6 +599,17 @@ $(()=>{
         if (selectedArray.length < 5) {
           alert("Select all die when using the 'Chance' option.")
           selectedArray = []
+        } else {
+          turnTotal();
+          addToTotal();
+          categoryScores();
+          displayTotal1();
+          displayTotal2();
+          hasSubmit = true;
+          selectedArray = [];
+          resetSelections();
+          resetOptions();
+          howManyRolls = 1;
         }
       }
     } else if (choice == 'yahtzee'){
@@ -488,14 +618,25 @@ $(()=>{
           alert("Select all die when using the 'Chance' option.");
           selectedArray = [];
         }
+      };
       const testItem = selectedArray[0];
       for (let i = 1; i < selectedArray.length; i++) {
         if (testItem != selectedArray[i]) {
           alert("All die must be equal when using the 'Yahtzee' option.")
           selectedArray = [];
+        } else {
+          turnTotal();
+          addToTotal();
+          categoryScores();
+          displayTotal1();
+          displayTotal2();
+          hasSubmit = true;
+          selectedArray = [];
+          resetSelections();
+          resetOptions();
+          howManyRolls = 1;
         }
       }
-    }
   } else {
       alert('Please select your category.')
       selectedArray = [];
