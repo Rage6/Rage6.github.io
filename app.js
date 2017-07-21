@@ -32,6 +32,7 @@ $(()=>{
   let hasSubmit = false;
   let roundReset = 0;
   let round = 1;
+  let firstSubmit = true;
 
   const userOneOptions = {
     'name': user1,
@@ -101,6 +102,7 @@ $(()=>{
         };
         adjustRound();
         choice = 'test';
+        firstSubmit = true;
         $('#first').text('');
         $('#second').text('');
         $('#third').text('');
@@ -237,6 +239,8 @@ $(()=>{
 
   //This function is used after the user decides on which dice values they want. It takes those values, converts them back into numbers, and place it all in an array
   const submitValues = ()=>{
+    console.log($("#userOneAces"));
+    confirmEmpty();
     if (pickedFirst === true) {
       const firstValue = parseInt($('#first').text(),10);
       selectedArray.push(firstValue);
@@ -258,7 +262,6 @@ $(()=>{
       selectedArray.push(fifthValue);
     };
     checkValues();
-    //check to see if user has already used that category
     turnTotal();
     addToTotal();
     categoryScores();
@@ -269,9 +272,17 @@ $(()=>{
     resetSelections();
     resetOptions();
     howManyRolls = 1;
-    // adjustRound();
-    // displayRound();
   }
+
+  const blockResubmit = ()=>{
+    if (firstSubmit == true) {
+      submitValues();
+      firstSubmit = false;
+    } else {
+      alert("You can only submit your score once per turn.")
+    }
+  }
+
   //adds turn score to total score
   const addToTotal = ()=>{
       currentPlayer.total+=scoreTotal;
@@ -304,7 +315,7 @@ $(()=>{
     $('#yahtzee').css('background-color','white');
   }
 
-  //This is used in 'submitValues' to determine whether to increase the 'round'
+  //This is used in 'switchPlayers' to increase the 'round' when it's supposed to
   const adjustRound = ()=>{
     roundReset+=1;
     if (roundReset >= 2) {
@@ -355,9 +366,20 @@ $(()=>{
     }
   }
 
+  //Once scores are displayed in the individual objects above, this function will make sure that users cannot add to an object more than once.
+  const confirmEmpty = ()=>{
+    if (currentPlayer == userOneOptions) {
+      if (choice == 'aces') {
+        if ($("#userOneAces") != "0") {
+          alert("The 'Aces' option has already been used. Please select an unused option.");
+        }
+      }
+    }
+  }
+
   //This is for the "Submit Points" button
   const pointsButton = $('#pointsButton');
-  pointsButton.on('click',submitValues);
+  pointsButton.on('click',blockResubmit);
 
   //These allow the user to choose which option that they want
   const chooseAces = $('#aces')
