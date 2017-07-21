@@ -156,3 +156,29 @@ body {
   height: 50px;
   width: 150px;
 }
+
+#rolls {
+  margin-top: 10px;
+  margin-left: 10px;
+  border: 1px solid black;
+  padding-top: 10px;
+  color: white;
+  background-color: blue;
+  font-size: 2em;
+  text-align: center;
+  height: 50px;
+  width: 150px;
+}
+
+#round {
+  margin-top: 10px;
+  margin-left: 10px;
+  border: 1px solid black;
+  padding-top: 10px;
+  color: blue;
+  background-color: yellow;
+  font-size: 2em;
+  text-align: center;
+  height: 50px;
+  width: 150px;
+}

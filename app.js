@@ -28,14 +28,9 @@ $(()=>{
   let scoreTotal = 0;
   let selectedArray = [];
   let toSwitchPlayer = false;
-  let howManyRolls = 0;
+  let howManyRolls = 1;
   let hasSubmit = false;
-
-  //This displays the names and values on the website
-  // $('#name1').text(userOneOptions.name);
-  // $('#name2').text(userTwoOptions.name);
-  // $('#total1').text(userOneOptions.total);
-  // $('#total2').text(userTwoOptions.total);
+  let round = 1;
 
   const userOneOptions = {
     'name': user1,
@@ -76,33 +71,59 @@ $(()=>{
   const displayTotal2 = ()=>{
     $('#total2').text(userTwoOptions.total);
   }
+  const displayRound = ()=>{
+    $('#round').text(round);
+  }
   displayTotal1();
   displayTotal2();
+  displayRound();
 
   //This is how to switch between the users' objects.
   const switchPlayers = ()=>{
-    if (hasSubmit == true) {
-      if (toSwitchPlayer == true) {
-        currentPlayer = userOneOptions;
-        console.log(currentPlayer);
-        $('#name1').css('background-color','yellow');
-        $('#name2').css('background-color','peru');
-        howManyRolls = 0;
-        toSwitchPlayer = false;
-        hasSubmit = false;
+    if (round <= 8) {
+      if (hasSubmit == true) {
+        if (toSwitchPlayer == true) {
+          currentPlayer = userOneOptions;
+          $('#name1').css('background-color','yellow');
+          $('#name2').css('background-color','peru');
+          howManyRolls = 1;
+          toSwitchPlayer = false;
+          hasSubmit = false;
+          howManyRolls++;
+        } else {
+          currentPlayer = userTwoOptions;
+          $('#name2').css('background-color','yellow');
+          $('#name1').css('background-color','peru');
+          howManyRolls = 1;
+          toSwitchPlayer = true;
+          hasSubmit = false;
+        };
+        choice = 'test';
+        $('#first').text('');
+        $('#second').text('');
+        $('#third').text('');
+        $('#fourth').text('');
+        $('#fifth').text('');
       } else {
-        currentPlayer = userTwoOptions;
-        console.log(currentPlayer);
-        $('#name2').css('background-color','yellow');
-        $('#name1').css('background-color','peru');
-        howManyRolls = 0;
-        toSwitchPlayer = true;
-        hasSubmit = false;
+        alert("Sorry, but the current player must submit their points before the next turn can begin.")
       }
     } else {
-      alert("Sorry, but the current player must submit their points before the next turn can begin.")
+      findWinnerName();
     }
   }
+
+  //Use this to determine the name of the winner.
+  const findWinnerName = ()=>{
+    const difference = Math.abs(userOneOptions.total - userOneOptions.total);
+    if (userOneOptions.total > userTwoOptions.total) {
+      alert('Congratulations, '+userOneOptions.name+'! You won, defeating '+userTwoOptions.name+' by '+difference+' points.');
+    } else if (userOneOptions.total < userTwoOptions.total) {
+      alert('Congratulations, '+userTwoOptions.name+'! You won, defeating '+userOneOptions.name+' by '+difference+' points.')
+    } else {
+      alert("You two tied?! That's amazing! You must each be equally good!")
+    }
+  }
+
   //This simply attaches switchPlayers to the 'Next Turn' button
   const nextTurn = $('#startButton');
   nextTurn.on('click',switchPlayers);
@@ -120,7 +141,7 @@ $(()=>{
     diceNum.text(check);
   }
 
-  //The following 5 groups use can make a dice go grey and assign it a boolean
+  //The following 5 groups can make a dice go grey and assign it a boolean
   const first = $('#first')
   first.on('click',()=>{
     if (trigger == true) {
@@ -188,7 +209,9 @@ $(()=>{
 
   //You can use this function to shuffle all of them at once, except for the ones in which 'picked' == true
   const shuffleAllDice = ()=>{
-    if (howManyRolls < 3) {
+    if (howManyRolls <= 3) {
+      const displayRolls = $('#rolls');
+      displayRolls.text(howManyRolls);
       if (pickedFirst === false) {
         makeNum(first);
       };
@@ -205,7 +228,6 @@ $(()=>{
         makeNum(fifth);
       };
       howManyRolls++;
-      console.log(howManyRolls);
     } else {
       alert("You have run out of rolls. Please choose your preferred option and submit your selected points.")
     }
@@ -213,7 +235,6 @@ $(()=>{
 
   //This function is used after the user decides on which dice values they want. It takes those values, converts them back into numbers, and place it all in an array
   const submitValues = ()=>{
-    console.log(currentPlayer.name)
     if (pickedFirst === true) {
       const firstValue = parseInt($('#first').text(),10);
       selectedArray.push(firstValue);
@@ -237,14 +258,19 @@ $(()=>{
     checkValues();
     //check to see if user has already used that category
     turnTotal();
-    console.log(scoreTotal);
     addToTotal();
     displayTotal1();
     displayTotal2();
     hasSubmit = true;
+    selectedArray = [];
     resetSelections();
+    howManyRolls = 1;
+    if (currentPlayer = userTwoOptions) {
+      round++;
+    };
+    displayRound();
   }
-
+  //adds turn score to total score
   const addToTotal = ()=>{
       currentPlayer.total+=scoreTotal;
   }
@@ -263,48 +289,88 @@ $(()=>{
     fifth.css('background-color','white');
   }
 
+  //How to reset the choice to 'null' and takes off background color after submitting it
+  const resetOptions = ()=>{
+    choice = false;
+    $('#aces').css('background-color','white');
+    $('#twos').css('background-color','white');
+    $('#threes').css('background-color','white');
+    $('#fours').css('background-color','white');
+    $('#fives').css('background-color','white');
+    $('#sixes').css('background-color','white');
+    $('#chance').css('background-color','white');
+    $('#yahtzee').css('background-color','white');
+  }
+
+  const categoryScores = ()=>{
+    if (currentPlayer == userOneOptions) {
+      if (choice == 'ace') {
+        $('#userOneAces').text(scoreTotal);
+      } else if (choice == 'twos') {
+        $('#userOneTwos').text(scoreTotal);
+      }
+    }
+  }
+
   //This is for the "Submit Points" button
   const pointsButton = $('#pointsButton');
   pointsButton.on('click',submitValues);
 
-  //These allow the user to choose which
-  const chooseAces = $('#aces');
+  //These allow the user to choose which option that they want
+  const chooseAces = $('#aces')
   chooseAces.on('click', ()=>{
+    resetOptions();
     choice = 'aces';
+    $('#aces').css('background-color','blue');
   });
   const chooseTwos = $('#twos');
   chooseTwos.on('click', ()=>{
+    resetOptions();
     choice = 'twos';
+    $('#twos').css('background-color','blue');
   });
   const chooseThrees = $('#threes');
   chooseThrees.on('click', ()=>{
-    choice = 'threes'
+    resetOptions();
+    choice = 'threes';
+    $('#threes').css('background-color','blue');
   });
   const chooseFours = $('#fours');
   chooseFours.on('click', ()=>{
-    choice = 'fours'
+    resetOptions();
+    choice = 'fours';
+    $('#fours').css('background-color','blue');
   });
   const chooseFives = $('#fives');
   chooseFives.on('click', ()=>{
-    choice = 'fives'
+    resetOptions();
+    choice = 'fives';
+    $('#fives').css('background-color','blue');
   });
   const chooseSixes = $('#sixes');
   chooseSixes.on('click', ()=>{
+    resetOptions();
     choice = 'sixes'
+    $('#sixes').css('background-color','blue');
   });
   const chooseChance = $('#chance');
   chooseChance.on('click', ()=>{
-    choice = 'chance'
+    resetOptions();
+    choice = 'chance';
+    $('#chance').css('background-color','blue');
   });
   const chooseYahtzee = $('#yahtzee');
   chooseYahtzee.on('click', ()=>{
-    choice = 'yahtzee'
+    resetOptions();
+    choice = 'yahtzee';
+    $('#yahtzee').css('background-color','blue');
   });
 
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
   const checkValues = ()=>{
     if (choice == 'aces'){
       for (let i = 0; i < selectedArray.length; i++){
+        console.log(selectedArray);
         if (selectedArray[i] != 1) {
           alert("The chosen dice do not work for the option that you have selected.");
           selectedArray = [];
@@ -314,6 +380,7 @@ $(()=>{
       }
     } else if (choice == 'twos'){
       for (let i = 0; i < selectedArray.length; i++){
+        console.log(selectedArray);
         if (selectedArray[i] != 2) {
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
@@ -366,6 +433,15 @@ $(()=>{
           console.log('Passed inspection')
         }
       }
+    } else if (choice == 'yahtzee'){
+      for (let i = 0; i < selectedArray.length; i++){
+        if (selectedArray.length < 5) {
+          alert("Select all die when using the 'Chance' option.")
+          selectedArray = []
+        } else {
+          console.log('Passed inspection')
+        }
+      }
     } else {
       alert('Please select your category.')
       selectedArray = [];
@@ -386,7 +462,5 @@ $(()=>{
 
   $('#name1').text(user1);
   $('#name2').text(user2);
-  // $('#total1').text(user1Total);
-  // $('#total2').text(user2Total);
 
 })
