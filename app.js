@@ -90,7 +90,7 @@ $(()=>{
           howManyRolls = 1;
           toSwitchPlayer = false;
           hasSubmit = false;
-          howManyRolls++;
+          howManyRolls = 1;
         } else {
           currentPlayer = userTwoOptions;
           $('#name2').css('background-color','yellow');
@@ -99,6 +99,7 @@ $(()=>{
           toSwitchPlayer = true;
           hasSubmit = false;
         };
+        adjustRound();
         choice = 'test';
         $('#first').text('');
         $('#second').text('');
@@ -268,8 +269,8 @@ $(()=>{
     resetSelections();
     resetOptions();
     howManyRolls = 1;
-    adjustRound();
-    displayRound();
+    // adjustRound();
+    // displayRound();
   }
   //adds turn score to total score
   const addToTotal = ()=>{
@@ -309,6 +310,7 @@ $(()=>{
     if (roundReset >= 2) {
       round+=1;
       roundReset = 0;
+      displayRound();
     }
   }
 
@@ -411,7 +413,6 @@ $(()=>{
   const checkValues = ()=>{
     if (choice == 'aces'){
       for (let i = 0; i < selectedArray.length; i++){
-        console.log(selectedArray);
         if (selectedArray[i] != 1) {
           alert("The chosen dice do not work for the option that you have selected.");
           selectedArray = [];
