@@ -120,6 +120,10 @@ body {
 
 #total2{}
 
+.subScores {
+  font-size: 0.4em;
+}
+
 #shuffle {
   margin-top: 10px;
   border: 1px solid black;

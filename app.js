@@ -30,6 +30,7 @@ $(()=>{
   let toSwitchPlayer = false;
   let howManyRolls = 1;
   let hasSubmit = false;
+  let roundReset = 0;
   let round = 1;
 
   const userOneOptions = {
@@ -259,15 +260,14 @@ $(()=>{
     //check to see if user has already used that category
     turnTotal();
     addToTotal();
+    categoryScores();
     displayTotal1();
     displayTotal2();
     hasSubmit = true;
     selectedArray = [];
     resetSelections();
     howManyRolls = 1;
-    if (currentPlayer = userTwoOptions) {
-      round++;
-    };
+    adjustRound();
     displayRound();
   }
   //adds turn score to total score
@@ -302,13 +302,53 @@ $(()=>{
     $('#yahtzee').css('background-color','white');
   }
 
+  //This is used in 'submitValues' to determine whether to increase the 'round'
+  const adjustRound = ()=>{
+    roundReset+=1;
+    if (roundReset >= 2) {
+      round+=1;
+      roundReset = 0;
+    }
+  }
+
+  //In this, the function inserts the appropriate category score on the site
   const categoryScores = ()=>{
     if (currentPlayer == userOneOptions) {
       if (choice == 'ace') {
-        $('#userOneAces').text(scoreTotal);
+        $("#userOneAces").text(scoreTotal);
       } else if (choice == 'twos') {
         $('#userOneTwos').text(scoreTotal);
+      } else if (choice == 'threes') {
+        $('#userOneThrees').text(scoreTotal);
+      } else if (choice == 'fours') {
+        $('#userOneFours').text(scoreTotal);
+      } else if (choice == 'fives') {
+        $('#userOneFives').text(scoreTotal);
+      } else if (choice == 'sixes') {
+        $('#userOneSixes').text(scoreTotal);
+      } else if (choice == 'chance') {
+        $('#userOneChance').text(scoreTotal);
+      } else if (choice == 'yahtzee') {
+        $('#userOneYahtzee').text(scoreTotal);
       }
+    } else if (currentPlayer == userTwoOptions) {
+        if (choice == 'ace') {
+          $('#userTwoAces').text(scoreTotal);
+        } else if (choice == 'twos') {
+          $('#userTwoTwos').text(scoreTotal);
+        } else if (choice == 'threes') {
+          $('#userTwoThrees').text(scoreTotal);
+        } else if (choice == 'fours') {
+          $('#userTwoFours').text(scoreTotal);
+        } else if (choice == 'fives') {
+          $('#userTwoFives').text(scoreTotal);
+        } else if (choice == 'sixes') {
+          $('#userTwoSixes').text(scoreTotal);
+        } else if (choice == 'chance') {
+          $('#userTwoChance').text(scoreTotal);
+        } else if (choice == 'yahtzee') {
+          $('#userTwoYahtzee').text(scoreTotal);
+        }
     }
   }
 
@@ -374,73 +414,80 @@ $(()=>{
         if (selectedArray[i] != 1) {
           alert("The chosen dice do not work for the option that you have selected.");
           selectedArray = [];
-        } else {
-          console.log('Passed inspection')
         }
+        // else {
+        //   console.log('Passed inspection')
+        // }
       }
     } else if (choice == 'twos'){
       for (let i = 0; i < selectedArray.length; i++){
-        console.log(selectedArray);
         if (selectedArray[i] != 2) {
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
-        } else {
-          console.log('Passed inspection')
         }
+        // else {
+        //   console.log('Passed inspection')
+        // }
       }
     } else if (choice == 'threes'){
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray[i] != 3) {
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
-        } else {
-          console.log('Passed inspection')
         }
+        // else {
+        //   console.log('Passed inspection')
+        // }
       }
     } else if (choice == 'fours'){
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray[i] != 4) {
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
-        } else {
-          console.log('Passed inspection')
         }
+        // else {
+        //   console.log('Passed inspection')
+        // }
       }
     } else if (choice == 'fives'){
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray[i] != 5) {
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
-        } else {
-          console.log('Passed inspection')
         }
+        // else {
+        //   console.log('Passed inspection')
+        // }
       }
     } else if (choice == 'sixes'){
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray[i] != 6) {
           alert("The chosen dice do not work for the option that you have selected.")
           selectedArray = []
-        } else {
-          console.log('Passed inspection')
         }
+        // else {
+        //   console.log('Passed inspection')
+        // }
       }
     } else if (choice == 'chance'){
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray.length < 5) {
           alert("Select all die when using the 'Chance' option.")
           selectedArray = []
-        } else {
-          console.log('Passed inspection')
         }
+        // else {
+        //   console.log('Passed inspection')
+        // }
       }
     } else if (choice == 'yahtzee'){
       for (let i = 0; i < selectedArray.length; i++){
         if (selectedArray.length < 5) {
           alert("Select all die when using the 'Chance' option.")
           selectedArray = []
-        } else {
-          console.log('Passed inspection')
         }
+        // else {
+        //   console.log('Passed inspection')
+        // }
       }
     } else {
       alert('Please select your category.')
