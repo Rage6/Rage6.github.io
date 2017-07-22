@@ -1,5 +1,3 @@
-console.log('testing');
-
 $(()=>{
 
   alert("Welcome to Yahtzee!")
@@ -33,6 +31,14 @@ $(()=>{
   let roundReset = 0;
   let round = 1;
   let firstSubmit = true;
+  let acesBlank = false;
+  let twosBlank = false;
+  let threesBlank = false;
+  let foursBlank = false;
+  let fivesBlank = false;
+  let sixesBlank = false;
+  let chanceBlank = false;
+  let yahtzeeBlank = false;
 
   const userOneOptions = {
     'name': user1,
@@ -261,20 +267,9 @@ $(()=>{
       selectedArray.push(fifthValue);
     };
     checkValues();
-    // turnTotal();
-    // addToTotal();
-    // categoryScores();
-    // displayTotal1();
-    // displayTotal2();
-    // hasSubmit = true;
-    // selectedArray = [];
-    // resetSelections();
-    // resetOptions();
-    // howManyRolls = 1;
   }
 
   const blockResubmit = ()=>{
-    console.log('blockResubmit: ' + firstSubmit);
     if (firstSubmit == true) {
       // I used to have 'submitValues()' here, but that's what kept causing it to block valid submits after
       firstSubmit = false;
@@ -286,7 +281,11 @@ $(()=>{
 
   //adds turn score to total score
   const addToTotal = ()=>{
+    if (choice == 'yahtzee') {
+      currentPlayer.total += 50;
+    } else {
       currentPlayer.total+=scoreTotal;
+    }
   }
 
   //This "deselects" all of the previously selected values
@@ -387,43 +386,43 @@ $(()=>{
   const confirmEmpty = ()=>{
     if (currentPlayer == userOneOptions) {
       if (choice == 'aces') {
-        if (userOneOptions.aces != 0) {
+        if (userOneOptions.aces != 0 || acesBlank == true) {
           alert("The 'Aces' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'twos') {
-        if (userOneOptions.twos != 0) {
+        if (userOneOptions.twos != 0 || twosBlank == true) {
           alert("The 'Twos' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'threes') {
-        if (userOneOptions.threes != 0) {
+        if (userOneOptions.threes != 0 || threesBlank == true) {
           alert("The 'Threes' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'fours') {
-        if (userOneOptions.fours != 0) {
+        if (userOneOptions.fours != 0 || foursBlank == true) {
           alert("The 'Fours' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'fives') {
-        if (userOneOptions.fives != 0) {
+        if (userOneOptions.fives != 0 || fivesBlank == true) {
           alert("The 'Fives' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'sixes') {
-        if (userOneOptions.sixes != 0) {
+        if (userOneOptions.sixes != 0 || sixesBlank == true) {
           alert("The 'Sixes' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'chance') {
-        if (userOneOptions.chance != 0) {
+        if (userOneOptions.chance != 0 || chanceBlank == true) {
           alert("The 'Chance' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'yahtzee') {
-        if (userOneOptions.yahtzee != 0) {
-          alert("The 'Twos' option has already been used. Please select an unused option.");
+        if (userOneOptions.yahtzee != 0 || yahtzeeBlank == true) {
+          alert("The 'Yahtzee' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       }
@@ -484,167 +483,149 @@ $(()=>{
     $('#yahtzee').css('background-color','blue');
   });
 
+  //After meeting all the criteria, the collection of following functions in 'addAndReset' will add the appropriates points to the category and reset all of the variables for the next turn
+  const addAndReset = ()=> {
+    turnTotal();
+    addToTotal();
+    categoryScores();
+    displayTotal1();
+    displayTotal2();
+    hasSubmit = true;
+    selectedArray = [];
+    resetSelections();
+    resetOptions();
+    howManyRolls = 1;
+  }
+
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
   const checkValues = ()=>{
     if (choice == 'aces'){
-      for (let i = 0; i < selectedArray.length; i++){
-        if (selectedArray[i] != 1) {
-          alert("The chosen dice do not work for the option that you have selected.");
-          selectedArray = [];
-          firstSubmit = true;
-        } else {
-          turnTotal();
-          addToTotal();
-          categoryScores();
-          displayTotal1();
-          displayTotal2();
-          hasSubmit = true;
-          selectedArray = [];
-          resetSelections();
-          resetOptions();
-          howManyRolls = 1;
+      if (selectedArray = []) {
+        acesBlank = true;
+        addAndReset();
+      } else {
+        for (let i = 0; i < selectedArray.length; i++){
+          if (selectedArray[i] != 1) {
+            alert("The chosen dice do not work for the option that you have selected.");
+            selectedArray = [];
+            firstSubmit = true;
+          } else {
+            addAndReset();
+          }
         }
       }
     } else if (choice == 'twos'){
-      for (let i = 0; i < selectedArray.length; i++){
-        if (selectedArray[i] != 2) {
-          alert("The chosen dice do not work for the option that you have selected.")
-          selectedArray = [];
-          firstSubmit = true;
-        } else {
-          turnTotal();
-          addToTotal();
-          categoryScores();
-          displayTotal1();
-          displayTotal2();
-          hasSubmit = true;
-          selectedArray = [];
-          resetSelections();
-          resetOptions();
-          howManyRolls = 1;
+      if (selectedArray = []) {
+        twosBlank = true;
+        addAndReset();
+      } else {
+        for (let i = 0; i < selectedArray.length; i++){
+          if (selectedArray[i] != 2) {
+            alert("The chosen dice do not work for the option that you have selected.")
+            selectedArray = [];
+            firstSubmit = true;
+          } else {
+            addAndReset();
+          }
         }
       }
     } else if (choice == 'threes'){
-      for (let i = 0; i < selectedArray.length; i++){
-        if (selectedArray[i] != 3) {
-          alert("The chosen dice do not work for the option that you have selected.")
-          selectedArray = [];
-          firstSubmit = true;
-        } else {
-          turnTotal();
-          addToTotal();
-          categoryScores();
-          displayTotal1();
-          displayTotal2();
-          hasSubmit = true;
-          selectedArray = [];
-          resetSelections();
-          resetOptions();
-          howManyRolls = 1;
+      if (selectedArray = []) {
+        threesBlank = true;
+        addAndReset();
+      } else {
+        for (let i = 0; i < selectedArray.length; i++){
+          if (selectedArray[i] != 3) {
+            alert("The chosen dice do not work for the option that you have selected.")
+            selectedArray = [];
+            firstSubmit = true;
+          } else {
+            addAndReset();
+          }
         }
       }
     } else if (choice == 'fours'){
-      for (let i = 0; i < selectedArray.length; i++){
-        if (selectedArray[i] != 4) {
-          alert("The chosen dice do not work for the option that you have selected.")
-          selectedArray = [];
-          firstSubmit = true;
-        } else {
-          turnTotal();
-          addToTotal();
-          categoryScores();
-          displayTotal1();
-          displayTotal2();
-          hasSubmit = true;
-          selectedArray = [];
-          resetSelections();
-          resetOptions();
-          howManyRolls = 1;
+      if (selectedArray = []) {
+        foursBlank = true;
+        addAndReset();
+      } else {
+        for (let i = 0; i < selectedArray.length; i++){
+          if (selectedArray[i] != 4) {
+            alert("The chosen dice do not work for the option that you have selected.")
+            selectedArray = [];
+            firstSubmit = true;
+          } else {
+            addAndReset();
+          }
         }
       }
     } else if (choice == 'fives'){
-      for (let i = 0; i < selectedArray.length; i++){
-        if (selectedArray[i] != 5) {
-          alert("The chosen dice do not work for the option that you have selected.")
-          selectedArray = [];
-          firstSubmit = true;
-        }  else {
-          turnTotal();
-          addToTotal();
-          categoryScores();
-          displayTotal1();
-          displayTotal2();
-          hasSubmit = true;
-          selectedArray = [];
-          resetSelections();
-          resetOptions();
-          howManyRolls = 1;
+      if (selectedArray = []) {
+        fivesBlank = true;
+        addAndReset();
+      } else {
+        for (let i = 0; i < selectedArray.length; i++){
+          if (selectedArray[i] != 5) {
+            alert("The chosen dice do not work for the option that you have selected.")
+            selectedArray = [];
+            firstSubmit = true;
+          }  else {
+            addAndReset();
+          }
         }
       }
     } else if (choice == 'sixes'){
-      for (let i = 0; i < selectedArray.length; i++){
-        if (selectedArray[i] != 6) {
-          alert("The chosen dice do not work for the option that you have selected.")
-          selectedArray = [];
-          firstSubmit = true;
-        } else {
-          turnTotal();
-          addToTotal();
-          categoryScores();
-          displayTotal1();
-          displayTotal2();
-          hasSubmit = true;
-          selectedArray = [];
-          resetSelections();
-          resetOptions();
-          howManyRolls = 1;
+      if (selectedArray = []) {
+        sixesBlank = true;
+        addAndReset();
+      } else {
+        for (let i = 0; i < selectedArray.length; i++){
+          if (selectedArray[i] != 6) {
+            alert("The chosen dice do not work for the option that you have selected.")
+            selectedArray = [];
+            firstSubmit = true;
+          } else {
+            addAndReset();
+          }
         }
       }
     } else if (choice == 'chance'){
-      for (let i = 0; i < selectedArray.length; i++){
-        if (selectedArray.length < 5) {
-          alert("Select all die when using the 'Chance' option.")
-          selectedArray = [];
-          firstSubmit = true;
-        } else {
-          turnTotal();
-          addToTotal();
-          categoryScores();
-          displayTotal1();
-          displayTotal2();
-          hasSubmit = true;
-          selectedArray = [];
-          resetSelections();
-          resetOptions();
-          howManyRolls = 1;
+      if (selectedArray = []) {
+        chanceBlank = true;
+        addAndReset();
+      } else {
+        for (let i = 0; i < selectedArray.length; i++){
+          if (selectedArray.length < 5) {
+            alert("Select all die when using the 'Chance' option.")
+            selectedArray = [];
+            firstSubmit = true;
+          } else {
+            addAndReset();
+          }
         }
       }
     } else if (choice == 'yahtzee'){
-      for (let i = 0; i < selectedArray.length; i++){
-        if (selectedArray.length < 5) {
-          alert("Select all die when using the 'Chance' option.");
-          selectedArray = [];
-          firstSubmit = true;
+      if (selectedArray = []) {
+        yahtzeeBlank = true;
+        addAndReset();
+      } else {
+        for (let i = 0; i < selectedArray.length; i++){
+          if (selectedArray.length < 5) {
+            alert("Select all die when using the 'Yahtzee' option.");
+            selectedArray = [];
+            firstSubmit = true;
+          }
+        };
+        const testItem = selectedArray[0];
+        for (let i = 1; i < 5; i++) {
+          if (testItem != selectedArray[i]) {
+            alert("All of the dice must be equal when using the 'Yahtzee' option.")
+            selectedArray = [];
+          } else {
+            addAndReset();
+          }
         }
-      };
-      const testItem = selectedArray[0];
-      for (let i = 1; i < selectedArray.length; i++) {
-        if (testItem != selectedArray[i]) {
-          alert("All die must be equal when using the 'Yahtzee' option.")
-          selectedArray = [];
-        } else {
-          turnTotal();
-          addToTotal();
-          categoryScores();
-          displayTotal1();
-          displayTotal2();
-          hasSubmit = true;
-          selectedArray = [];
-          resetSelections();
-          resetOptions();
-          howManyRolls = 1;
-        }
-      }
+    }
   } else {
       alert('Please select your category.')
       selectedArray = [];
