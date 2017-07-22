@@ -116,6 +116,7 @@ $(()=>{
         $('#fifth').text('');
       } else {
         alert("Sorry, but the current player must submit their points before the next turn can begin.");
+        firstSubmit = true;
       }
     } else {
       findWinnerName();
@@ -283,7 +284,7 @@ $(()=>{
   const addToTotal = ()=>{
     if (choice == 'yahtzee') {
       currentPlayer.total += 50;
-    } else {
+    } else if (noAdd == false){
       currentPlayer.total+=scoreTotal;
     }
   }
@@ -383,10 +384,12 @@ $(()=>{
   }
 
   //Once scores are displayed in the individual objects above, this function will make sure that users cannot add to an object more than once.
+  let noAdd = null
   const confirmEmpty = ()=>{
     if (currentPlayer == userOneOptions) {
       if (choice == 'aces') {
         if (userOneOptions.aces != 0 || acesBlank == true) {
+          noAdd = true;
           alert("The 'Aces' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
@@ -425,6 +428,8 @@ $(()=>{
           alert("The 'Yahtzee' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
+      } else {
+        noAdd = false;
       }
     }
   }
@@ -486,6 +491,7 @@ $(()=>{
   //After meeting all the criteria, the collection of following functions in 'addAndReset' will add the appropriates points to the category and reset all of the variables for the next turn
   const addAndReset = ()=> {
     turnTotal();
+
     addToTotal();
     categoryScores();
     displayTotal1();
@@ -500,9 +506,10 @@ $(()=>{
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
   const checkValues = ()=>{
     if (choice == 'aces'){
-      if (selectedArray = []) {
+      if (selectedArray.length == 0) {
         acesBlank = true;
         addAndReset();
+
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
@@ -515,7 +522,7 @@ $(()=>{
         }
       }
     } else if (choice == 'twos'){
-      if (selectedArray = []) {
+      if (selectedArray.length == 0) {
         twosBlank = true;
         addAndReset();
       } else {
@@ -530,7 +537,7 @@ $(()=>{
         }
       }
     } else if (choice == 'threes'){
-      if (selectedArray = []) {
+      if (selectedArray.length == 0) {
         threesBlank = true;
         addAndReset();
       } else {
@@ -545,7 +552,7 @@ $(()=>{
         }
       }
     } else if (choice == 'fours'){
-      if (selectedArray = []) {
+      if (selectedArray.length == 0) {
         foursBlank = true;
         addAndReset();
       } else {
@@ -560,7 +567,7 @@ $(()=>{
         }
       }
     } else if (choice == 'fives'){
-      if (selectedArray = []) {
+      if (selectedArray.length == 0) {
         fivesBlank = true;
         addAndReset();
       } else {
@@ -575,7 +582,7 @@ $(()=>{
         }
       }
     } else if (choice == 'sixes'){
-      if (selectedArray = []) {
+      if (selectedArray.length == 0) {
         sixesBlank = true;
         addAndReset();
       } else {
@@ -590,7 +597,7 @@ $(()=>{
         }
       }
     } else if (choice == 'chance'){
-      if (selectedArray = []) {
+      if (selectedArray.length == 0) {
         chanceBlank = true;
         addAndReset();
       } else {
@@ -605,7 +612,7 @@ $(()=>{
         }
       }
     } else if (choice == 'yahtzee'){
-      if (selectedArray = []) {
+      if (selectedArray.length == 0) {
         yahtzeeBlank = true;
         addAndReset();
       } else {
