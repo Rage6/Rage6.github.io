@@ -39,6 +39,7 @@ $(()=>{
   let sixesBlank = false;
   let chanceBlank = false;
   let yahtzeeBlank = false;
+  let noAdd = null;
 
   const userOneOptions = {
     'name': user1,
@@ -282,9 +283,10 @@ $(()=>{
 
   //adds turn score to total score
   const addToTotal = ()=>{
+    console.log(noAdd);
     if (choice == 'yahtzee') {
       currentPlayer.total += 50;
-    } else if (noAdd == false){
+    } else if (noAdd != true){
       currentPlayer.total+=scoreTotal;
     }
   }
@@ -384,7 +386,6 @@ $(()=>{
   }
 
   //Once scores are displayed in the individual objects above, this function will make sure that users cannot add to an object more than once.
-  let noAdd = null
   const confirmEmpty = ()=>{
     if (currentPlayer == userOneOptions) {
       if (choice == 'aces') {
@@ -395,36 +396,43 @@ $(()=>{
         }
       } else if (choice == 'twos') {
         if (userOneOptions.twos != 0 || twosBlank == true) {
+          noAdd = true;
           alert("The 'Twos' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'threes') {
         if (userOneOptions.threes != 0 || threesBlank == true) {
+          noAdd = true;
           alert("The 'Threes' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'fours') {
         if (userOneOptions.fours != 0 || foursBlank == true) {
+          noAdd = true;
           alert("The 'Fours' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'fives') {
         if (userOneOptions.fives != 0 || fivesBlank == true) {
+          noAdd = true;
           alert("The 'Fives' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'sixes') {
         if (userOneOptions.sixes != 0 || sixesBlank == true) {
+          noAdd = true;
           alert("The 'Sixes' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'chance') {
         if (userOneOptions.chance != 0 || chanceBlank == true) {
+          noAdd = true;
           alert("The 'Chance' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'yahtzee') {
         if (userOneOptions.yahtzee != 0 || yahtzeeBlank == true) {
+          noAdd = true;
           alert("The 'Yahtzee' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
@@ -491,7 +499,6 @@ $(()=>{
   //After meeting all the criteria, the collection of following functions in 'addAndReset' will add the appropriates points to the category and reset all of the variables for the next turn
   const addAndReset = ()=> {
     turnTotal();
-
     addToTotal();
     categoryScores();
     displayTotal1();
@@ -522,11 +529,15 @@ $(()=>{
         }
       }
     } else if (choice == 'twos'){
+      console.log("Inside two options checks")
       if (selectedArray.length == 0) {
         twosBlank = true;
         addAndReset();
       } else {
+        console.log("inside the else");
+        console.log("selectedArray: "+selectedArray);
         for (let i = 0; i < selectedArray.length; i++){
+          console.log("inside for loop")
           if (selectedArray[i] != 2) {
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
@@ -576,7 +587,7 @@ $(()=>{
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
             firstSubmit = true;
-          }  else {
+          } else {
             addAndReset();
           }
         }

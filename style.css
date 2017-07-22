@@ -1,5 +1,6 @@
 body {
   background-color: green;
+  height: 800px;
 }
 
 .gameboard {
@@ -7,15 +8,15 @@ body {
   border: 1px solid black;
   padding: 20px;
   width: 80%;
-  height: 700px;
+  height: 100%;
 }
 
 #table {
   margin: 0;
-  border:1px solid blue;
+  /*border:1px solid blue;*/
   padding: 0;
   display: flex;
-  height: 90%;
+  height: 100%;
 }
 
 #diceContainer {
@@ -23,8 +24,25 @@ body {
   border: 1px solid black;
   padding: 0;
   display: inline-block;
-  width: 300px;
-  /*height: 632px;*/
+  width: 60%;
+  height: 100%;
+}
+
+#diceBox {
+  margin: 0;
+  border: solid 1px red;
+  padding: 0;
+  height: 60%;
+}
+
+.diceRow {
+  margin: 0;
+  border: 1px solid yellow;
+  padding:0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50%;
 }
 
 .dice {
@@ -34,8 +52,8 @@ body {
   background-color: white;
   font-size: 5em;
   text-align: center;
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
 }
 
 #first {
@@ -58,12 +76,31 @@ body {
 
 }
 
+#rollSubmitTurn {
+  margin: 0;
+  border: 1px solid purple;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10%;
+  width: 100%;
+}
+
+#messageBoard {
+  margin: 0;
+  border: 1px solid purple;
+  padding: 0;
+  height: 30%;
+  width: 100%;
+}
+
 #optionsBox {
   margin: 0;
   border: 1px solid orange;
   padding: 0;
   height: 100%;
-  width: 300px;
+  width: 30%;
 }
 
 #diceOptions {
@@ -85,7 +122,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   min-width: 200px;
-  width: 20%;
+  width: 30%;
   height: 100%;
 }
 

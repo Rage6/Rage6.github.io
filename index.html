@@ -10,14 +10,60 @@
   <body>
     <div class="gameboard">
       <div id="table">
-        <div id="diceContainer">
-          <div class="dice" id="first"></div>
-          <div class="dice" id="second"></div>
-          <div class="dice" id="third"></div>
-          <div class="dice" id="fourth"></div>
-          <div class="dice" id="fifth"></div>
-        </div>
         <div id="optionsBox">
+          <div class="topMenu">
+            <div id="leftMenue">
+              Choose Your Category
+            </div>
+          </div>
+          <div id="diceOptions">
+            <button id="aces">Aces</button>
+            <button id="twos">Twos</button>
+            <button id="threes">Threes</button>
+            <button id="fours">Fours</button>
+            <button id="fives">Fives</button>
+            <button id="sixes">Sixes</button>
+            <button id="chance">Chance</button>
+            <button id="yahtzee">Yahtzee</button>
+          </div>
+          <div id="roundRollBox">
+            <div id="rolls">
+            </div>
+            <div id="round">
+            </div>
+          </div>
+        </div>
+        <div id="diceContainer">
+          <div id="diceBox">
+            <div class="diceRow">
+              <div class="dice" id="first"></div>
+              <div class="dice" id="second"></div>
+              <div class="dice" id="third"></div>
+            </div>
+            <div class="diceRow">
+              <div class="dice" id="fourth"></div>
+              <div class="dice" id="fifth"></div>
+            </div>
+          </div>
+          <div id="rollSubmitTurn">
+            <div id="shuffle">
+              <i>Roll</i>
+            </div>
+            <div id="startButton">
+              Next Turn
+            </div>
+            <div id="pointsButton">
+              Submit Points
+            </div>
+            <!-- <div id="rolls">
+            </div>
+            <div id="round">
+            </div> -->
+          </div>
+          <div id="messageBoard">
+          </div>
+        </div>
+        <!-- <div id="optionsBox">
           <div id="diceOptions">
             <button id="aces">Aces</button>
             <button id="twos">Twos</button>
@@ -41,7 +87,7 @@
           </div>
           <div id="round">
           </div>
-        </div>
+        </div> -->
         <div id="userBox">
           <div class="user">
             <div class="name" id="name1">
