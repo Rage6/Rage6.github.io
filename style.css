@@ -1,13 +1,28 @@
 body {
   background-color: green;
-  height: 800px;
+  /*display: flex;
+  flex-direction: column;
+  justify-content: space-around;*/
+  background-image: url(http://www.elitestoneandmarble.com/cmss_files/imagelibrary/Marble-Countetops.jpg);
+  height: 600px;
+}
+
+#mainTitle {
+  margin: 0;
+  border: 1px solid blue;
+  padding: 10px;
+  /*font-size: 4em;*/
+  text-align: center;
+  width: 80%;
+  min-width: 1100px;
 }
 
 .gameboard {
-  margin-top: 150px;
   border: 1px solid black;
-  padding: 20px;
+  padding: 10px;
+  background-color: black;
   width: 80%;
+  min-width: 1100px;
   height: 100%;
 }
 
@@ -17,11 +32,12 @@ body {
   padding: 0;
   display: flex;
   height: 100%;
+  width: 100%;
 }
 
 #diceContainer {
   margin: 0;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   padding: 0;
   display: inline-block;
   width: 60%;
@@ -29,15 +45,17 @@ body {
 }
 
 #diceBox {
-  margin: 0;
-  border: solid 1px red;
+  margin: 0 10px;
+  border: solid 1px black;
   padding: 0;
+  background-image: url(http://www.simplysequins.co.uk/ekmps/shops/simplysequins/images/kunin-ecofi-rainbow-felt.-pirate-green.-2349-p.jpg);
   height: 60%;
 }
 
 .diceRow {
   margin: 0;
-  border: 1px solid yellow;
+  /*border: 1px solid black;*/
+  border-radius: 5px;
   padding:0;
   display: flex;
   justify-content: space-around;
@@ -48,6 +66,7 @@ body {
 .dice {
   margin: 20px 0px;
   border: 1px solid black;
+  border-radius: 15px;
   padding-left: 0;
   background-color: white;
   font-size: 5em;
@@ -78,27 +97,40 @@ body {
 
 #rollSubmitTurn {
   margin: 0;
-  border: 1px solid purple;
-  padding: 0;
+  /*border: 1px solid purple;*/
+  padding: 5px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 10%;
-  width: 100%;
+  /*width: 100%;*/
 }
 
 #messageBoard {
-  margin: 0;
-  border: 1px solid purple;
+  margin: 0 10px;
+  /*border: 1px solid purple;*/
   padding: 0;
-  height: 30%;
+  background-image: url(http://images.naldzgraphics.net/2012/08/16-Yellow.jpg);
+  height: 25%;
+  /*width: 100%;*/
+}
+
+#leftMenu {
+  margin: 0;
+  /*border: 1px solid red;*/
+  text-align: center;
+  align-items: center;
+  font-size: 1.5em;
+  /*background-color: red;*/
+  height: 10%;
   width: 100%;
 }
 
 #optionsBox {
   margin: 0;
-  border: 1px solid orange;
+  /*border: 1px solid orange;*/
   padding: 0;
+  background-image: url(http://www.ifurn.com/pics/8/xmodels/boss-reception-desk.BCG-004.4._raw.jpg);
   height: 100%;
   width: 30%;
 }
@@ -107,20 +139,38 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: tan;
-  height: 50%;
+  background-image: url(http://www.ifurn.com/pics/8/xmodels/boss-reception-desk.BCG-004.4._raw.jpg);
+  height: 60%;
   width: 100%;
+}
+
+button {
+  margin: 0 20%;
+  border: 3px solid black;
+  border-radius: 40%;
+  padding: 0;
+  font-size: 1.5em;
+  background-color: ivory;
 }
 
 .optionButton {}
 
+#roundRollBox {
+  margin: 0;
+  /*border: 1px solid red;*/
+  padding: 0;
+  width: 100%;
+  height: 30%;
+}
+
 #userBox {
   margin: 0;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   padding: 0 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  background-image: url(http://www.ifurn.com/pics/8/xmodels/boss-reception-desk.BCG-004.4._raw.jpg);
   min-width: 200px;
   width: 30%;
   height: 100%;
@@ -162,64 +212,83 @@ body {
 }
 
 #shuffle {
-  margin-top: 10px;
+  margin: 0;
   border: 1px solid black;
-  padding-top: 10px;
+  padding: 0;
   background-color: peru;
   font-size: 2em;
   text-align: center;
-  height: 50px;
-  width: 150px;
+  height: 100%;
+  width: 30%;
 }
 
 #startButton {
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 0;
   border: 1px solid black;
-  padding-top: 10px;
+  padding: 0;
   color: white;
   background-color: red;
   font-size: 2em;
   text-align: center;
-  height: 50px;
-  width: 150px;
+  height: 100%;
+  width: 30%;
 }
 
 #pointsButton {
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 0;
   border: 1px solid black;
-  padding-top: 10px;
+  padding: 0;
   color: white;
   background-color: green;
-  font-size: 2em;
+  font-size: 1.8em;
   text-align: center;
-  height: 50px;
-  width: 150px;
+  height: 100%;
+  width: 30%;
+}
+
+.showTally {
+  margin: 0;
+  /*border: 1px solid black;*/
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+}
+
+.tallyName {
+  margin: 0;
+  /*border: 1px solid yellow;*/
+  padding: 0;
+  text-align: center;
+  font-size: 2em;
+  color: ivory;
+  width: 50%;
 }
 
 #rolls {
-  margin-top: 10px;
-  margin-left: 10px;
-  border: 1px solid black;
-  padding-top: 10px;
-  color: white;
-  background-color: blue;
+  margin: 4%;
+  /*border: 1px solid black;*/
+  border-radius: 100%;
+  padding: 0;
+  color: black;
+  background-color: ivory;
   font-size: 2em;
   text-align: center;
-  height: 50px;
-  width: 150px;
+  height: 65%;
+  width: 50%;
 }
 
 #round {
-  margin-top: 10px;
-  margin-left: 10px;
-  border: 1px solid black;
-  padding-top: 10px;
-  color: blue;
-  background-color: yellow;
+  margin: 4%;
+  /*border: 1px solid black;*/
+  border-radius: 100%;
+  padding: 0%;
+  color: black;
+  background-color: ivory;
   font-size: 2em;
   text-align: center;
-  height: 50px;
-  width: 150px;
+  height: 65%;
+  width: 50%;
 }
