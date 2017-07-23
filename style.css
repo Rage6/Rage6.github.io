@@ -7,6 +7,36 @@ body {
   height: 1000px;
 }
 
+#navBar {
+  margin: 0;
+  padding: none;
+  padding: 0;
+  display: flex;
+  background-color: black;
+  color: ivory;
+  height: 40px;
+  width: 100%;
+}
+
+.navButton {
+  margin: 0;
+  border: 1px solid ivory;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+}
+
+.modalOverall {
+  display: none;
+  z-index: 1;
+  position: fixed;
+  height: 100%;
+  width: 50%;
+}
+
 #wholeContent {
   display: flex;
   flex-direction: column;
@@ -116,7 +146,8 @@ body {
   margin: 0 10px;
   /*border: 1px solid purple;*/
   padding: 0;
-  background-image: url(http://images.naldzgraphics.net/2012/08/16-Yellow.jpg);
+  background-image: url(https://www.bitcoinsportsbooks.com/wp-content/uploads/2014/07/dice1.jpg);
+  background-size: cover;
   height: 28%;
   /*width: 100%;*/
 }
@@ -311,6 +342,7 @@ button {
   margin: 4%;
   /*border: 1px solid black;*/
   border-radius: 100%;
+  border: 3px solid black;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -326,6 +358,7 @@ button {
   margin: 4%;
   /*border: 1px solid black;*/
   border-radius: 100%;
+  border: 3px solid black;
   padding: 0%;
   display: flex;
   justify-content: center;

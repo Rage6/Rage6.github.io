@@ -283,11 +283,12 @@ $(()=>{
 
   //adds turn score to total score
   const addToTotal = ()=>{
-    console.log(noAdd);
-    if (choice == 'yahtzee') {
+    // console.log(noAdd);
+    if (choice == 'yahtzee' && selectedArray.length == 5) {
       currentPlayer.total += 50;
     } else if (noAdd != true){
       currentPlayer.total+=scoreTotal;
+
     }
   }
 
@@ -451,49 +452,49 @@ $(()=>{
   chooseAces.on('click', ()=>{
     resetOptions();
     choice = 'aces';
-    $('#aces').css('background-color','blue');
+    $('#aces').css('background-color','grey');
   });
   const chooseTwos = $('#twos');
   chooseTwos.on('click', ()=>{
     resetOptions();
     choice = 'twos';
-    $('#twos').css('background-color','blue');
+    $('#twos').css('background-color','grey');
   });
   const chooseThrees = $('#threes');
   chooseThrees.on('click', ()=>{
     resetOptions();
     choice = 'threes';
-    $('#threes').css('background-color','blue');
+    $('#threes').css('background-color','grey');
   });
   const chooseFours = $('#fours');
   chooseFours.on('click', ()=>{
     resetOptions();
     choice = 'fours';
-    $('#fours').css('background-color','blue');
+    $('#fours').css('background-color','grey');
   });
   const chooseFives = $('#fives');
   chooseFives.on('click', ()=>{
     resetOptions();
     choice = 'fives';
-    $('#fives').css('background-color','blue');
+    $('#fives').css('background-color','grey');
   });
   const chooseSixes = $('#sixes');
   chooseSixes.on('click', ()=>{
     resetOptions();
     choice = 'sixes'
-    $('#sixes').css('background-color','blue');
+    $('#sixes').css('background-color','grey');
   });
   const chooseChance = $('#chance');
   chooseChance.on('click', ()=>{
     resetOptions();
     choice = 'chance';
-    $('#chance').css('background-color','blue');
+    $('#chance').css('background-color','grey');
   });
   const chooseYahtzee = $('#yahtzee');
   chooseYahtzee.on('click', ()=>{
     resetOptions();
     choice = 'yahtzee';
-    $('#yahtzee').css('background-color','blue');
+    $('#yahtzee').css('background-color','grey');
   });
 
   //After meeting all the criteria, the collection of following functions in 'addAndReset' will add the appropriates points to the category and reset all of the variables for the next turn
@@ -629,7 +630,7 @@ $(()=>{
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray.length < 5) {
-            alert("Select all die when using the 'Yahtzee' option.");
+            alert("Select all die when using the 'Yahtzee' option. If your dice do not all the same and you have no more available categories, leave the dice unshaded, select 'Yahtzee', and press 'Enter Points'.");
             selectedArray = [];
             firstSubmit = true;
           }
@@ -639,6 +640,7 @@ $(()=>{
           if (testItem != selectedArray[i]) {
             alert("All of the dice must be equal when using the 'Yahtzee' option.")
             selectedArray = [];
+            firstSubmit = true;
           } else {
             addAndReset();
           }
