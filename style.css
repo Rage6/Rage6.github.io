@@ -4,7 +4,7 @@ body {
   background-color: green;
   background-image: url(http://cdn.pcwallart.com/images/dark-green-pattern-wallpaper-3.jpg);
   background-size: cover;
-  height: 1000px;
+  /*height: 1000px;*/
 }
 
 #navBar {
@@ -29,12 +29,21 @@ body {
   width: 50%;
 }
 
-.modalOverall {
-  display: none;
+#modalOverall {
+  /*border: 1px solid red;*/
   z-index: 1;
   position: fixed;
+  background-color: black;
+  opacity: 0.5;
   height: 100%;
-  width: 50%;
+  width: 100%;
+}
+
+#modalBox {
+  margin: 0;
+  padding: 5px solid gold;
+  padding: 0;
+  background-color: green;
 }
 
 #wholeContent {

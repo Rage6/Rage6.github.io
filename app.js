@@ -1,6 +1,7 @@
 $(()=>{
 
   alert("Welcome to Yahtzee!")
+
   //Here, we get into assigning someone's name to user 1 and user 2
   const askName1 = ()=>{
     return prompt("Player 1: What is your preferred name?");
@@ -126,11 +127,10 @@ $(()=>{
 
   //Use this to determine the name of the winner.
   const findWinnerName = ()=>{
-    const difference = Math.abs(userOneOptions.total - userOneOptions.total);
     if (userOneOptions.total > userTwoOptions.total) {
-      alert('Congratulations, '+userOneOptions.name+'! You won, defeating '+userTwoOptions.name+' by '+difference+' points.');
+      alert('Congratulations, '+userOneOptions.name+'! You successfully defeated '+userTwoOptions.name+'. Cheers!');
     } else if (userOneOptions.total < userTwoOptions.total) {
-      alert('Congratulations, '+userTwoOptions.name+'! You won, defeating '+userOneOptions.name+' by '+difference+' points.')
+      alert('Congratulations, '+userTwoOptions.name+'! You successfully defeated '+userOneOptions.name+'. Well done!')
     } else {
       alert("You two tied?! That's amazing! You must each be equally good!")
     }
@@ -295,15 +295,15 @@ $(()=>{
   //This "deselects" all of the previously selected values
   const resetSelections = ()=>{
     pickedFirst = false;
-    first.css('background-color','white');
+    first.css('background-color','ivory');
     pickedSecond = false;
-    second.css('background-color','white');
+    second.css('background-color','ivory');
     pickedThird = false;
-    third.css('background-color','white');
+    third.css('background-color','ivory');
     pickedFourth = false;
-    fourth.css('background-color','white');
+    fourth.css('background-color','ivory');
     pickedFifth = false;
-    fifth.css('background-color','white');
+    fifth.css('background-color','ivory');
   }
 
   //How to reset the choice to 'null' and takes off background color after submitting it
@@ -524,6 +524,8 @@ $(()=>{
             alert("The chosen dice do not work for the option that you have selected.");
             selectedArray = [];
             firstSubmit = true;
+            resetSelections();
+            resetOptions();
           } else {
             addAndReset();
           }
@@ -538,11 +540,13 @@ $(()=>{
         console.log("inside the else");
         console.log("selectedArray: "+selectedArray);
         for (let i = 0; i < selectedArray.length; i++){
-          console.log("inside for loop")
+          console.log("inside for loop: "+selectedArray[i]);
           if (selectedArray[i] != 2) {
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
             firstSubmit = true;
+            resetSelections();
+            resetOptions();
           } else {
             addAndReset();
           }
@@ -558,6 +562,8 @@ $(()=>{
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
             firstSubmit = true;
+            resetSelections();
+            resetOptions();
           } else {
             addAndReset();
           }
@@ -573,6 +579,8 @@ $(()=>{
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
             firstSubmit = true;
+            resetSelections();
+            resetOptions();
           } else {
             addAndReset();
           }
@@ -588,6 +596,8 @@ $(()=>{
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
             firstSubmit = true;
+            resetSelections();
+            resetOptions();
           } else {
             addAndReset();
           }
@@ -603,6 +613,8 @@ $(()=>{
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
             firstSubmit = true;
+            resetSelections();
+            resetOptions();
           } else {
             addAndReset();
           }
@@ -618,6 +630,8 @@ $(()=>{
             alert("Select all die when using the 'Chance' option.")
             selectedArray = [];
             firstSubmit = true;
+            resetSelections();
+            resetOptions();
           } else {
             addAndReset();
           }
@@ -633,6 +647,8 @@ $(()=>{
             alert("Select all die when using the 'Yahtzee' option. If your dice do not all the same and you have no more available categories, leave the dice unshaded, select 'Yahtzee', and press 'Enter Points'.");
             selectedArray = [];
             firstSubmit = true;
+            resetSelections();
+            resetOptions();
           }
         };
         const testItem = selectedArray[0];
@@ -641,6 +657,8 @@ $(()=>{
             alert("All of the dice must be equal when using the 'Yahtzee' option.")
             selectedArray = [];
             firstSubmit = true;
+            resetSelections();
+            resetOptions();
           } else {
             addAndReset();
           }
@@ -650,14 +668,20 @@ $(()=>{
       alert('Please select your category.')
       selectedArray = [];
       firstSubmit = true;
+      resetSelections();
+      resetOptions();
     }
   }
 
   //After the game knows that the user has followed the rules, this function will get the total sum of an array
   const turnTotal = ()=>{
     scoreTotal = 0;
-    for (let i = 0; i < selectedArray.length; i++){
-      scoreTotal+=selectedArray[i];
+    if (choice == 'yahtzee') {
+      scoreTotal = 50;
+    } else {
+      for (let i = 0; i < selectedArray.length; i++){
+        scoreTotal+=selectedArray[i];
+      }
     }
   }
 
@@ -667,5 +691,9 @@ $(()=>{
 
   $('#name1').text(user1);
   $('#name2').text(user2);
+
+  $('#reset').on('click',()=>{
+    location.reload(true);
+  });
 
 })
