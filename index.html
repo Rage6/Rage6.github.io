@@ -8,8 +8,9 @@
     <script src="app.js"></script>
   </head>
   <body>
+
     <div id="mainTitle">
-      <h1>Quick Yahtzee</h1>
+      <h1><i>Quick</i> <u>Yahtzee</u></h1>
     </div>
     <div class="gameboard">
       <div id="table">
@@ -52,7 +53,7 @@
           </div>
           <div id="rollSubmitTurn">
             <div id="shuffle">
-              <i>Roll</i>
+              Roll
             </div>
             <div id="pointsButton">
               Enter Points
@@ -64,31 +65,6 @@
           <div id="messageBoard">
           </div>
         </div>
-        <!-- <div id="optionsBox">
-          <div id="diceOptions">
-            <button id="aces">Aces</button>
-            <button id="twos">Twos</button>
-            <button id="threes">Threes</button>
-            <button id="fours">Fours</button>
-            <button id="fives">Fives</button>
-            <button id="sixes">Sixes</button>
-            <button id="chance">Chance</button>
-            <button id="yahtzee">Yahtzee</button>
-          </div>
-          <div id="shuffle">
-            <i>Roll</i>
-          </div>
-          <div id="startButton">
-            Next Turn
-          </div>
-          <div id="pointsButton">
-            Submit Points
-          </div>
-          <div id="rolls">
-          </div>
-          <div id="round">
-          </div>
-        </div> -->
         <div id="userBox">
           <div class="user">
             <div class="name" id="name1">
@@ -96,14 +72,28 @@
             </div>
             <div class="total">
               <div class="mainTotal" id="total1">0</div>
-              <div class="subScores" id="userOneAces">0</div>
-              <div class="subScores" id="userOneTwos">0</div>
-              <div class="subScores" id="userOneThrees">0</div>
-              <div class="subScores" id="userOneFours">0</div>
-              <div class="subScores" id="userOneFives">0</div>
-              <div class="subScores" id="userOneSixes">0</div>
-              <div class="subScores" id="userOneChance">0</div>
-              <div class="subScores" id="userOneYahtzee">0</div>
+                <div class="rowOfColumns">
+                  <div class="userColumn">
+                    <div class="subScores">Aces:</div>
+                    <div class="subScores">Twos:</div>
+                    <div class="subScores">Threes:</div>
+                    <div class="subScores">Fours:</div>
+                    <div class="subScores">Fives:</div>
+                    <div class="subScores">Sixes:</div>
+                    <div class="subScores">Chance:</div>
+                    <div class="subScores">Yahtzee:</div>
+                  </div>
+                  <div class="userColumn">
+                    <div class="subScores" id="userOneAces">0</div>
+                    <div class="subScores" id="userOneTwos">0</div>
+                    <div class="subScores" id="userOneThrees">0</div>
+                    <div class="subScores" id="userOneFours">0</div>
+                    <div class="subScores" id="userOneFives">0</div>
+                    <div class="subScores" id="userOneSixes">0</div>
+                    <div class="subScores" id="userOneChance">0</div>
+                    <div class="subScores" id="userOneYahtzee">0</div>
+                  </div>
+                </div>
             </div>
           </div>
           <div class="user">
@@ -112,18 +102,33 @@
             </div>
             <div class="total">
               <div class="mainTotal" id="total2">0</div>
-              <div class="subScores" id="userTwoAces">0</div>
-              <div class="subScores" id="userTwoTwos">0</div>
-              <div class="subScores" id="userTwoThrees">0</div>
-              <div class="subScores" id="userTwoFours">0</div>
-              <div class="subScores" id="userTwoFives">0</div>
-              <div class="subScores" id="userTwoSixes">0</div>
-              <div class="subScores" id="userTwoChance">0</div>
-              <div class="subScores" id="userTwoYahtzee">0</div>
+              <div class="rowOfColumns">
+                <div class="userColumn">
+                  <div class="subScores">Aces:</div>
+                  <div class="subScores">Twos:</div>
+                  <div class="subScores">Threes:</div>
+                  <div class="subScores">Fours:</div>
+                  <div class="subScores">Fives:</div>
+                  <div class="subScores">Sixes:</div>
+                  <div class="subScores">Chance:</div>
+                  <div class="subScores">Yahtzee:</div>
+                </div>
+                <div class="userColumn">
+                  <div class="subScores" id="userTwoAces">0</div>
+                  <div class="subScores" id="userTwoTwos">0</div>
+                  <div class="subScores" id="userTwoThrees">0</div>
+                  <div class="subScores" id="userTwoFours">0</div>
+                  <div class="subScores" id="userTwoFives">0</div>
+                  <div class="subScores" id="userTwoSixes">0</div>
+                  <div class="subScores" id="userTwoChance">0</div>
+                  <div class="subScores" id="userTwoYahtzee">0</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </body>
 </html>
