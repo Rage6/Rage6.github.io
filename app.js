@@ -93,16 +93,16 @@ $(()=>{
       if (hasSubmit == true) {
         if (toSwitchPlayer == true) {
           currentPlayer = userOneOptions;
-          $('#name1').css('background-color','yellow');
-          $('#name2').css('background-color','peru');
+          $('#name1').css('background-color','orange');
+          $('#name2').css('background-color','ivory');
           howManyRolls = 1;
           toSwitchPlayer = false;
           hasSubmit = false;
           howManyRolls = 1;
         } else {
           currentPlayer = userTwoOptions;
-          $('#name2').css('background-color','yellow');
-          $('#name1').css('background-color','peru');
+          $('#name2').css('background-color','orange');
+          $('#name1').css('background-color','ivory');
           howManyRolls = 1;
           toSwitchPlayer = true;
           hasSubmit = false;
@@ -308,14 +308,14 @@ $(()=>{
   //How to reset the choice to 'null' and takes off background color after submitting it
   const resetOptions = ()=>{
     choice = false;
-    $('#aces').css('background-color','white');
-    $('#twos').css('background-color','white');
-    $('#threes').css('background-color','white');
-    $('#fours').css('background-color','white');
-    $('#fives').css('background-color','white');
-    $('#sixes').css('background-color','white');
-    $('#chance').css('background-color','white');
-    $('#yahtzee').css('background-color','white');
+    $('#aces').css('background-color','ivory');
+    $('#twos').css('background-color','ivory');
+    $('#threes').css('background-color','ivory');
+    $('#fours').css('background-color','ivory');
+    $('#fives').css('background-color','ivory');
+    $('#sixes').css('background-color','ivory');
+    $('#chance').css('background-color','ivory');
+    $('#yahtzee').css('background-color','ivory');
   }
 
   //This is used in 'switchPlayers' to increase the 'round' when it's supposed to
@@ -333,54 +333,54 @@ $(()=>{
     if (currentPlayer == userOneOptions) {
       if (choice == 'aces') {
         userOneOptions.aces = scoreTotal;
-        $("#userOneAces").text(scoreTotal);
+        $("#userOneAces").text(scoreTotal).css('color','red');
       } else if (choice == 'twos') {
         userOneOptions.twos = scoreTotal;
-        $('#userOneTwos').text(scoreTotal);
+        $('#userOneTwos').text(scoreTotal).css('color','red');
       } else if (choice == 'threes') {
         userOneOptions.threes = scoreTotal;
-        $('#userOneThrees').text(scoreTotal);
+        $('#userOneThrees').text(scoreTotal).css('color','red');
       } else if (choice == 'fours') {
         userOneOptions.fours = scoreTotal;
-        $('#userOneFours').text(scoreTotal);
+        $('#userOneFours').text(scoreTotal).css('color','red');
       } else if (choice == 'fives') {
         userOneOptions.fives = scoreTotal;
-        $('#userOneFives').text(scoreTotal);
+        $('#userOneFives').text(scoreTotal).css('color','red');
       } else if (choice == 'sixes') {
         userOneOptions.sixes = scoreTotal;
-        $('#userOneSixes').text(scoreTotal);
+        $('#userOneSixes').text(scoreTotal).css('color','red');
       } else if (choice == 'chance') {
         userOneOptions.chance = scoreTotal;
-        $('#userOneChance').text(scoreTotal);
+        $('#userOneChance').text(scoreTotal).css('color','red');
       } else if (choice == 'yahtzee') {
         userOneOptions.yahtzee = scoreTotal;
-        $('#userOneYahtzee').text(scoreTotal);
+        $('#userOneYahtzee').text(scoreTotal).css('color','red');
       }
     } else if (currentPlayer == userTwoOptions) {
         if (choice == 'aces') {
           userTwoOptions.aces = scoreTotal;
-          $('#userTwoAces').text(scoreTotal);
+          $('#userTwoAces').text(scoreTotal).css('color','red');
         } else if (choice == 'twos') {
           userTwoOptions.twos = scoreTotal;
-          $('#userTwoTwos').text(scoreTotal);
+          $('#userTwoTwos').text(scoreTotal).css('color','red');
         } else if (choice == 'threes') {
           userTwoOptions.threes = scoreTotal;
-          $('#userTwoThrees').text(scoreTotal);
+          $('#userTwoThrees').text(scoreTotal).css('color','red');
         } else if (choice == 'fours') {
           userTwoOptions.fours = scoreTotal;
-          $('#userTwoFours').text(scoreTotal);
+          $('#userTwoFours').text(scoreTotal).css('color','red');
         } else if (choice == 'fives') {
           userTwoOptions.fives = scoreTotal;
-          $('#userTwoFives').text(scoreTotal);
+          $('#userTwoFives').text(scoreTotal).css('color','red');
         } else if (choice == 'sixes') {
           userTwoOptions.sixes = scoreTotal;
-          $('#userTwoSixes').text(scoreTotal);
+          $('#userTwoSixes').text(scoreTotal).css('color','red');
         } else if (choice == 'chance') {
           userTwoOptions.chance = scoreTotal;
-          $('#userTwoChance').text(scoreTotal);
+          $('#userTwoChance').text(scoreTotal).css('color','red');
         } else if (choice == 'yahtzee') {
           userTwoOptions.yahtzee = scoreTotal;
-          $('#userTwoYahtzee').text(scoreTotal);
+          $('#userTwoYahtzee').text(scoreTotal).css('color','red');
         }
     }
   }
