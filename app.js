@@ -513,15 +513,15 @@ $(()=>{
 
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
   const checkValues = ()=>{
-    if (choice == 'aces'){
+    let checkedNum = 0;
+    if (choice == 'aces') {
       if (selectedArray.length == 0) {
         acesBlank = true;
         addAndReset();
-
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
-            alert("The chosen dice do not work for the option that you have selected.");
+            alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
             firstSubmit = true;
             resetSelections();
@@ -532,15 +532,11 @@ $(()=>{
         }
       }
     } else if (choice == 'twos'){
-      console.log("Inside two options checks")
       if (selectedArray.length == 0) {
         twosBlank = true;
         addAndReset();
       } else {
-        console.log("inside the else");
-        console.log("selectedArray: "+selectedArray);
         for (let i = 0; i < selectedArray.length; i++){
-          console.log("inside for loop: "+selectedArray[i]);
           if (selectedArray[i] != 2) {
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
@@ -640,9 +636,18 @@ $(()=>{
     } else if (choice == 'yahtzee'){
       if (selectedArray.length == 0) {
         yahtzeeBlank = true;
-        addAndReset();
+        scoreTotal = 0;
+        categoryScores();
+        displayTotal1();
+        displayTotal2();
+        hasSubmit = true;
+        selectedArray = [];
+        checkedArray = [];
+        resetSelections();
+        resetOptions();
+        howManyRolls = 1;
       } else {
-        for (let i = 0; i < selectedArray.length; i++){
+        // for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray.length < 5) {
             alert("Select all die when using the 'Yahtzee' option. If your dice do not all the same and you have no more available categories, leave the dice unshaded, select 'Yahtzee', and press 'Enter Points'.");
             selectedArray = [];
@@ -650,7 +655,7 @@ $(()=>{
             resetSelections();
             resetOptions();
           }
-        };
+        // };
         const testItem = selectedArray[0];
         for (let i = 1; i < 5; i++) {
           if (testItem != selectedArray[i]) {
@@ -660,7 +665,16 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            addAndReset();
+            scoreTotal = 50;
+            categoryScores();
+            displayTotal1();
+            displayTotal2();
+            hasSubmit = true;
+            selectedArray = [];
+            checkedArray = [];
+            resetSelections();
+            resetOptions();
+            howManyRolls = 1;
           }
         }
     }
@@ -695,5 +709,7 @@ $(()=>{
   $('#reset').on('click',()=>{
     location.reload(true);
   });
+
+
 
 })

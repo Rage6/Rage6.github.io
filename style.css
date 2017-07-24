@@ -31,6 +31,7 @@ body {
 
 #modalOverall {
   /*border: 1px solid red;*/
+  display: hide;
   z-index: 1;
   position: fixed;
   background-color: black;
