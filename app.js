@@ -41,6 +41,7 @@ $(()=>{
   let chanceBlank = false;
   let yahtzeeBlank = false;
   let noAdd = null;
+  let checkedArray = [];
 
   const userOneOptions = {
     'name': user1,
@@ -509,6 +510,7 @@ $(()=>{
     resetSelections();
     resetOptions();
     howManyRolls = 1;
+    checkedArray = [];
   }
 
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
@@ -523,12 +525,23 @@ $(()=>{
           if (selectedArray[i] != 1) {
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
+            checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
-            addAndReset();
+            checkedArray+=selectedArray[i];
+            // addAndReset();
           }
+        }
+        if (checkedArray == selectedArray) {
+          addAndReset();
+        } else {
+          selectedArray = [];
+          checkedArray
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
         }
       }
     } else if (choice == 'twos'){
@@ -540,12 +553,23 @@ $(()=>{
           if (selectedArray[i] != 2) {
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
+            checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
-            addAndReset();
+            checkedArray+=selectedArray[i];
+            // addAndReset();
           }
+        }
+        if (checkedArray == selectedArray) {
+          addAndReset();
+        } else {
+          selectedArray = [];
+          checkedArray
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
         }
       }
     } else if (choice == 'threes'){
@@ -557,12 +581,23 @@ $(()=>{
           if (selectedArray[i] != 3) {
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
+            checkedArray = []
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
-            addAndReset();
+            checkedArray+=selectedArray[i];
+            // addAndReset();
           }
+        }
+        if (checkedArray == selectedArray) {
+          addAndReset();
+        } else {
+          selectedArray = [];
+          checkedArray
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
         }
       }
     } else if (choice == 'fours'){
@@ -574,12 +609,23 @@ $(()=>{
           if (selectedArray[i] != 4) {
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
+            checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
-            addAndReset();
+            checkedArray+=selectedArray[i];
+            // addAndReset();
           }
+        }
+        if (checkedArray == selectedArray) {
+          addAndReset();
+        } else {
+          selectedArray = [];
+          checkedArray
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
         }
       }
     } else if (choice == 'fives'){
@@ -591,12 +637,23 @@ $(()=>{
           if (selectedArray[i] != 5) {
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
+            checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
-            addAndReset();
+            checkedArray+=selectedArray[i];
+            // addAndReset();
           }
+        }
+        if (checkedArray == selectedArray) {
+          addAndReset();
+        } else {
+          selectedArray = [];
+          checkedArray
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
         }
       }
     } else if (choice == 'sixes'){
@@ -608,12 +665,23 @@ $(()=>{
           if (selectedArray[i] != 6) {
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
+            checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
-            addAndReset();
+            checkedArray+=selectedArray[i];
+            // addAndReset();
           }
+        }
+        if (checkedArray == selectedArray) {
+          addAndReset();
+        } else {
+          selectedArray = [];
+          checkedArray
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
         }
       }
     } else if (choice == 'chance'){
