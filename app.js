@@ -505,7 +505,7 @@ $(()=>{
     categoryScores();
     displayTotal1();
     displayTotal2();
-    hasSubmit = true;
+    firstSubmit = false;
     selectedArray = [];
     resetSelections();
     resetOptions();
@@ -558,13 +558,15 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=selectedArray[i];
+            checkedArray+=parseInt(selectedArray[i]);
             // addAndReset();
           }
         }
         if (checkedArray == selectedArray) {
+          console.log("(if) "+checkedArray+" : "+selectedArray);
           addAndReset();
         } else {
+          console.log("(else) "+checkedArray+" : "+selectedArray);
           selectedArray = [];
           checkedArray
           firstSubmit = true;
@@ -708,7 +710,7 @@ $(()=>{
         categoryScores();
         displayTotal1();
         displayTotal2();
-        hasSubmit = true;
+        firstSubmit = false;
         selectedArray = [];
         checkedArray = [];
         resetSelections();
@@ -737,6 +739,7 @@ $(()=>{
             categoryScores();
             displayTotal1();
             displayTotal2();
+            firstSubmit = false;
             hasSubmit = true;
             selectedArray = [];
             checkedArray = [];
@@ -763,6 +766,7 @@ $(()=>{
     } else {
       for (let i = 0; i < selectedArray.length; i++){
         scoreTotal+=selectedArray[i];
+        console.log(choice+" : "+scoreTotal)
       }
     }
   }
