@@ -811,6 +811,7 @@ $(()=>{
       alert('Please select your category.')
       selectedArray = [];
       firstSubmit = true;
+      hasSubmit = false;
       resetSelections();
       resetOptions();
     }
