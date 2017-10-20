@@ -441,7 +441,63 @@ $(()=>{
       } else {
         noAdd = false;
       }
-    } else {
+    }
+//added userTwoOptions 'else if'
+      else if (currentPlayer == userTwoOptions) {
+        if (choice == 'aces') {
+          if (userTwoOptions.aces != 0 || acesBlank == true) {
+            noAdd = true;
+            alert("The 'Aces' option has already been used. Please select an unused option.");
+            firstSubmit = true;
+          }
+        } else if (choice == 'twos') {
+          if (userTwoOptions.twos != 0 || twosBlank == true) {
+            noAdd = true;
+            alert("The 'Twos' option has already been used. Please select an unused option.");
+            firstSubmit = true;
+          }
+        } else if (choice == 'threes') {
+          if (userTwoOptions.threes != 0 || threesBlank == true) {
+            noAdd = true;
+            alert("The 'Threes' option has already been used. Please select an unused option.");
+            firstSubmit = true;
+          }
+        } else if (choice == 'fours') {
+          if (userTwoOptions.fours != 0 || foursBlank == true) {
+            noAdd = true;
+            alert("The 'Fours' option has already been used. Please select an unused option.");
+            firstSubmit = true;
+          }
+        } else if (choice == 'fives') {
+          if (userTwoOptions.fives != 0 || fivesBlank == true) {
+            noAdd = true;
+            alert("The 'Fives' option has already been used. Please select an unused option.");
+            firstSubmit = true;
+          }
+        } else if (choice == 'sixes') {
+          if (userTwoOptions.sixes != 0 || sixesBlank == true) {
+            noAdd = true;
+            alert("The 'Sixes' option has already been used. Please select an unused option.");
+            firstSubmit = true;
+          }
+        } else if (choice == 'chance') {
+          if (userTwoOptions.chance != 0 || chanceBlank == true) {
+            noAdd = true;
+            alert("The 'Chance' option has already been used. Please select an unused option.");
+            firstSubmit = true;
+          }
+        } else if (choice == 'yahtzee') {
+          if (userTwoOptions.yahtzee != 0 || yahtzeeBlank == true) {
+            noAdd = true;
+            alert("The 'Yahtzee' option has already been used. Please select an unused option.");
+            firstSubmit = true;
+          }
+        } else {
+          noAdd = false;
+        }
+      }
+      // The end of userTwoOptions addition
+      else {
       alert("Error: occurred within confirmEmpty()")
     }
   }
@@ -533,7 +589,7 @@ $(()=>{
             resetOptions();
           } else {
             checkedArray+=selectedArray[i];
-            // addAndReset();
+            addAndReset();
           }
         }
         if (checkedArray == selectedArray) {
@@ -561,7 +617,7 @@ $(()=>{
             resetOptions();
           } else {
             checkedArray+=parseInt(selectedArray[i]);
-            // addAndReset();
+            addAndReset();
           }
         }
         if (checkedArray == selectedArray) {
@@ -591,7 +647,7 @@ $(()=>{
             resetOptions();
           } else {
             checkedArray+=selectedArray[i];
-            // addAndReset();
+            addAndReset();
           }
         }
         if (checkedArray == selectedArray) {
@@ -619,7 +675,7 @@ $(()=>{
             resetOptions();
           } else {
             checkedArray+=selectedArray[i];
-            // addAndReset();
+            addAndReset();
           }
         }
         if (checkedArray == selectedArray) {
@@ -647,7 +703,7 @@ $(()=>{
             resetOptions();
           } else {
             checkedArray+=selectedArray[i];
-            // addAndReset();
+            addAndReset();
           }
         }
         if (checkedArray == selectedArray) {
@@ -675,7 +731,7 @@ $(()=>{
             resetOptions();
           } else {
             checkedArray+=selectedArray[i];
-            // addAndReset();
+            addAndReset();
           }
         }
         if (checkedArray == selectedArray) {
