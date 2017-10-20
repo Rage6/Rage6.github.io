@@ -441,6 +441,8 @@ $(()=>{
       } else {
         noAdd = false;
       }
+    } else {
+      alert("Error: occurred within confirmEmpty()")
     }
   }
 
@@ -538,7 +540,7 @@ $(()=>{
           addAndReset();
         } else {
           selectedArray = [];
-          checkedArray
+          checkedArray = [];
           firstSubmit = true;
           resetSelections();
           resetOptions();
@@ -568,7 +570,7 @@ $(()=>{
         } else {
           console.log("(else) "+checkedArray+" : "+selectedArray);
           selectedArray = [];
-          checkedArray
+          checkedArray = [];
           firstSubmit = true;
           resetSelections();
           resetOptions();
@@ -583,7 +585,7 @@ $(()=>{
           if (selectedArray[i] != 3) {
             alert("The chosen dice do not work for the option that you have selected.")
             selectedArray = [];
-            checkedArray = []
+            checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
@@ -596,7 +598,7 @@ $(()=>{
           addAndReset();
         } else {
           selectedArray = [];
-          checkedArray
+          checkedArray = [];
           firstSubmit = true;
           resetSelections();
           resetOptions();
@@ -624,7 +626,7 @@ $(()=>{
           addAndReset();
         } else {
           selectedArray = [];
-          checkedArray
+          checkedArray = [];
           firstSubmit = true;
           resetSelections();
           resetOptions();
@@ -652,7 +654,7 @@ $(()=>{
           addAndReset();
         } else {
           selectedArray = [];
-          checkedArray
+          checkedArray = [];
           firstSubmit = true;
           resetSelections();
           resetOptions();
@@ -680,7 +682,7 @@ $(()=>{
           addAndReset();
         } else {
           selectedArray = [];
-          checkedArray
+          checkedArray = [];
           firstSubmit = true;
           resetSelections();
           resetOptions();
