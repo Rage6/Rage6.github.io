@@ -442,9 +442,7 @@ $(()=>{
       } else {
         noAdd = false;
       }
-    }
-//added userTwoOptions 'else if'
-      else if (currentPlayer == userTwoOptions) {
+    } else if (currentPlayer == userTwoOptions) {
         if (choice == 'aces') {
           if (userTwoOptions.aces != 0 || acesBlank == true) {
             noAdd = true;
@@ -562,6 +560,7 @@ $(()=>{
     turnTotal();
     addToTotal();
     categoryScores();
+    hasSubmit = true;
     displayTotal1();
     displayTotal2();
     firstSubmit = false;
@@ -582,7 +581,7 @@ $(()=>{
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
-            alert("The chosen dice do not work for the option that you have selected.")
+            alert("The one of the chosen numbers is not an Ace.")
             selectedArray = [];
             checkedArray = [];
             firstSubmit = true;
