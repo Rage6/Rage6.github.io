@@ -580,6 +580,20 @@ $(()=>{
     console.log("endOfTurn: " + endOfTurn)
   }
 
+  const addAndResetForLoop = ()=>{
+    turnTotal();
+    addToTotal();
+    categoryScores();
+    hasSubmit = true;
+    displayTotal1();
+    displayTotal2();
+    firstSubmit = false;
+    resetSelections();
+    resetOptions();
+    howManyRolls = 1;
+    endOfTurn = true;
+  }
+
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
   const checkValues = ()=>{
     let checkedNum = 0;
@@ -600,7 +614,8 @@ $(()=>{
           } else {
             checkedArray+=selectedArray[i];
             console.log("CheckedArray before addAndReset: " + checkedArray);
-            addAndReset();
+            // The error is happening in the below addAndReset, where it is erasing both the selectedArray and checkedArray
+            addAndResetForLoop();
             console.log("CheckedArray after addAndReset: " + checkedArray);
           }
         };
