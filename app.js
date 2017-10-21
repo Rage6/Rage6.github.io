@@ -43,6 +43,7 @@ $(()=>{
   let yahtzeeBlank = false;
   let noAdd = null;
   let checkedArray = [];
+  let endOfTurn = false;
 
   const userOneOptions = {
     'name': user1,
@@ -101,7 +102,7 @@ $(()=>{
           howManyRolls = 1;
           toSwitchPlayer = false;
           hasSubmit = false;
-          howManyRolls = 1;
+          endOfTurn = false;
         } else {
           currentPlayer = userTwoOptions;
           $('#name2').css('background-color','orange');
@@ -109,6 +110,7 @@ $(()=>{
           howManyRolls = 1;
           toSwitchPlayer = true;
           hasSubmit = false;
+          endOfTurn = false;
         };
         adjustRound();
         choice = 'test';
@@ -274,7 +276,7 @@ $(()=>{
   }
 
   const blockResubmit = ()=>{
-    if (firstSubmit == true) {
+    if (firstSubmit == true && endOfTurn == false) {
       // I used to have 'submitValues()' here, but that's what kept causing it to block valid submits after
       firstSubmit = false;
       submitValues();
@@ -568,6 +570,7 @@ $(()=>{
     resetSelections();
     resetOptions();
     howManyRolls = 1;
+    endOfTurn = true;
     checkedArray = [];
   }
 
