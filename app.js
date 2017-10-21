@@ -562,7 +562,7 @@ $(()=>{
 
   //After meeting all the criteria, the collection of following functions in 'addAndReset' will add the appropriates points to the category and reset all of the variables for the next turn
   const addAndReset = ()=> {
-    console.log("addAndReset used")
+    console.log("addAndReset activated")
     turnTotal();
     addToTotal();
     categoryScores();
@@ -584,13 +584,14 @@ $(()=>{
   const checkValues = ()=>{
     let checkedNum = 0;
     if (choice == 'aces') {
+      console.log('Entered aces in checkValues...');
       if (selectedArray.length == 0) {
         acesBlank = true;
         addAndReset();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
-            alert("The one of the chosen numbers is not an Ace.")
+            alert("At least one of the chosen numbers is not an Ace.")
             selectedArray = [];
             checkedArray = [];
             firstSubmit = true;
@@ -603,7 +604,9 @@ $(()=>{
         }
         if (checkedArray == selectedArray) {
           addAndReset();
+          console.log("...and the checkedArray did equal the selectedArray");
         } else {
+          console.log('...and the checkedArray did NOT equal the selectedArray.');
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
