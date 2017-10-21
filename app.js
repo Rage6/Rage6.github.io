@@ -599,11 +599,13 @@ $(()=>{
             resetOptions();
           } else {
             checkedArray+=selectedArray[i];
+            console.log("CheckedArray before addAndReset: " + checkedArray);
             addAndReset();
+            console.log("CheckedArray after addAndReset: " + checkedArray);
           }
         };
-        console.log("Final checkedArray: " + checkedArray);
         console.log("SelectedArray: " + selectedArray);
+        console.log("Final checkedArray: " + checkedArray);
         if (checkedArray == selectedArray) {
           addAndReset();
           console.log("...and the checkedArray did equal the selectedArray");
@@ -839,7 +841,7 @@ $(()=>{
     } else {
       for (let i = 0; i < selectedArray.length; i++){
         scoreTotal+=selectedArray[i];
-        console.log(choice+" : "+scoreTotal)
+        // console.log(choice+" : "+scoreTotal)
       }
     }
   }
