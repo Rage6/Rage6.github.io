@@ -601,7 +601,9 @@ $(()=>{
             checkedArray+=selectedArray[i];
             addAndReset();
           }
-        }
+        };
+        console.log("Final checkedArray: " + checkedArray);
+        console.log("SelectedArray: " + selectedArray);
         if (checkedArray == selectedArray) {
           addAndReset();
           console.log("...and the checkedArray did equal the selectedArray");
