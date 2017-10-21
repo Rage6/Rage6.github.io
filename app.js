@@ -276,6 +276,9 @@ $(()=>{
   }
 
   const blockResubmit = ()=>{
+    console.log("blockResubmit activated")
+    console.log("firstSubmit: " + firstSubmit);
+    console.log("endOfTurn: " + endOfTurn);
     if (firstSubmit == true || endOfTurn == false) {
       // I used to have 'submitValues()' here, but that's what kept causing it to block valid submits after
       firstSubmit = false;
@@ -499,7 +502,7 @@ $(()=>{
       }
       // The end of userTwoOptions addition
       else {
-      alert("Error: occurred within confirmEmpty()")
+      console.log("Error occurred within confirmEmpty()")
     }
   }
 
@@ -559,6 +562,7 @@ $(()=>{
 
   //After meeting all the criteria, the collection of following functions in 'addAndReset' will add the appropriates points to the category and reset all of the variables for the next turn
   const addAndReset = ()=> {
+    console.log("addAndReset used")
     turnTotal();
     addToTotal();
     categoryScores();
@@ -572,6 +576,8 @@ $(()=>{
     howManyRolls = 1;
     endOfTurn = true;
     checkedArray = [];
+    console.log("firstSubmit: " + hasSubmit)
+    console.log("endOfTurn: " + endOfTurn)
   }
 
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
