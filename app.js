@@ -276,7 +276,7 @@ $(()=>{
   }
 
   const blockResubmit = ()=>{
-    if (firstSubmit == true && endOfTurn == false) {
+    if (firstSubmit == true || endOfTurn == false) {
       // I used to have 'submitValues()' here, but that's what kept causing it to block valid submits after
       firstSubmit = false;
       submitValues();
