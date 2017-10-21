@@ -576,7 +576,7 @@ $(()=>{
     howManyRolls = 1;
     endOfTurn = true;
     checkedArray = [];
-    console.log("firstSubmit: " + hasSubmit)
+    console.log("firstSubmit: " + firstSubmit)
     console.log("endOfTurn: " + endOfTurn)
   }
 
