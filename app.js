@@ -612,7 +612,7 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray.push(parseInt(selectedArray[i]);
+            checkedArray.push(parseInt(selectedArray[i]));
             // The error is happening in the below addAndReset, where it is erasing both the selectedArray and checkedArray
             addAndResetForLoop();
           }
