@@ -612,7 +612,7 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray.push(parseInt(selectedArray[i]));
+            checkedArray.push(selectedArray[i]);
             addAndResetForLoop();
           }
         };
