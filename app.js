@@ -624,7 +624,7 @@ $(()=>{
         console.log("Test Selected: " + testSelected);
         console.log("Test Checked: " + testChecked);
         // ...and ending test.
-        if (testSelected == testChecked) {
+        if (checkedArray == selectedArray) {
           addAndReset();
           console.log("...and the checkedArray did equal the selectedArray");
         } else {
