@@ -616,14 +616,6 @@ $(()=>{
             addAndResetForLoop();
           }
         };
-        // Beginning the checkedArrayand selectedArray for integer or string...
-        // let testSelected = selectedArray[0] + selectedArray[1];
-        // let testChecked = checkedArray[0] + checkedArray[1];
-        // console.log("selectedArray: " + selectedArray);
-        // console.log("checkedArray: " + checkedArray);
-        // console.log("Test Selected: " + testSelected);
-        // console.log("Test Checked: " + testChecked);
-        // ...and ending test.
         if (checkedArray.length == selectedArray.length) {
           addAndReset();
           console.log("...and the checkedArray did equal the selectedArray");
@@ -650,11 +642,11 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=parseInt(selectedArray[i]);
+            checkedArray.push(selectedArray[i]);
             addAndReset();
           }
         }
-        if (checkedArray == selectedArray) {
+        if (checkedArray.length == selectedArray.length) {
           console.log("(if) "+checkedArray+" : "+selectedArray);
           addAndReset();
         } else {
@@ -680,11 +672,11 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=selectedArray[i];
+            checkedArray.push(selectedArray[i]);
             addAndReset();
           }
         }
-        if (checkedArray == selectedArray) {
+        if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
           selectedArray = [];
@@ -708,11 +700,11 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=selectedArray[i];
+            checkedArray.push(selectedArray[i]);
             addAndReset();
           }
         }
-        if (checkedArray == selectedArray) {
+        if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
           selectedArray = [];
@@ -736,11 +728,11 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=selectedArray[i];
+            checkedArray.push(selectedArray[i]);
             addAndReset();
           }
         }
-        if (checkedArray == selectedArray) {
+        if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
           selectedArray = [];
@@ -764,11 +756,11 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=selectedArray[i];
+            checkedArray.push(selectedArray[i]);
             addAndReset();
           }
         }
-        if (checkedArray == selectedArray) {
+        if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
           selectedArray = [];
