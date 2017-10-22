@@ -612,11 +612,9 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray = checkedArray.push(selectedArray[i]);
-            console.log("CheckedArray before addAndReset: " + checkedArray);
+            checkedArray = checkedArray.push(parseInt(selectedArray[i]).text(),10);
             // The error is happening in the below addAndReset, where it is erasing both the selectedArray and checkedArray
             addAndResetForLoop();
-            console.log("CheckedArray after addAndReset: " + checkedArray);
           }
         };
         console.log("SelectedArray: " + selectedArray);
