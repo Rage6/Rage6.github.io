@@ -613,12 +613,13 @@ $(()=>{
             resetOptions();
           } else {
             checkedArray.push(parseInt(selectedArray[i]));
-            // The error is happening in the below addAndReset, where it is erasing both the selectedArray and checkedArray
             addAndResetForLoop();
           }
         };
-        console.log("SelectedArray: " + selectedArray);
-        console.log("Final checkedArray: " + checkedArray);
+        console.log("selectedArray: " + selectedArray);
+        console.log("checkedArray: " + checkedArray);
+        console.log("Selected: first + second = " + selectedArray[0] + selectedArray[1]);
+        console.log("Checked: first + second = " + checkedArray[0] + checkedArray[1]);
         if (checkedArray == selectedArray) {
           addAndReset();
           console.log("...and the checkedArray did equal the selectedArray");
