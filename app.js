@@ -617,14 +617,14 @@ $(()=>{
           }
         };
         // Beginning the checkedArrayand selectedArray for integer or string...
-        const testSelected = selectedArray[0] + selectedArray[1];
-        const testChecked = checkedArray[0] + checkedArray[1];
+        let testSelected = selectedArray[0] + selectedArray[1];
+        let testChecked = checkedArray[0] + checkedArray[1];
         console.log("selectedArray: " + selectedArray);
         console.log("checkedArray: " + checkedArray);
         console.log("Test Selected: " + testSelected);
         console.log("Test Checked: " + testChecked);
         // ...and ending test.
-        if (checkedArray === selectedArray) {
+        if (testSelected == testChecked) {
           addAndReset();
           console.log("...and the checkedArray did equal the selectedArray");
         } else {
