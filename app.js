@@ -616,10 +616,12 @@ $(()=>{
             addAndResetForLoop();
           }
         };
+        const testSelected = selectedArray[0] + selectedArray[1];
+        const testChecked = checkedArray[0] + checkedArray[1];
         console.log("selectedArray: " + selectedArray);
         console.log("checkedArray: " + checkedArray);
-        console.log("Selected: first + second = " + selectedArray[0] + selectedArray[1]);
-        console.log("Checked: first + second = " + checkedArray[0] + checkedArray[1]);
+        console.log("Test Selected: " + testSelected);
+        console.log("Test Checked: " + testChecked);
         if (checkedArray == selectedArray) {
           addAndReset();
           console.log("...and the checkedArray did equal the selectedArray");
