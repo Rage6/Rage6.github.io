@@ -43,6 +43,7 @@ $(()=>{
   let yahtzeeBlank = false;
   let noAdd = null;
   let checkedArray = [];
+  let endOfTurn = false;
 
   const userOneOptions = {
     'name': user1,
@@ -59,7 +60,7 @@ $(()=>{
 
   const userTwoOptions = {
     'name': user2,
-    'total': 0,
+    'total': userTwoOptions.aces + userTwoOptions.twos + userTwoOptions.threes + userTwoOptions.fours + userTwoOptions.fives + userTwoOptions.sixes + userTwoOptions.chance + userTwoOptions.yahtzee,
     'aces': 0,
     'twos': 0,
     'threes': 0,
@@ -101,7 +102,7 @@ $(()=>{
           howManyRolls = 1;
           toSwitchPlayer = false;
           hasSubmit = false;
-          howManyRolls = 1;
+          endOfTurn = false;
         } else {
           currentPlayer = userTwoOptions;
           $('#name2').css('background-color','orange');
@@ -109,6 +110,7 @@ $(()=>{
           howManyRolls = 1;
           toSwitchPlayer = true;
           hasSubmit = false;
+          endOfTurn = false;
         };
         adjustRound();
         choice = 'test';
@@ -274,7 +276,10 @@ $(()=>{
   }
 
   const blockResubmit = ()=>{
-    if (firstSubmit == true) {
+    console.log("blockResubmit activated")
+    console.log("firstSubmit: " + firstSubmit);
+    console.log("endOfTurn: " + endOfTurn);
+    if (firstSubmit == true || endOfTurn == false) {
       // I used to have 'submitValues()' here, but that's what kept causing it to block valid submits after
       firstSubmit = false;
       submitValues();
@@ -442,9 +447,7 @@ $(()=>{
       } else {
         noAdd = false;
       }
-    }
-//added userTwoOptions 'else if'
-      else if (currentPlayer == userTwoOptions) {
+    } else if (currentPlayer == userTwoOptions) {
         if (choice == 'aces') {
           if (userTwoOptions.aces != 0 || acesBlank == true) {
             noAdd = true;
@@ -499,7 +502,7 @@ $(()=>{
       }
       // The end of userTwoOptions addition
       else {
-      alert("Error: occurred within confirmEmpty()")
+      console.log("Error occurred within confirmEmpty()")
     }
   }
 
@@ -559,9 +562,11 @@ $(()=>{
 
   //After meeting all the criteria, the collection of following functions in 'addAndReset' will add the appropriates points to the category and reset all of the variables for the next turn
   const addAndReset = ()=> {
+    console.log("addAndReset activated")
     turnTotal();
     addToTotal();
     categoryScores();
+    hasSubmit = true;
     displayTotal1();
     displayTotal2();
     firstSubmit = false;
@@ -569,33 +574,53 @@ $(()=>{
     resetSelections();
     resetOptions();
     howManyRolls = 1;
+    endOfTurn = true;
     checkedArray = [];
+    console.log("firstSubmit: " + firstSubmit)
+    console.log("endOfTurn: " + endOfTurn)
+  }
+
+  const addAndResetForLoop = ()=>{
+    turnTotal();
+    addToTotal();
+    categoryScores();
+    hasSubmit = true;
+    displayTotal1();
+    displayTotal2();
+    firstSubmit = false;
+    resetSelections();
+    resetOptions();
+    howManyRolls = 1;
+    endOfTurn = true;
   }
 
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
   const checkValues = ()=>{
     let checkedNum = 0;
     if (choice == 'aces') {
+      console.log('Entered aces in checkValues...');
       if (selectedArray.length == 0) {
         acesBlank = true;
         addAndReset();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
-            alert("The chosen dice do not work for the option that you have selected.")
+            alert("At least one of the chosen numbers is not an Ace.")
             selectedArray = [];
             checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=selectedArray[i];
-            addAndReset();
+            checkedArray.push(selectedArray[i]);
+            addAndResetForLoop();
           }
-        }
-        if (checkedArray == selectedArray) {
+        };
+        if (checkedArray.length == selectedArray.length) {
           addAndReset();
+          console.log("...and the checkedArray did equal the selectedArray");
         } else {
+          console.log('...and the checkedArray did NOT equal the selectedArray.');
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
@@ -617,11 +642,11 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=parseInt(selectedArray[i]);
+            checkedArray.push(selectedArray[i]);
             addAndReset();
           }
         }
-        if (checkedArray == selectedArray) {
+        if (checkedArray.length == selectedArray.length) {
           console.log("(if) "+checkedArray+" : "+selectedArray);
           addAndReset();
         } else {
@@ -647,11 +672,11 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=selectedArray[i];
+            checkedArray.push(selectedArray[i]);
             addAndReset();
           }
         }
-        if (checkedArray == selectedArray) {
+        if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
           selectedArray = [];
@@ -675,11 +700,11 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=selectedArray[i];
+            checkedArray.push(selectedArray[i]);
             addAndReset();
           }
         }
-        if (checkedArray == selectedArray) {
+        if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
           selectedArray = [];
@@ -703,11 +728,11 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=selectedArray[i];
+            checkedArray.push(selectedArray[i]);
             addAndReset();
           }
         }
-        if (checkedArray == selectedArray) {
+        if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
           selectedArray = [];
@@ -731,11 +756,11 @@ $(()=>{
             resetSelections();
             resetOptions();
           } else {
-            checkedArray+=selectedArray[i];
+            checkedArray.push(selectedArray[i]);
             addAndReset();
           }
         }
-        if (checkedArray == selectedArray) {
+        if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
           selectedArray = [];
@@ -826,7 +851,7 @@ $(()=>{
     } else {
       for (let i = 0; i < selectedArray.length; i++){
         scoreTotal+=selectedArray[i];
-        console.log(choice+" : "+scoreTotal)
+        // console.log(choice+" : "+scoreTotal)
       }
     }
   }
