@@ -57,7 +57,7 @@ $(()=>{
     'yahtzee': 0
   }
 
-  let userOneTotal = userOneOptions.aces + userOneOptions.aces + userOneOptions.aces + userOneOptions.aces + userOneOptions.aces + userOneOptions.aces + userOneOptions.aces + userOneOptions.aces;
+  let userOneTotal = 0;
 
   const userTwoOptions = {
     'name': user2,
@@ -72,6 +72,8 @@ $(()=>{
     'total': 0
   }
 
+  let userTwoTotal = 0;
+
   //All of these have to follow the two user objects
   //Display the names on the website
   $('#name1').text(userOneOptions.name);
@@ -80,7 +82,7 @@ $(()=>{
   let currentPlayer = userOneOptions;
   //These display the total of each player's total. The functions are used again in 'submitValues' in order to update the total
   const displayTotal1 = ()=>{
-    console.log(userOneTotal);
+    console.log("Player 1 Total: " + userOneTotal);
     $('#total1').text(userOneTotal);
   }
   const displayTotal2 = ()=>{
@@ -278,9 +280,9 @@ $(()=>{
   }
 
   const blockResubmit = ()=>{
-    console.log("blockResubmit activated")
-    console.log("firstSubmit: " + firstSubmit);
-    console.log("endOfTurn: " + endOfTurn);
+    // console.log("blockResubmit activated")
+    // console.log("firstSubmit: " + firstSubmit);
+    // console.log("endOfTurn: " + endOfTurn);
     if (firstSubmit == true || endOfTurn == false) {
       // I used to have 'submitValues()' here, but that's what kept causing it to block valid submits after
       firstSubmit = false;
@@ -343,6 +345,7 @@ $(()=>{
     if (currentPlayer == userOneOptions) {
       if (choice == 'aces') {
         userOneOptions.aces = scoreTotal;
+        userOneTotal += scoreTotal;
         $("#userOneAces").text(scoreTotal).css('color','red');
       } else if (choice == 'twos') {
         userOneOptions.twos = scoreTotal;
