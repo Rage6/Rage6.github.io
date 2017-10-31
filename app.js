@@ -86,7 +86,7 @@ $(()=>{
     $('#total1').text(userOneTotal);
   }
   const displayTotal2 = ()=>{
-    $('#total2').text(userTwoOptions.total);
+    $('#total2').text(userTwoTotal);
   }
   const displayRound = ()=>{
     $('#round').text(round);
@@ -349,24 +349,31 @@ $(()=>{
         $("#userOneAces").text(scoreTotal).css('color','red');
       } else if (choice == 'twos') {
         userOneOptions.twos = scoreTotal;
+        userOneTotal += scoreTotal;
         $('#userOneTwos').text(scoreTotal).css('color','red');
       } else if (choice == 'threes') {
         userOneOptions.threes = scoreTotal;
+        userOneTotal += scoreTotal;
         $('#userOneThrees').text(scoreTotal).css('color','red');
       } else if (choice == 'fours') {
         userOneOptions.fours = scoreTotal;
+        userOneTotal += scoreTotal;
         $('#userOneFours').text(scoreTotal).css('color','red');
       } else if (choice == 'fives') {
         userOneOptions.fives = scoreTotal;
+        userOneTotal += scoreTotal;
         $('#userOneFives').text(scoreTotal).css('color','red');
       } else if (choice == 'sixes') {
         userOneOptions.sixes = scoreTotal;
+        userOneTotal += scoreTotal;
         $('#userOneSixes').text(scoreTotal).css('color','red');
       } else if (choice == 'chance') {
         userOneOptions.chance = scoreTotal;
+        userOneTotal += scoreTotal;
         $('#userOneChance').text(scoreTotal).css('color','red');
       } else if (choice == 'yahtzee') {
         userOneOptions.yahtzee = scoreTotal;
+        userOneTotal += scoreTotal;
         $('#userOneYahtzee').text(scoreTotal).css('color','red');
       }
     } else if (currentPlayer == userTwoOptions) {
