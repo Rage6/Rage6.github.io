@@ -47,7 +47,6 @@ $(()=>{
 
   const userOneOptions = {
     'name': user1,
-    'total': 0,
     'aces': 0,
     'twos': 0,
     'threes': 0,
@@ -58,9 +57,10 @@ $(()=>{
     'yahtzee': 0
   }
 
+  let userOneTotal = userOneOptions.aces + userOneOptions.aces + userOneOptions.aces + userOneOptions.aces + userOneOptions.aces + userOneOptions.aces + userOneOptions.aces + userOneOptions.aces;
+
   const userTwoOptions = {
     'name': user2,
-    'total': userTwoOptions.aces + userTwoOptions.twos + userTwoOptions.threes + userTwoOptions.fours + userTwoOptions.fives + userTwoOptions.sixes + userTwoOptions.chance + userTwoOptions.yahtzee,
     'aces': 0,
     'twos': 0,
     'threes': 0,
@@ -68,7 +68,8 @@ $(()=>{
     'fives': 0,
     'sixes': 0,
     'chance': 0,
-    'yahtzee': 0
+    'yahtzee': 0,
+    'total': 0
   }
 
   //All of these have to follow the two user objects
@@ -79,7 +80,7 @@ $(()=>{
   let currentPlayer = userOneOptions;
   //These display the total of each player's total. The functions are used again in 'submitValues' in order to update the total
   const displayTotal1 = ()=>{
-    $('#total1').text(userOneOptions.total);
+    $('#total1').text(userOneTotal);
   }
   const displayTotal2 = ()=>{
     $('#total2').text(userTwoOptions.total);
@@ -131,9 +132,9 @@ $(()=>{
 
   //Use this to determine the name of the winner.
   const findWinnerName = ()=>{
-    if (userOneOptions.total > userTwoOptions.total) {
+    if (userOneTotal > userTwoOptions.total) {
       alert('Congratulations, '+userOneOptions.name+'! You successfully defeated '+userTwoOptions.name+'. Cheers!');
-    } else if (userOneOptions.total < userTwoOptions.total) {
+    } else if (userOneTotal < userTwoOptions.total) {
       alert('Congratulations, '+userTwoOptions.name+'! You successfully defeated '+userOneOptions.name+'. Well done!')
     } else {
       alert("You two tied?! That's amazing! You must each be equally good!")
