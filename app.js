@@ -80,6 +80,7 @@ $(()=>{
   let currentPlayer = userOneOptions;
   //These display the total of each player's total. The functions are used again in 'submitValues' in order to update the total
   const displayTotal1 = ()=>{
+    console.log(userOneTotal);
     $('#total1').text(userOneTotal);
   }
   const displayTotal2 = ()=>{
