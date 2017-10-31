@@ -60,7 +60,7 @@ $(()=>{
 
   const userTwoOptions = {
     'name': user2,
-    'total': 0,
+    'total': userTwoOptions.aces + userTwoOptions.twos + userTwoOptions.threes + userTwoOptions.fours + userTwoOptions.fives + userTwoOptions.sixes + userTwoOptions.chance + userTwoOptions.yahtzee,
     'aces': 0,
     'twos': 0,
     'threes': 0,
