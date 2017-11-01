@@ -604,12 +604,12 @@ $(()=>{
     hasSubmit = true;
     displayTotal1();
     displayTotal2();
-    // firstSubmit = false;
+    firstSubmit = false;
     selectedArray = [];
     resetSelections();
     resetOptions();
     howManyRolls = 1;
-    // endOfTurn = true;
+    endOfTurn = true;
     checkedArray = [];
     console.log("addAndReset:");
     console.log("--- firstSubmit: " + firstSubmit);
@@ -645,10 +645,10 @@ $(()=>{
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
-            alert("At least one of the chosen numbers is not an Ace.")
+            alert(selectedArray[i] + " is not an Ace.")
             selectedArray = [];
             checkedArray = [];
-            // firstSubmit = true;
+            firstSubmit = true;
             resetSelections();
             resetOptions();
             console.log("for loop (630)");
@@ -662,6 +662,8 @@ $(()=>{
             console.log("--- endOfTurn: " + endOfTurn)
           }
         };
+        console.log("checkedArray: " + checkedArray)
+        console.log("selectedArray: " + selectedArray)
         if (checkedArray.length == selectedArray.length) {
           addAndReset();
           console.log("...and the checkedArray did equal the selectedArray");
