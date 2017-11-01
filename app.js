@@ -280,9 +280,9 @@ $(()=>{
   }
 
   const blockResubmit = ()=>{
-    // console.log("blockResubmit activated")
-    // console.log("firstSubmit: " + firstSubmit);
-    // console.log("endOfTurn: " + endOfTurn);
+    console.log("blockResubmit activated")
+    console.log("firstSubmit: " + firstSubmit);
+    console.log("endOfTurn: " + endOfTurn);
     if (firstSubmit == true || endOfTurn == false) {
       // I used to have 'submitValues()' here, but that's what kept causing it to block valid submits after
       firstSubmit = false;
