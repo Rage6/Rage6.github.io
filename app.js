@@ -638,9 +638,11 @@ $(()=>{
         };
         if (checkedArray.length == selectedArray.length) {
           addAndReset();
-          // console.log("...and the checkedArray did equal the selectedArray");
+          firstSubmit = true;
+          endOfTurn = false;
+          console.log("...and the checkedArray did equal the selectedArray");
         } else {
-          // console.log('...and the checkedArray did NOT equal the selectedArray.');
+          console.log('...and the checkedArray did NOT equal the selectedArray.');
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
