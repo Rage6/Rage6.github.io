@@ -604,7 +604,7 @@ $(()=>{
     hasSubmit = true;
     displayTotal1();
     displayTotal2();
-    firstSubmit = false;
+    // firstSubmit = false;
     selectedArray = [];
     resetSelections();
     resetOptions();
