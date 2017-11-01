@@ -379,27 +379,35 @@ $(()=>{
     } else if (currentPlayer == userTwoOptions) {
         if (choice == 'aces') {
           userTwoOptions.aces = scoreTotal;
+          userTwoTotal += scoreTotal;
           $('#userTwoAces').text(scoreTotal).css('color','red');
         } else if (choice == 'twos') {
           userTwoOptions.twos = scoreTotal;
+          userTwoTotal += scoreTotal;
           $('#userTwoTwos').text(scoreTotal).css('color','red');
         } else if (choice == 'threes') {
           userTwoOptions.threes = scoreTotal;
+          userTwoTotal += scoreTotal;
           $('#userTwoThrees').text(scoreTotal).css('color','red');
         } else if (choice == 'fours') {
           userTwoOptions.fours = scoreTotal;
+          userTwoTotal += scoreTotal;
           $('#userTwoFours').text(scoreTotal).css('color','red');
         } else if (choice == 'fives') {
           userTwoOptions.fives = scoreTotal;
+          userTwoTotal += scoreTotal;
           $('#userTwoFives').text(scoreTotal).css('color','red');
         } else if (choice == 'sixes') {
           userTwoOptions.sixes = scoreTotal;
+          userTwoTotal += scoreTotal;
           $('#userTwoSixes').text(scoreTotal).css('color','red');
         } else if (choice == 'chance') {
           userTwoOptions.chance = scoreTotal;
+          userTwoTotal += scoreTotal;
           $('#userTwoChance').text(scoreTotal).css('color','red');
         } else if (choice == 'yahtzee') {
           userTwoOptions.yahtzee = scoreTotal;
+          userTwoTotal += scoreTotal;
           $('#userTwoYahtzee').text(scoreTotal).css('color','red');
         }
     }
@@ -574,7 +582,7 @@ $(()=>{
 
   //After meeting all the criteria, the collection of following functions in 'addAndReset' will add the appropriates points to the category and reset all of the variables for the next turn
   const addAndReset = ()=> {
-    console.log("addAndReset activated")
+    // console.log("addAndReset activated")
     turnTotal();
     addToTotal();
     categoryScores();
@@ -588,8 +596,8 @@ $(()=>{
     howManyRolls = 1;
     endOfTurn = true;
     checkedArray = [];
-    console.log("firstSubmit: " + firstSubmit)
-    console.log("endOfTurn: " + endOfTurn)
+    // console.log("firstSubmit: " + firstSubmit)
+    // console.log("endOfTurn: " + endOfTurn)
   }
 
   const addAndResetForLoop = ()=>{
@@ -630,9 +638,9 @@ $(()=>{
         };
         if (checkedArray.length == selectedArray.length) {
           addAndReset();
-          console.log("...and the checkedArray did equal the selectedArray");
+          // console.log("...and the checkedArray did equal the selectedArray");
         } else {
-          console.log('...and the checkedArray did NOT equal the selectedArray.');
+          // console.log('...and the checkedArray did NOT equal the selectedArray.');
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
