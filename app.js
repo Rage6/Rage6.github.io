@@ -84,14 +84,14 @@ $(()=>{
   const displayTotal1 = ()=>{
     $('#total1').text(userOneTotal);
     console.log("displayTotal1: ")
-    console.log("firstSubmit: " + firstSubmit);
-    console.log("endOfTurn: " + endOfTurn);
+    console.log("--- firstSubmit: " + firstSubmit);
+    console.log("--- endOfTurn: " + endOfTurn);
   }
   const displayTotal2 = ()=>{
     $('#total2').text(userTwoTotal);
     console.log("displayTotal2: ")
-    console.log("firstSubmit: " + firstSubmit);
-    console.log("endOfTurn: " + endOfTurn);
+    console.log("--- firstSubmit: " + firstSubmit);
+    console.log("--- endOfTurn: " + endOfTurn);
   }
   const displayRound = ()=>{
     $('#round').text(round);
@@ -285,9 +285,9 @@ $(()=>{
   }
 
   const blockResubmit = ()=>{
-    console.log("blockResubmit activated")
-    console.log("firstSubmit: " + firstSubmit);
-    console.log("endOfTurn: " + endOfTurn);
+    console.log("blockResubmit (288)")
+    console.log("--- firstSubmit: " + firstSubmit);
+    console.log("--- endOfTurn: " + endOfTurn);
     if (firstSubmit == true || endOfTurn == false) {
       // I used to have 'submitValues()' here, but that's what kept causing it to block valid submits after
       firstSubmit = false;
@@ -321,9 +321,9 @@ $(()=>{
     fourth.css('background-color','ivory');
     pickedFifth = false;
     fifth.css('background-color','ivory');
-    console.log("resetSelections:");
-    console.log("firstSubmit: " + firstSubmit);
-    console.log("endOfTurn: " + endOfTurn)
+    console.log("resetSelections (313):");
+    console.log("--- firstSubmit: " + firstSubmit);
+    console.log("--- endOfTurn: " + endOfTurn)
   }
 
   //How to reset the choice to 'null' and takes off background color after submitting it
@@ -338,8 +338,8 @@ $(()=>{
     $('#chance').css('background-color','ivory');
     $('#yahtzee').css('background-color','ivory');
     console.log("resetOptions:");
-    console.log("firstSubmit: " + firstSubmit);
-    console.log("endOfTurn: " + endOfTurn)
+    console.log("--- firstSubmit: " + firstSubmit);
+    console.log("--- endOfTurn: " + endOfTurn)
   }
 
   //This is used in 'switchPlayers' to increase the 'round' when it's supposed to
@@ -424,8 +424,8 @@ $(()=>{
         }
     }
     console.log("categoryScores: ");
-    console.log("firstSubmit: " + firstSubmit);
-    console.log("endOfTurn: " + endOfTurn);
+    console.log("--- firstSubmit: " + firstSubmit);
+    console.log("--- endOfTurn: " + endOfTurn);
   }
 
   //Once scores are displayed in the individual objects above, this function will make sure that users cannot add to an object more than once.
@@ -612,8 +612,8 @@ $(()=>{
     endOfTurn = true;
     checkedArray = [];
     console.log("addAndReset:");
-    console.log("firstSubmit: " + firstSubmit);
-    console.log("endOfTurn: " + endOfTurn)
+    console.log("--- firstSubmit: " + firstSubmit);
+    console.log("--- endOfTurn: " + endOfTurn)
   }
 
   const addAndResetForLoop = ()=>{
@@ -630,8 +630,8 @@ $(()=>{
     howManyRolls = 1;
     endOfTurn = true;
     console.log("addAndResetForLoop:");
-    console.log("firstSubmit: " + firstSubmit);
-    console.log("endOfTurn: " + endOfTurn)
+    console.log("--- firstSubmit: " + firstSubmit);
+    console.log("--- endOfTurn: " + endOfTurn)
   }
 
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
@@ -651,15 +651,15 @@ $(()=>{
             firstSubmit = true;
             resetSelections();
             resetOptions();
-            console.log("for loop @ line 630:");
-            console.log("firstSubmit: " + firstSubmit);
-            console.log("endOfTurn: " + endOfTurn)
+            console.log("for loop (630)");
+            console.log("--- firstSubmit: " + firstSubmit);
+            console.log("--- endOfTurn: " + endOfTurn)
           } else {
             checkedArray.push(selectedArray[i]);
             addAndResetForLoop();
             console.log("else on line 644:");
-            console.log("firstSubmit: " + firstSubmit);
-            console.log("endOfTurn: " + endOfTurn)
+            console.log("--- firstSubmit: " + firstSubmit);
+            console.log("--- endOfTurn: " + endOfTurn)
           }
         };
         if (checkedArray.length == selectedArray.length) {
