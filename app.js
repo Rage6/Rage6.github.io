@@ -644,6 +644,8 @@ $(()=>{
         addAndReset();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
+          console.log("checkedArray: " + checkedArray)
+          console.log("selectedArray: " + selectedArray)
           if (selectedArray[i] != 1) {
             alert(selectedArray[i] + " is not an Ace.")
             // selectedArray = [];
