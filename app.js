@@ -82,11 +82,16 @@ $(()=>{
   let currentPlayer = userOneOptions;
   //These display the total of each player's total. The functions are used again in 'submitValues' in order to update the total
   const displayTotal1 = ()=>{
-    console.log("Player 1 Total: " + userOneTotal);
     $('#total1').text(userOneTotal);
+    console.log("displayTotal1: ")
+    console.log("firstSubmit: " + firstSubmit);
+    console.log("endOfTurn: " + endOfTurn);
   }
   const displayTotal2 = ()=>{
     $('#total2').text(userTwoTotal);
+    console.log("displayTotal2: ")
+    console.log("firstSubmit: " + firstSubmit);
+    console.log("endOfTurn: " + endOfTurn);
   }
   const displayRound = ()=>{
     $('#round').text(round);
@@ -297,9 +302,10 @@ $(()=>{
     // console.log(noAdd);
     if (choice == 'yahtzee' && selectedArray.length == 5) {
       currentPlayer.total += 50;
+      console.log("addToTotal: " + currentPlayer.total);
     } else if (noAdd != true){
       currentPlayer.total+=scoreTotal;
-
+      console.log("addToTotal: " + currentPlayer.total);
     }
   }
 
@@ -315,6 +321,9 @@ $(()=>{
     fourth.css('background-color','ivory');
     pickedFifth = false;
     fifth.css('background-color','ivory');
+    console.log("resetSelections:");
+    console.log("firstSubmit: " + firstSubmit);
+    console.log("endOfTurn: " + endOfTurn)
   }
 
   //How to reset the choice to 'null' and takes off background color after submitting it
@@ -328,6 +337,9 @@ $(()=>{
     $('#sixes').css('background-color','ivory');
     $('#chance').css('background-color','ivory');
     $('#yahtzee').css('background-color','ivory');
+    console.log("resetOptions:");
+    console.log("firstSubmit: " + firstSubmit);
+    console.log("endOfTurn: " + endOfTurn)
   }
 
   //This is used in 'switchPlayers' to increase the 'round' when it's supposed to
@@ -411,6 +423,9 @@ $(()=>{
           $('#userTwoYahtzee').text(scoreTotal).css('color','red');
         }
     }
+    console.log("categoryScores: ");
+    console.log("firstSubmit: " + firstSubmit);
+    console.log("endOfTurn: " + endOfTurn);
   }
 
   //Once scores are displayed in the individual objects above, this function will make sure that users cannot add to an object more than once.
@@ -596,11 +611,13 @@ $(()=>{
     howManyRolls = 1;
     endOfTurn = true;
     checkedArray = [];
-    // console.log("firstSubmit: " + firstSubmit)
-    // console.log("endOfTurn: " + endOfTurn)
+    console.log("addAndReset:");
+    console.log("firstSubmit: " + firstSubmit);
+    console.log("endOfTurn: " + endOfTurn)
   }
 
   const addAndResetForLoop = ()=>{
+    // console.log("addAndResetForLoop() activated.");
     turnTotal();
     addToTotal();
     categoryScores();
@@ -612,6 +629,9 @@ $(()=>{
     resetOptions();
     howManyRolls = 1;
     endOfTurn = true;
+    console.log("addAndResetForLoop:");
+    console.log("firstSubmit: " + firstSubmit);
+    console.log("endOfTurn: " + endOfTurn)
   }
 
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
@@ -631,15 +651,19 @@ $(()=>{
             firstSubmit = true;
             resetSelections();
             resetOptions();
+            console.log("for loop @ line 630:");
+            console.log("firstSubmit: " + firstSubmit);
+            console.log("endOfTurn: " + endOfTurn)
           } else {
             checkedArray.push(selectedArray[i]);
             addAndResetForLoop();
+            console.log("else on line 644:");
+            console.log("firstSubmit: " + firstSubmit);
+            console.log("endOfTurn: " + endOfTurn)
           }
         };
         if (checkedArray.length == selectedArray.length) {
           addAndReset();
-          firstSubmit = true;
-          endOfTurn = false;
           console.log("...and the checkedArray did equal the selectedArray");
         } else {
           console.log('...and the checkedArray did NOT equal the selectedArray.');
@@ -870,11 +894,13 @@ $(()=>{
     scoreTotal = 0;
     if (choice == 'yahtzee') {
       scoreTotal = 50;
+      console.log("scoreTotal: " + scoreTotal);
     } else {
       for (let i = 0; i < selectedArray.length; i++){
         scoreTotal+=selectedArray[i];
         // console.log(choice+" : "+scoreTotal)
-      }
+      };
+      console.log("scoreTotal: " + scoreTotal);
     }
   }
 
