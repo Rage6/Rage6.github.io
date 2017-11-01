@@ -597,7 +597,7 @@ $(()=>{
 
   //After meeting all the criteria, the collection of following functions in 'addAndReset' will add the appropriates points to the category and reset all of the variables for the next turn
   const addAndReset = ()=> {
-    // console.log("addAndReset activated")
+    console.log("addAndReset activated")
     turnTotal();
     addToTotal();
     categoryScores();
@@ -653,7 +653,7 @@ $(()=>{
             firstSubmit = true;
             resetSelections();
             resetOptions();
-            console.log("for loop (630)");
+            console.log("if on line 630");
             console.log("--- firstSubmit: " + firstSubmit);
             console.log("--- endOfTurn: " + endOfTurn)
           } else {
@@ -664,11 +664,11 @@ $(()=>{
             console.log("--- endOfTurn: " + endOfTurn)
           }
         };
-        console.log("checkedArray: " + checkedArray)
-        console.log("selectedArray: " + selectedArray)
+        console.log("checkedArray: " + checkedArray);
+        console.log("selectedArray: " + selectedArray);
         if (checkedArray.length == selectedArray.length) {
-          addAndReset();
           console.log("...and the checkedArray did equal the selectedArray");
+          addAndReset();
         } else {
           console.log('...and the checkedArray did NOT equal the selectedArray.');
           selectedArray = [];
