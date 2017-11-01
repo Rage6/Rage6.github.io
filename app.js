@@ -646,7 +646,7 @@ $(()=>{
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
             alert(selectedArray[i] + " is not an Ace.")
-            selectedArray = [];
+            // selectedArray = [];
             checkedArray = [];
             firstSubmit = true;
             resetSelections();
