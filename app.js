@@ -541,7 +541,7 @@ $(()=>{
     }
   }
 
-  //This is for the "Submit Points" button
+  //This is for the "Enter Points" button
   const pointsButton = $('#pointsButton');
   pointsButton.on('click',blockResubmit);
 
@@ -609,7 +609,7 @@ $(()=>{
     resetSelections();
     resetOptions();
     howManyRolls = 1;
-    endOfTurn = true;
+    // endOfTurn = true;
     checkedArray = [];
     console.log("addAndReset:");
     console.log("--- firstSubmit: " + firstSubmit);
@@ -648,7 +648,7 @@ $(()=>{
             alert("At least one of the chosen numbers is not an Ace.")
             selectedArray = [];
             checkedArray = [];
-            firstSubmit = true;
+            // firstSubmit = true;
             resetSelections();
             resetOptions();
             console.log("for loop (630)");
