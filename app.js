@@ -645,11 +645,15 @@ $(()=>{
     console.log("checkValues activated.");
     let checkedNum = 0;
     if (choice == 'aces') {
-      console.log('Comparing to Aces.');
+      console.log('--- Comparing to Aces.');
       if (selectedArray.length == 0) {
-        acesBlank = true;
+        console.log("--- selectedArray is empty");
+        console.log("Player: " + currentPlayer.name)
+        currentPlayer.acesBlank = true;
+        console.log("acesBlank: " + currentPlayer.acesBlank);
         addAndReset();
       } else {
+        console.log("--- selectedArray is " + selectedArray);
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
             console.log("--- (if) in (for): " + selectedArray[i]);
