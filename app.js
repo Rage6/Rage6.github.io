@@ -643,9 +643,9 @@ $(()=>{
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
   const checkValues = ()=>{
     console.log("checkValues activated.");
-    let checkedNum = 0;
     if (choice == 'aces') {
-      console.log('--- Comparing to Aces.');
+      console.log("--- Comparing to Aces.");
+      console.log("selectedArray: " + selectedArray);
       if (selectedArray.length == 0) {
         console.log("--- selectedArray is empty");
         console.log("Player: " + currentPlayer.name)
