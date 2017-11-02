@@ -659,7 +659,7 @@ $(()=>{
           } else {
             console.log("--- (else) in for: " + selectedArray[i]);
             checkedArray.push(selectedArray[i]);
-            addAndResetForLoop();
+            // addAndResetForLoop();
           }
         };
         console.log("checkedArray: " + checkedArray);
@@ -899,7 +899,7 @@ $(()=>{
   }
 
   //After the game knows that the user has followed the rules, this function will get the total sum of an array
-  const turnTotal = ()=>{
+  const turnTotal = (oneDiePoints)=>{
     console.log("turnTotal activated");
     scoreTotal = 0;
     if (choice == 'yahtzee') {
@@ -908,7 +908,6 @@ $(()=>{
     } else {
       for (let i = 0; i < selectedArray.length; i++){
         scoreTotal+=selectedArray[i];
-        // console.log(choice+" : "+scoreTotal)
       };
       console.log("scoreTotal: " + scoreTotal);
     }
