@@ -828,20 +828,24 @@ $(()=>{
       }
     } else if (choice == 'yahtzee'){
       console.log('Comparing to Yahtzee.');
+      // ... if you select no dice
       if (selectedArray.length == 0) {
+        console.log("-- no dice entered")
         yahtzeeBlank = true;
         scoreTotal = 0;
         categoryScores();
         displayTotal1();
         displayTotal2();
         firstSubmit = false;
+        hasSubmit = true;
         selectedArray = [];
         checkedArray = [];
         resetSelections();
         resetOptions();
         howManyRolls = 1;
+      // ... or you have selected at least one die.
       } else {
-        // for (let i = 0; i < selectedArray.length; i++){
+        // ...if you didn't select all of the dice
         if (selectedArray.length < 5) {
           alert("Select all die when using the 'Yahtzee' option. If your dice do not all the same and you have no more available categories, leave the dice unshaded, select 'Yahtzee', and press 'Enter Points'.");
           selectedArray = [];
@@ -849,34 +853,19 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        // };
         const testItem = selectedArray[0];
-        console.log("Testing (For) Loop In Yahtzee:");
-        console.log
-        console.log("--- start selectedArray: " + selectedArray);
+        // ...compares the first index to all of the following.
         for (let i = 1; i < 5; i++) {
+          // ...if another index is not the same as the first
           if (testItem != selectedArray[i]) {
             alert(selectedArray[i] + " is not the same as rest of the dice.")
             selectedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
-          // } else {
-          //   scoreTotal = 50;
-          //   categoryScores();
-          //   displayTotal1();
-          //   displayTotal2();
-          //   firstSubmit = false;
-          //   hasSubmit = true;
-          //   selectedArray = [];
-          //   checkedArray = [];
-          //   resetSelections();
-          //   resetOptions();
-          //   howManyRolls = 1;
-          // }
           };
-          console.log("--- check selectedArray: " + selectedArray);
         };
+        //... if none of the index were deleted during the loop
         if (selectedArray.length == 5) {
           scoreTotal = 50;
           categoryScores();
