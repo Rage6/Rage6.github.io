@@ -816,7 +816,7 @@ $(()=>{
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray.length < 5) {
-            alert("Select all die when using the 'Chance' option.")
+            alert("Select all die in order to use the 'Chance' option.")
             selectedArray = [];
             firstSubmit = true;
             resetSelections();
@@ -842,38 +842,56 @@ $(()=>{
         howManyRolls = 1;
       } else {
         // for (let i = 0; i < selectedArray.length; i++){
-          if (selectedArray.length < 5) {
-            alert("Select all die when using the 'Yahtzee' option. If your dice do not all the same and you have no more available categories, leave the dice unshaded, select 'Yahtzee', and press 'Enter Points'.");
-            selectedArray = [];
-            firstSubmit = true;
-            resetSelections();
-            resetOptions();
-          }
+        if (selectedArray.length < 5) {
+          alert("Select all die when using the 'Yahtzee' option. If your dice do not all the same and you have no more available categories, leave the dice unshaded, select 'Yahtzee', and press 'Enter Points'.");
+          selectedArray = [];
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
+        };
         // };
         const testItem = selectedArray[0];
+        console.log("Testing (For) Loop In Yahtzee:");
+        console.log
+        console.log("--- start selectedArray: " + selectedArray);
         for (let i = 1; i < 5; i++) {
           if (testItem != selectedArray[i]) {
-            alert("All of the dice must be equal when using the 'Yahtzee' option.")
+            alert(selectedArray[i] + " is not the same as rest of the dice.")
             selectedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
-          } else {
-            scoreTotal = 50;
-            categoryScores();
-            displayTotal1();
-            displayTotal2();
-            firstSubmit = false;
-            hasSubmit = true;
-            selectedArray = [];
-            checkedArray = [];
-            resetSelections();
-            resetOptions();
-            howManyRolls = 1;
-          }
+          // } else {
+          //   scoreTotal = 50;
+          //   categoryScores();
+          //   displayTotal1();
+          //   displayTotal2();
+          //   firstSubmit = false;
+          //   hasSubmit = true;
+          //   selectedArray = [];
+          //   checkedArray = [];
+          //   resetSelections();
+          //   resetOptions();
+          //   howManyRolls = 1;
+          // }
+          };
+          console.log("--- check selectedArray: " + selectedArray);
+        };
+        if (selectedArray.length == 5) {
+          scoreTotal = 50;
+          categoryScores();
+          displayTotal1();
+          displayTotal2();
+          firstSubmit = false;
+          hasSubmit = true;
+          selectedArray = [];
+          checkedArray = [];
+          resetSelections();
+          resetOptions();
+          howManyRolls = 1;
         }
-    }
-  } else {
+      }
+    } else {
       alert('Please select your category.')
       selectedArray = [];
       firstSubmit = true;
