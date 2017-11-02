@@ -48,6 +48,7 @@ $(()=>{
   const userOneOptions = {
     'name': user1,
     'aces': 0,
+    'acesBlank': false,
     'twos': 0,
     'threes': 0,
     'fours': 0,
@@ -62,6 +63,7 @@ $(()=>{
   const userTwoOptions = {
     'name': user2,
     'aces': 0,
+    'acesBlank': false,
     'twos': 0,
     'threes': 0,
     'fours': 0,
@@ -433,7 +435,7 @@ $(()=>{
     if (currentPlayer == userOneOptions) {
       console.log("Player 1 options are in use.");
       if (choice == 'aces') {
-        if (userOneOptions.aces != 0 || acesBlank == true) {
+        if (userOneOptions.aces != 0 || userOneOptions.acesBlank == true) {
           noAdd = true;
           alert("The 'Aces' option has already been used. Please select an unused option.");
           firstSubmit = true;
@@ -486,7 +488,7 @@ $(()=>{
     } else if (currentPlayer == userTwoOptions) {
       console.log("Player 2 options are in use.");
         if (choice == 'aces') {
-          if (userTwoOptions.aces != 0 || acesBlank == true) {
+          if (userTwoOptions.aces != 0 || userTwoOptions.acesBlank == true) {
             noAdd = true;
             alert("The 'Aces' option has already been used. Please select an unused option.");
             firstSubmit = true;
@@ -643,11 +645,15 @@ $(()=>{
     console.log("checkValues activated.");
     let checkedNum = 0;
     if (choice == 'aces') {
-      console.log('Comparing to Aces.');
+      console.log('--- Comparing to Aces.');
       if (selectedArray.length == 0) {
-        acesBlank = true;
+        console.log("--- selectedArray is empty");
+        console.log("Player: " + currentPlayer.name)
+        currentPlayer.acesBlank = true;
+        console.log("acesBlank: " + currentPlayer.acesBlank);
         addAndReset();
       } else {
+        console.log("--- selectedArray is " + selectedArray);
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
             console.log("--- (if) in (for): " + selectedArray[i]);
