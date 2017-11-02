@@ -645,12 +645,10 @@ $(()=>{
     console.log("checkValues activated.");
     if (choice == 'aces') {
       console.log("--- Comparing to Aces.");
-      console.log("selectedArray: " + selectedArray);
       if (selectedArray.length == 0) {
         console.log("--- selectedArray is empty");
-        console.log("Player: " + currentPlayer.name)
         currentPlayer.acesBlank = true;
-        console.log("acesBlank: " + currentPlayer.acesBlank);
+        console.log("--- acesBlank: " + currentPlayer.acesBlank);
         addAndReset();
       } else {
         console.log("--- selectedArray is " + selectedArray);
@@ -667,7 +665,7 @@ $(()=>{
             checkedArray.push(selectedArray[i]);
           }
         };
-        if (checkedArray.length == selectedArray.length) {
+        if (checkedArray.length == selectedArray.length && currentPlayer.acesBlank == false) {
           console.log("...and the checkedArray did equal the selectedArray");
           addAndReset();
         } else {
