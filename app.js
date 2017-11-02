@@ -82,18 +82,15 @@ $(()=>{
   let currentPlayer = userOneOptions;
   //These display the total of each player's total. The functions are used again in 'submitValues' in order to update the total
   const displayTotal1 = ()=>{
+    console.log("displayTotal1 activated");
     $('#total1').text(userOneTotal);
-    console.log("displayTotal1: ")
-    console.log("--- firstSubmit: " + firstSubmit);
-    console.log("--- endOfTurn: " + endOfTurn);
   }
   const displayTotal2 = ()=>{
+    console.log("displayTotal2 activated");
     $('#total2').text(userTwoTotal);
-    console.log("displayTotal2: ")
-    console.log("--- firstSubmit: " + firstSubmit);
-    console.log("--- endOfTurn: " + endOfTurn);
   }
   const displayRound = ()=>{
+    console.log("displayRound activated");
     $('#round').text(round);
   }
   displayTotal1();
@@ -102,6 +99,7 @@ $(()=>{
 
   //This is how to switch between the users' objects.
   const switchPlayers = ()=>{
+    console.log("switchPlayers activated");
     if (round <= 8) {
       if (hasSubmit == true) {
         if (toSwitchPlayer == true) {
@@ -140,6 +138,7 @@ $(()=>{
 
   //Use this to determine the name of the winner.
   const findWinnerName = ()=>{
+    console.log("findWinnerName activated");
     if (userOneTotal > userTwoOptions.total) {
       alert('Congratulations, '+userOneOptions.name+'! You successfully defeated '+userTwoOptions.name+'. Cheers!');
     } else if (userOneTotal < userTwoOptions.total) {
@@ -155,6 +154,7 @@ $(()=>{
 
   //This generates an integer between 1 and 6
   const rollDice = ()=>{
+    console.log("rollDice activated");
     min = Math.ceil(1);
     max = Math.floor(7);
     return Math.floor(Math.random() * (max - min)) + min;
@@ -162,6 +162,7 @@ $(()=>{
 
   //This will randomly assign a number, between 1 and 6, to the dice 'diceNum'
   const makeNum = (diceNum)=>{
+    console.log("makeNum activated");
     const check = rollDice().toString()
     diceNum.text(check);
   }
@@ -169,6 +170,7 @@ $(()=>{
   //The following 5 groups can make a dice go grey and assign it a boolean
   const first = $('#first')
   first.on('click',()=>{
+    console.log("first activated");
     if (trigger == true) {
       pickedFirst = true;
       first.css('background-color','grey');
@@ -182,6 +184,7 @@ $(()=>{
 
   const second = $('#second')
   second.on('click',()=>{
+    console.log("second activated");
     if (trigger == true) {
       pickedSecond = true;
       second.css('background-color','grey');
@@ -195,6 +198,7 @@ $(()=>{
 
   const third = $('#third')
   third.on('click',()=>{
+    console.log("third activated");
     if (trigger == true) {
       pickedThird = true;
       third.css('background-color','grey');
@@ -208,6 +212,7 @@ $(()=>{
 
   const fourth = $('#fourth')
   fourth.on('click',()=>{
+    console.log("fourth activated");
     if (trigger == true) {
       pickedFourth = true;
       fourth.css('background-color','grey');
@@ -221,6 +226,7 @@ $(()=>{
 
   const fifth = $('#fifth')
   fifth.on('click',()=>{
+    console.log("fifth activated");
     if (trigger == true){
       pickedFifth = true;
       fifth.css('background-color','grey');
@@ -234,6 +240,7 @@ $(()=>{
 
   //You can use this function to shuffle all of them at once, except for the ones in which 'picked' == true
   const shuffleAllDice = ()=>{
+    console.log("shuffleAllDice activated");
     if (howManyRolls <= 3) {
       const displayRolls = $('#rolls');
       displayRolls.text(howManyRolls);
@@ -260,6 +267,7 @@ $(()=>{
 
   //This function is used after the user decides on which dice values they want. It takes those values, converts them back into numbers, and place it all in an array
   const submitValues = ()=>{
+    console.log("submitValue activated")
     confirmEmpty();
     if (pickedFirst === true) {
       const firstValue = parseInt($('#first').text(),10);
@@ -285,9 +293,7 @@ $(()=>{
   }
 
   const blockResubmit = ()=>{
-    console.log("blockResubmit (288)")
-    console.log("--- firstSubmit: " + firstSubmit);
-    console.log("--- endOfTurn: " + endOfTurn);
+    console.log("blockResubmit activated")
     if (firstSubmit == true || endOfTurn == false) {
       // I used to have 'submitValues()' here, but that's what kept causing it to block valid submits after
       firstSubmit = false;
@@ -299,18 +305,17 @@ $(()=>{
 
   //adds turn score to total score
   const addToTotal = ()=>{
-    // console.log(noAdd);
+    console.log("addToTotal activated");
     if (choice == 'yahtzee' && selectedArray.length == 5) {
       currentPlayer.total += 50;
-      console.log("addToTotal: " + currentPlayer.total);
     } else if (noAdd != true){
       currentPlayer.total+=scoreTotal;
-      console.log("addToTotal: " + currentPlayer.total);
     }
   }
 
   //This "deselects" all of the previously selected values
   const resetSelections = ()=>{
+    console.log("resetSelections activated");
     pickedFirst = false;
     first.css('background-color','ivory');
     pickedSecond = false;
@@ -321,13 +326,11 @@ $(()=>{
     fourth.css('background-color','ivory');
     pickedFifth = false;
     fifth.css('background-color','ivory');
-    console.log("resetSelections (313):");
-    console.log("--- firstSubmit: " + firstSubmit);
-    console.log("--- endOfTurn: " + endOfTurn)
   }
 
   //How to reset the choice to 'null' and takes off background color after submitting it
   const resetOptions = ()=>{
+    console.log("resetOptions activities");
     choice = false;
     $('#aces').css('background-color','ivory');
     $('#twos').css('background-color','ivory');
@@ -337,13 +340,11 @@ $(()=>{
     $('#sixes').css('background-color','ivory');
     $('#chance').css('background-color','ivory');
     $('#yahtzee').css('background-color','ivory');
-    console.log("resetOptions:");
-    console.log("--- firstSubmit: " + firstSubmit);
-    console.log("--- endOfTurn: " + endOfTurn)
   }
 
   //This is used in 'switchPlayers' to increase the 'round' when it's supposed to
   const adjustRound = ()=>{
+    console.log("adjustRound activated")
     roundReset+=1;
     if (roundReset >= 2) {
       round+=1;
@@ -354,6 +355,7 @@ $(()=>{
 
   //In this, the function inserts the appropriate category score on the site
   const categoryScores = ()=>{
+    console.log("categoryScores activated");
     if (currentPlayer == userOneOptions) {
       if (choice == 'aces') {
         userOneOptions.aces = scoreTotal;
@@ -423,14 +425,13 @@ $(()=>{
           $('#userTwoYahtzee').text(scoreTotal).css('color','red');
         }
     }
-    console.log("categoryScores: ");
-    console.log("--- firstSubmit: " + firstSubmit);
-    console.log("--- endOfTurn: " + endOfTurn);
   }
 
   //Once scores are displayed in the individual objects above, this function will make sure that users cannot add to an object more than once.
   const confirmEmpty = ()=>{
+    console.log("confirmEmpty activated");
     if (currentPlayer == userOneOptions) {
+      console.log("Player 1 options are in use.");
       if (choice == 'aces') {
         if (userOneOptions.aces != 0 || acesBlank == true) {
           noAdd = true;
@@ -483,6 +484,7 @@ $(()=>{
         noAdd = false;
       }
     } else if (currentPlayer == userTwoOptions) {
+      console.log("Player 2 options are in use.");
         if (choice == 'aces') {
           if (userTwoOptions.aces != 0 || acesBlank == true) {
             noAdd = true;
@@ -548,48 +550,56 @@ $(()=>{
   //These allow the user to choose which option that they want
   const chooseAces = $('#aces')
   chooseAces.on('click', ()=>{
+    console.log("Aces chosen.")
     resetOptions();
     choice = 'aces';
     $('#aces').css('background-color','grey');
   });
   const chooseTwos = $('#twos');
   chooseTwos.on('click', ()=>{
+    console.log("Twos chosen.")
     resetOptions();
     choice = 'twos';
     $('#twos').css('background-color','grey');
   });
   const chooseThrees = $('#threes');
   chooseThrees.on('click', ()=>{
+    console.log("Threes chosen.")
     resetOptions();
     choice = 'threes';
     $('#threes').css('background-color','grey');
   });
   const chooseFours = $('#fours');
   chooseFours.on('click', ()=>{
+    console.log("Fours chosen.")
     resetOptions();
     choice = 'fours';
     $('#fours').css('background-color','grey');
   });
   const chooseFives = $('#fives');
   chooseFives.on('click', ()=>{
+    console.log("Fives chosen.")
     resetOptions();
     choice = 'fives';
     $('#fives').css('background-color','grey');
   });
   const chooseSixes = $('#sixes');
   chooseSixes.on('click', ()=>{
+    console.log("Sixes chosen.")
     resetOptions();
     choice = 'sixes'
     $('#sixes').css('background-color','grey');
   });
   const chooseChance = $('#chance');
   chooseChance.on('click', ()=>{
+    console.log("Chances chosen.")
     resetOptions();
     choice = 'chance';
     $('#chance').css('background-color','grey');
   });
   const chooseYahtzee = $('#yahtzee');
   chooseYahtzee.on('click', ()=>{
+    console.log("Yahtzee chosen.")
     resetOptions();
     choice = 'yahtzee';
     $('#yahtzee').css('background-color','grey');
@@ -611,13 +621,10 @@ $(()=>{
     howManyRolls = 1;
     endOfTurn = true;
     checkedArray = [];
-    console.log("addAndReset:");
-    console.log("--- firstSubmit: " + firstSubmit);
-    console.log("--- endOfTurn: " + endOfTurn)
   }
 
   const addAndResetForLoop = ()=>{
-    // console.log("addAndResetForLoop() activated.");
+    console.log("addAndResetForLoop activated.");
     turnTotal();
     addToTotal();
     categoryScores();
@@ -629,43 +636,30 @@ $(()=>{
     resetOptions();
     howManyRolls = 1;
     endOfTurn = true;
-    console.log("addAndResetForLoop:");
-    console.log("--- firstSubmit: " + firstSubmit);
-    console.log("--- endOfTurn: " + endOfTurn)
   }
 
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
   const checkValues = ()=>{
+    console.log("checkValues activated.");
     let checkedNum = 0;
     if (choice == 'aces') {
-      console.log('Entered aces in checkValues...');
+      console.log('Comparing to Aces.');
       if (selectedArray.length == 0) {
         acesBlank = true;
         addAndReset();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
-          console.log("checkedArray: " + checkedArray)
-          console.log("selectedArray: " + selectedArray)
           if (selectedArray[i] != 1) {
-            alert(selectedArray[i] + " is not an Ace.")
-            // selectedArray = [];
+            alert(selectedArray[i] + " is not an Ace.");
             checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
-            console.log("if on line 630");
-            console.log("--- firstSubmit: " + firstSubmit);
-            console.log("--- endOfTurn: " + endOfTurn)
           } else {
             checkedArray.push(selectedArray[i]);
             addAndResetForLoop();
-            console.log("else on line 644:");
-            console.log("--- firstSubmit: " + firstSubmit);
-            console.log("--- endOfTurn: " + endOfTurn)
           }
         };
-        console.log("checkedArray: " + checkedArray);
-        console.log("selectedArray: " + selectedArray);
         if (checkedArray.length == selectedArray.length) {
           console.log("...and the checkedArray did equal the selectedArray");
           addAndReset();
@@ -679,6 +673,7 @@ $(()=>{
         }
       }
     } else if (choice == 'twos'){
+      console.log('Comparing to Twos.');
       if (selectedArray.length == 0) {
         twosBlank = true;
         addAndReset();
@@ -709,6 +704,7 @@ $(()=>{
         }
       }
     } else if (choice == 'threes'){
+      console.log('Comparing to Threes.');
       if (selectedArray.length == 0) {
         threesBlank = true;
         addAndReset();
@@ -737,6 +733,7 @@ $(()=>{
         }
       }
     } else if (choice == 'fours'){
+      console.log('Comparing to Fours.');
       if (selectedArray.length == 0) {
         foursBlank = true;
         addAndReset();
@@ -765,6 +762,7 @@ $(()=>{
         }
       }
     } else if (choice == 'fives'){
+      console.log('Comparing to Fives.');
       if (selectedArray.length == 0) {
         fivesBlank = true;
         addAndReset();
@@ -793,6 +791,7 @@ $(()=>{
         }
       }
     } else if (choice == 'sixes'){
+      console.log('Comparing to Sixes.');
       if (selectedArray.length == 0) {
         sixesBlank = true;
         addAndReset();
@@ -821,6 +820,7 @@ $(()=>{
         }
       }
     } else if (choice == 'chance'){
+      console.log('Comparing to Chances.');
       if (selectedArray.length == 0) {
         chanceBlank = true;
         addAndReset();
@@ -838,6 +838,7 @@ $(()=>{
         }
       }
     } else if (choice == 'yahtzee'){
+      console.log('Comparing to Yahtzee.');
       if (selectedArray.length == 0) {
         yahtzeeBlank = true;
         scoreTotal = 0;
@@ -895,6 +896,7 @@ $(()=>{
 
   //After the game knows that the user has followed the rules, this function will get the total sum of an array
   const turnTotal = ()=>{
+    console.log("turnTotal activated");
     scoreTotal = 0;
     if (choice == 'yahtzee') {
       scoreTotal = 50;
