@@ -659,11 +659,8 @@ $(()=>{
           } else {
             console.log("--- (else) in for: " + selectedArray[i]);
             checkedArray.push(selectedArray[i]);
-            // addAndResetForLoop();
           }
         };
-        console.log("checkedArray: " + checkedArray);
-        console.log("selectedArray: " + selectedArray);
         if (checkedArray.length == selectedArray.length) {
           console.log("...and the checkedArray did equal the selectedArray");
           addAndReset();
@@ -684,22 +681,18 @@ $(()=>{
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 2) {
-            alert("The chosen dice do not work for the option that you have selected.")
-            selectedArray = [];
+            alert(selectedArray[i] + " is not a Two.");
             checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
             checkedArray.push(selectedArray[i]);
-            addAndReset();
           }
-        }
+        };
         if (checkedArray.length == selectedArray.length) {
-          console.log("(if) "+checkedArray+" : "+selectedArray);
           addAndReset();
         } else {
-          console.log("(else) "+checkedArray+" : "+selectedArray);
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
@@ -715,17 +708,15 @@ $(()=>{
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 3) {
-            alert("The chosen dice do not work for the option that you have selected.")
-            selectedArray = [];
+            alert(selectedArray[i] + " is not a Three.");
             checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
             checkedArray.push(selectedArray[i]);
-            addAndReset();
           }
-        }
+        };
         if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
@@ -744,17 +735,15 @@ $(()=>{
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 4) {
-            alert("The chosen dice do not work for the option that you have selected.")
-            selectedArray = [];
+            alert(selectedArray[i] + " is not a Four.");
             checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
             checkedArray.push(selectedArray[i]);
-            addAndReset();
           }
-        }
+        };
         if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
@@ -773,17 +762,15 @@ $(()=>{
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 5) {
-            alert("The chosen dice do not work for the option that you have selected.")
-            selectedArray = [];
+            alert(selectedArray[i] + " is not a Five.");
             checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
             checkedArray.push(selectedArray[i]);
-            addAndReset();
           }
-        }
+        };
         if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
@@ -802,17 +789,15 @@ $(()=>{
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 6) {
-            alert("The chosen dice do not work for the option that you have selected.")
-            selectedArray = [];
+            alert(selectedArray[i] + " is not a Six.");
             checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
             checkedArray.push(selectedArray[i]);
-            addAndReset();
           }
-        }
+        };
         if (checkedArray.length == selectedArray.length) {
           addAndReset();
         } else {
