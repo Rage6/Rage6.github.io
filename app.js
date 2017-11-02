@@ -650,16 +650,20 @@ $(()=>{
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
+            console.log("--- (if) in (for): " + selectedArray[i]);
             alert(selectedArray[i] + " is not an Ace.");
             checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
+            console.log("--- (else) in for: " + selectedArray[i]);
             checkedArray.push(selectedArray[i]);
             addAndResetForLoop();
           }
         };
+        console.log("checkedArray: " + checkedArray);
+        console.log("selectedArray: " + selectedArray);
         if (checkedArray.length == selectedArray.length) {
           console.log("...and the checkedArray did equal the selectedArray");
           addAndReset();
