@@ -647,9 +647,17 @@ $(()=>{
       console.log("--- Comparing to Aces.");
       if (selectedArray.length == 0) {
         console.log("--- selectedArray is empty");
-        currentPlayer.acesBlank = true;
-        console.log("--- acesBlank: " + currentPlayer.acesBlank);
-        addAndReset();
+        if (currentPlayer.acesBlank != true) {
+          currentPlayer.acesBlank = true;
+          addAndReset();
+        } else {
+          alert("The Ace category has already been filled. Please choose a different, available category.");
+          selectedArray = [];
+          checkedArray = [];
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
+        }
       } else {
         console.log("--- selectedArray is " + selectedArray);
         for (let i = 0; i < selectedArray.length; i++){
