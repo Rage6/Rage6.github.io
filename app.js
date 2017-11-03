@@ -89,6 +89,27 @@ $(()=>{
 
   let userTwoTotal = 0;
 
+  const blankStatus = ()=>{
+    console.log("User One: ");
+    console.log("--- acesBlank: " + userOneOptions.acesBlank);
+    console.log("--- twosBlank: " + userOneOptions.twosBlank);
+    console.log("--- threesBlank: " + userOneOptions.threesBlank);
+    console.log("--- foursBlank: " + userOneOptions.foursBlank);
+    console.log("--- fivesBlank: " + userOneOptions.fivesBlank);
+    console.log("--- sixesBlank: " + userOneOptions.sixesBlank);
+    console.log("--- chanceBlank: " + userOneOptions.chanceBlank);
+    console.log("--- yahtzeeBlank: " + userOneOptions.yahtzeeBlank);
+    console.log("User Two: ");
+    console.log("--- acesBlank: " + userTwoOptions.acesBlank);
+    console.log("--- twosBlank: " + userTwoOptions.twosBlank);
+    console.log("--- threesBlank: " + userTwoOptions.threesBlank);
+    console.log("--- foursBlank: " + userTwoOptions.foursBlank);
+    console.log("--- fivesBlank: " + userTwoOptions.fivesBlank);
+    console.log("--- sixesBlank: " + userTwoOptions.sixesBlank);
+    console.log("--- chanceBlank: " + userTwoOptions.chanceBlank);
+    console.log("--- yahtzeeBlank: " + userTwoOptions.yahtzeeBlank);
+  }
+
   //All of these have to follow the two user objects
   //Display the names on the website
   $('#name1').text(userOneOptions.name);
@@ -622,7 +643,7 @@ $(()=>{
 
   //After meeting all the criteria, the collection of following functions in 'addAndReset' will add the appropriates points to the category and reset all of the variables for the next turn
   const addAndReset = ()=> {
-    console.log("addAndReset activated")
+    console.log("addAndReset activated");
     turnTotal();
     addToTotal();
     categoryScores();
@@ -655,6 +676,7 @@ $(()=>{
 
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
   const checkValues = ()=>{
+    blankStatus();
     console.log("checkValues activated.");
     if (choice == 'aces') {
       if (selectedArray.length == 0) {
@@ -667,7 +689,8 @@ $(()=>{
           firstSubmit = true;
           resetSelections();
           resetOptions();
-        }
+        };
+        blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
