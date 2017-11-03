@@ -679,6 +679,7 @@ $(()=>{
     console.log("checkValues activated.");
     if (choice == 'aces') {
       if (selectedArray.length == 0) {
+        console.log("array is empty");
         if (currentPlayer.acesBlank != true) {
           currentPlayer.acesBlank = true;
           addAndReset();
@@ -691,6 +692,7 @@ $(()=>{
         };
         blankStatus();
       } else {
+        console.log("array is NOT empty");
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
             alert(selectedArray[i] + " is not an Ace.");
@@ -703,9 +705,11 @@ $(()=>{
           }
         };
         if (checkedArray.length == selectedArray.length && currentPlayer.acesBlank == false) {
+          console.log("checkpoint 1");
           addAndReset();
           currentPlayer.acesBlank = true;
         } else {
+          console.log("checkpoint 2");
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
@@ -790,7 +794,7 @@ $(()=>{
       }
     } else if (choice == 'fours'){
       if (selectedArray.length == 0) {
-        console.log("array is empty")
+        console.log("array is empty");
         if (currentPlayer.foursBlank != true) {
           currentPlayer.foursBlank = true;
           addAndReset();
@@ -803,7 +807,7 @@ $(()=>{
         };
         blankStatus();
       } else {
-        console.log("array is NOT empty")
+        console.log("array is NOT empty");
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 4) {
             alert(selectedArray[i] + " is not a Four.");
