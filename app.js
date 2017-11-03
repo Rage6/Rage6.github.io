@@ -706,6 +706,7 @@ $(()=>{
         if (checkedArray.length == selectedArray.length && currentPlayer.acesBlank == false) {
           console.log("...and the checkedArray did equal the selectedArray");
           addAndReset();
+          currentPlayer.acesBlank == true;
         } else {
           console.log('...and the checkedArray did NOT equal the selectedArray.');
           selectedArray = [];
