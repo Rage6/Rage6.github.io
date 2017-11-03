@@ -676,8 +676,8 @@ $(()=>{
 
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
   const checkValues = ()=>{
-    blankStatus();
     console.log("checkValues activated.");
+    console.log("--- Current Player: " + currentPlayer.name);
     if (choice == 'aces') {
       if (selectedArray.length == 0) {
         if (currentPlayer.acesBlank != true) {
@@ -704,17 +704,16 @@ $(()=>{
           }
         };
         if (checkedArray.length == selectedArray.length && currentPlayer.acesBlank == false) {
-          console.log("...and the checkedArray did equal the selectedArray");
           addAndReset();
           currentPlayer.acesBlank == true;
         } else {
-          console.log('...and the checkedArray did NOT equal the selectedArray.');
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
           resetSelections();
           resetOptions();
         }
+        blankStatus();
       }
     } else if (choice == 'twos'){
       console.log('Comparing to Twos.');
