@@ -175,9 +175,9 @@ $(()=>{
   //Use this to determine the name of the winner.
   const findWinnerName = ()=>{
     console.log("findWinnerName activated");
-    if (userOneTotal > userTwoOptions.total) {
+    if (userOneTotal > userTwoTotal) {
       alert('Congratulations, '+userOneOptions.name+'! You successfully defeated '+userTwoOptions.name+'. Cheers!');
-    } else if (userOneTotal < userTwoOptions.total) {
+    } else if (userOneTotal < userTwoTotal) {
       alert('Congratulations, '+userTwoOptions.name+'! You successfully defeated '+userOneOptions.name+'. Well done!')
     } else {
       alert("You two tied?! That's amazing! You must each be equally good!")
@@ -679,7 +679,6 @@ $(()=>{
     console.log("checkValues activated.");
     if (choice == 'aces') {
       if (selectedArray.length == 0) {
-        console.log("array is empty");
         if (currentPlayer.acesBlank != true) {
           currentPlayer.acesBlank = true;
           addAndReset();
@@ -690,9 +689,8 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       } else {
-        console.log("array is NOT empty");
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
             alert(selectedArray[i] + " is not an Ace.");
@@ -716,7 +714,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       }
     } else if (choice == 'twos'){
       if (selectedArray.length == 0) {
@@ -730,7 +728,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 2) {
@@ -753,7 +751,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       }
     } else if (choice == 'threes'){
       if (selectedArray.length == 0) {
@@ -767,7 +765,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 3) {
@@ -790,7 +788,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       }
     } else if (choice == 'fours'){
       if (selectedArray.length == 0) {
@@ -805,7 +803,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       } else {
         console.log("array is NOT empty");
         for (let i = 0; i < selectedArray.length; i++){
@@ -831,7 +829,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       }
     } else if (choice == 'fives'){
       if (selectedArray.length == 0) {
@@ -845,7 +843,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 5) {
@@ -868,7 +866,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       }
     } else if (choice == 'sixes'){
       if (selectedArray.length == 0) {
@@ -882,7 +880,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 6) {
@@ -905,7 +903,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       }
     } else if (choice == 'chance'){
       if (selectedArray.length == 0) {
@@ -919,7 +917,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray.length < 5) {
@@ -959,7 +957,7 @@ $(()=>{
           resetSelections();
           resetOptions();
         };
-        blankStatus();
+        // blankStatus();
       // ... or you have selected at least one die.
       } else {
         // ...if you didn't select all of the dice
