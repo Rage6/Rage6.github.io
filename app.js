@@ -90,15 +90,6 @@ $(()=>{
   let userTwoTotal = 0;
 
   const blankStatus = ()=>{
-    // console.log(currentPlayer.name);
-    // console.log("--- acesBlank: " + currentPlayer.acesBlank);
-    // console.log("--- twosBlank: " + currentPlayer.twosBlank);
-    // console.log("--- threesBlank: " + currentPlayer.threesBlank);
-    // console.log("--- foursBlank: " + currentPlayer.foursBlank);
-    // console.log("--- fivesBlank: " + currentPlayer.fivesBlank);
-    // console.log("--- sixesBlank: " + currentPlayer.sixesBlank);
-    // console.log("--- chanceBlank: " + currentPlayer.chanceBlank);
-    // console.log("--- yahtzeeBlank: " + currentPlayer.yahtzeeBlank);
     console.log("User One: ")
     console.log("--- acesBlank: " + userOneOptions.acesBlank);
     console.log("--- twosBlank: " + userOneOptions.twosBlank);
@@ -686,10 +677,8 @@ $(()=>{
   //This function (which is inserted the above 'submitValues' function) confirms that the the values submitted meet all of the requirements.
   const checkValues = ()=>{
     console.log("checkValues activated.");
-    console.log("--- Current Player: " + currentPlayer.name);
     if (choice == 'aces') {
       if (selectedArray.length == 0) {
-        console.log("--- if")
         if (currentPlayer.acesBlank != true) {
           currentPlayer.acesBlank = true;
           addAndReset();
@@ -702,7 +691,6 @@ $(()=>{
         };
         blankStatus();
       } else {
-        console.log("--- else")
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
             alert(selectedArray[i] + " is not an Ace.");
@@ -715,11 +703,8 @@ $(()=>{
           }
         };
         if (checkedArray.length == selectedArray.length && currentPlayer.acesBlank == false) {
-          console.log("--- checkpoint 1");
           addAndReset();
-          console.log("--- checkpoint 2");
           currentPlayer.acesBlank = true;
-          console.log("--- checkpoint 3");
         } else {
           selectedArray = [];
           checkedArray = [];
@@ -730,7 +715,6 @@ $(()=>{
         blankStatus();
       }
     } else if (choice == 'twos'){
-      console.log('Comparing to Twos.');
       if (selectedArray.length == 0) {
         if (currentPlayer.twosBlank != true) {
           currentPlayer.twosBlank = true;
@@ -741,7 +725,8 @@ $(()=>{
           firstSubmit = true;
           resetSelections();
           resetOptions();
-        }
+        };
+        blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 2) {
@@ -755,19 +740,18 @@ $(()=>{
           }
         };
         if (checkedArray.length == selectedArray.length && currentPlayer.twosBlank == false) {
-          console.log("...and the checkedArray did equal the selectedArray");
           addAndReset();
+          currentPlayer.twosBlank = true;
         } else {
-          console.log('...and the checkedArray did NOT equal the selectedArray.');
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
           resetSelections();
           resetOptions();
-        }
+        };
+        blankStatus();
       }
     } else if (choice == 'threes'){
-      console.log('Comparing to Threes.');
       if (selectedArray.length == 0) {
         if (currentPlayer.threesBlank != true) {
           currentPlayer.threesBlank = true;
@@ -778,7 +762,8 @@ $(()=>{
           firstSubmit = true;
           resetSelections();
           resetOptions();
-        }
+        };
+        blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 3) {
@@ -791,23 +776,31 @@ $(()=>{
             checkedArray.push(selectedArray[i]);
           }
         };
-        if (checkedArray.length == selectedArray.length && currentPlayer.twosBlank == false) {
-          console.log("...and the checkedArray did equal the selectedArray");
+        if (checkedArray.length == selectedArray.length && currentPlayer.threesBlank == false) {
           addAndReset();
+          currentPlayer.threesBlank = true;
         } else {
-          console.log('...and the checkedArray did NOT equal the selectedArray.');
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
           resetSelections();
           resetOptions();
-        }
+        };
+        blankStatus();
       }
     } else if (choice == 'fours'){
-      console.log('Comparing to Fours.');
       if (selectedArray.length == 0) {
-        foursBlank = true;
-        addAndReset();
+        if (currentPlayer.foursBlank != true) {
+          currentPlayer.foursBlank = true;
+          addAndReset();
+        } else {
+          selectedArray = [];
+          checkedArray = [];
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
+        };
+        blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 4) {
@@ -820,7 +813,22 @@ $(()=>{
             checkedArray.push(selectedArray[i]);
           }
         };
-        if (checkedArray.length == selectedArray.length) {
+        if (checkedArray.length == selectedArray.length && currentPlayer.foursBlank == false) {
+          addAndReset();
+          currentPlayer.foursBlank = true;
+        } else {
+          selectedArray = [];
+          checkedArray = [];
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
+        };
+        blankStatus();
+      }
+    } else if (choice == 'fives'){
+      if (selectedArray.length == 0) {
+        if (currentPlayer.fivesBlank != true) {
+          currentPlayer.fivesBlank = true;
           addAndReset();
         } else {
           selectedArray = [];
@@ -828,13 +836,8 @@ $(()=>{
           firstSubmit = true;
           resetSelections();
           resetOptions();
-        }
-      }
-    } else if (choice == 'fives'){
-      console.log('Comparing to Fives.');
-      if (selectedArray.length == 0) {
-        fivesBlank = true;
-        addAndReset();
+        };
+        blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 5) {
@@ -847,7 +850,22 @@ $(()=>{
             checkedArray.push(selectedArray[i]);
           }
         };
-        if (checkedArray.length == selectedArray.length) {
+        if (checkedArray.length == selectedArray.length && currentPlayer.fivesBlank == false) {
+          addAndReset();
+          currentPlayer.fivesBlank = true;
+        } else {
+          selectedArray = [];
+          checkedArray = [];
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
+        };
+        blankStatus();
+      }
+    } else if (choice == 'sixes'){
+      if (selectedArray.length == 0) {
+        if (currentPlayer.sixesBlank != true) {
+          currentPlayer.sixesBlank = true;
           addAndReset();
         } else {
           selectedArray = [];
@@ -855,13 +873,8 @@ $(()=>{
           firstSubmit = true;
           resetSelections();
           resetOptions();
-        }
-      }
-    } else if (choice == 'sixes'){
-      console.log('Comparing to Sixes.');
-      if (selectedArray.length == 0) {
-        sixesBlank = true;
-        addAndReset();
+        };
+        blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 6) {
@@ -874,7 +887,22 @@ $(()=>{
             checkedArray.push(selectedArray[i]);
           }
         };
-        if (checkedArray.length == selectedArray.length) {
+        if (checkedArray.length == selectedArray.length && currentPlayer.sixesBlank == false) {
+          addAndReset();
+          currentPlayer.sixesBlank = true;
+        } else {
+          selectedArray = [];
+          checkedArray = [];
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
+        };
+        blankStatus();
+      }
+    } else if (choice == 'chance'){
+      if (selectedArray.length == 0) {
+        if (currentPlayer.chanceBlank != true) {
+          currentPlayer.chanceBlank = true;
           addAndReset();
         } else {
           selectedArray = [];
@@ -882,13 +910,8 @@ $(()=>{
           firstSubmit = true;
           resetSelections();
           resetOptions();
-        }
-      }
-    } else if (choice == 'chance'){
-      console.log('Comparing to Chances.');
-      if (selectedArray.length == 0) {
-        chanceBlank = true;
-        addAndReset();
+        };
+        blankStatus();
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray.length < 5) {
@@ -903,22 +926,32 @@ $(()=>{
         }
       }
     } else if (choice == 'yahtzee'){
-      console.log('Comparing to Yahtzee.');
       // ... if you select no dice
       if (selectedArray.length == 0) {
-        console.log("-- no dice entered")
-        yahtzeeBlank = true;
-        scoreTotal = 0;
-        categoryScores();
-        displayTotal1();
-        displayTotal2();
-        firstSubmit = false;
-        hasSubmit = true;
-        selectedArray = [];
-        checkedArray = [];
-        resetSelections();
-        resetOptions();
-        howManyRolls = 1;
+        console.log("-- no dice entered");
+        if (currentPlayer.yahtzeeBlank != true) {
+          console.log("-- so 0 was added.")
+          currentPlayer.yahtzeeBlank = true;
+          scoreTotal = 0;
+          categoryScores();
+          displayTotal1();
+          displayTotal2();
+          firstSubmit = false;
+          hasSubmit = true;
+          selectedArray = [];
+          checkedArray = [];
+          resetSelections();
+          resetOptions();
+          howManyRolls = 1;
+        } else {
+          console.log("-- but the yahtzee was already used.")
+          selectedArray = [];
+          checkedArray = [];
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
+        };
+        blankStatus();
       // ... or you have selected at least one die.
       } else {
         // ...if you didn't select all of the dice
