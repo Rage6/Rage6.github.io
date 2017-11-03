@@ -50,12 +50,19 @@ $(()=>{
     'aces': 0,
     'acesBlank': false,
     'twos': 0,
+    'twosBlank': false,
     'threes': 0,
+    'threesBlank': false,
     'fours': 0,
+    'foursBlank': false,
     'fives': 0,
+    'fivesBlank': false,
     'sixes': 0,
+    'sixesBlank': false,
     'chance': 0,
-    'yahtzee': 0
+    'chanceBlank': false,
+    'yahtzee': 0,
+    'yahtzeeBlank': false
   }
 
   let userOneTotal = 0;
@@ -65,13 +72,19 @@ $(()=>{
     'aces': 0,
     'acesBlank': false,
     'twos': 0,
+    'twosBlank': false,
     'threes': 0,
+    'threesBlank': false,
     'fours': 0,
+    'foursBlank': false,
     'fives': 0,
+    'fivesBlank': false,
     'sixes': 0,
+    'sixesBlank': false,
     'chance': 0,
+    'chanceBlank': false,
     'yahtzee': 0,
-    'total': 0
+    'yahtzeeBlank': false
   }
 
   let userTwoTotal = 0;
