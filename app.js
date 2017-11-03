@@ -475,43 +475,43 @@ $(()=>{
           firstSubmit = true;
         }
       } else if (choice == 'twos') {
-        if (userOneOptions.twos != 0 || twosBlank == true) {
+        if (userOneOptions.twos != 0 || userOneOptions.twosBlank == true) {
           noAdd = true;
           alert("The 'Twos' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'threes') {
-        if (userOneOptions.threes != 0 || threesBlank == true) {
+        if (userOneOptions.threes != 0 || userOneOptions.threesBlank == true) {
           noAdd = true;
           alert("The 'Threes' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'fours') {
-        if (userOneOptions.fours != 0 || foursBlank == true) {
+        if (userOneOptions.fours != 0 || userOneOptions.foursBlank == true) {
           noAdd = true;
           alert("The 'Fours' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'fives') {
-        if (userOneOptions.fives != 0 || fivesBlank == true) {
+        if (userOneOptions.fives != 0 || userOneOptions.fivesBlank == true) {
           noAdd = true;
           alert("The 'Fives' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'sixes') {
-        if (userOneOptions.sixes != 0 || sixesBlank == true) {
+        if (userOneOptions.sixes != 0 || userOneOptions.sixesBlank == true) {
           noAdd = true;
           alert("The 'Sixes' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'chance') {
-        if (userOneOptions.chance != 0 || chanceBlank == true) {
+        if (userOneOptions.chance != 0 || userOneOptions.chanceBlank == true) {
           noAdd = true;
           alert("The 'Chance' option has already been used. Please select an unused option.");
           firstSubmit = true;
         }
       } else if (choice == 'yahtzee') {
-        if (userOneOptions.yahtzee != 0 || yahtzeeBlank == true) {
+        if (userOneOptions.yahtzee != 0 || userOneOptions.yahtzeeBlank == true) {
           noAdd = true;
           alert("The 'Yahtzee' option has already been used. Please select an unused option.");
           firstSubmit = true;
@@ -528,43 +528,43 @@ $(()=>{
             firstSubmit = true;
           }
         } else if (choice == 'twos') {
-          if (userTwoOptions.twos != 0 || twosBlank == true) {
+          if (userTwoOptions.twos != 0 || userTwoOptions.twosBlank == true) {
             noAdd = true;
             alert("The 'Twos' option has already been used. Please select an unused option.");
             firstSubmit = true;
           }
         } else if (choice == 'threes') {
-          if (userTwoOptions.threes != 0 || threesBlank == true) {
+          if (userTwoOptions.threes != 0 || userTwoOptions.threesBlank == true) {
             noAdd = true;
             alert("The 'Threes' option has already been used. Please select an unused option.");
             firstSubmit = true;
           }
         } else if (choice == 'fours') {
-          if (userTwoOptions.fours != 0 || foursBlank == true) {
+          if (userTwoOptions.fours != 0 || userTwoOptions.foursBlank == true) {
             noAdd = true;
             alert("The 'Fours' option has already been used. Please select an unused option.");
             firstSubmit = true;
           }
         } else if (choice == 'fives') {
-          if (userTwoOptions.fives != 0 || fivesBlank == true) {
+          if (userTwoOptions.fives != 0 || userTwoOptions.fivesBlank == true) {
             noAdd = true;
             alert("The 'Fives' option has already been used. Please select an unused option.");
             firstSubmit = true;
           }
         } else if (choice == 'sixes') {
-          if (userTwoOptions.sixes != 0 || sixesBlank == true) {
+          if (userTwoOptions.sixes != 0 || userTwoOptions.sixesBlank == true) {
             noAdd = true;
             alert("The 'Sixes' option has already been used. Please select an unused option.");
             firstSubmit = true;
           }
         } else if (choice == 'chance') {
-          if (userTwoOptions.chance != 0 || chanceBlank == true) {
+          if (userTwoOptions.chance != 0 || userTwoOptions.chanceBlank == true) {
             noAdd = true;
             alert("The 'Chance' option has already been used. Please select an unused option.");
             firstSubmit = true;
           }
         } else if (choice == 'yahtzee') {
-          if (userTwoOptions.yahtzee != 0 || yahtzeeBlank == true) {
+          if (userTwoOptions.yahtzee != 0 || userTwoOptions.yahtzeeBlank == true) {
             noAdd = true;
             alert("The 'Yahtzee' option has already been used. Please select an unused option.");
             firstSubmit = true;
