@@ -90,7 +90,16 @@ $(()=>{
   let userTwoTotal = 0;
 
   const blankStatus = ()=>{
-    console.log("User One: ");
+    console.log(currentPlayer.name);
+    console.log("--- acesBlank: " + currentPlayer.acesBlank);
+    console.log("--- twosBlank: " + currentPlayer.twosBlank);
+    console.log("--- threesBlank: " + currentPlayer.threesBlank);
+    console.log("--- foursBlank: " + currentPlayer.foursBlank);
+    console.log("--- fivesBlank: " + currentPlayer.fivesBlank);
+    console.log("--- sixesBlank: " + currentPlayer.sixesBlank);
+    console.log("--- chanceBlank: " + currentPlayer.chanceBlank);
+    console.log("--- yahtzeeBlank: " + currentPlayer.yahtzeeBlank);
+    console.log("User One: ")
     console.log("--- acesBlank: " + userOneOptions.acesBlank);
     console.log("--- twosBlank: " + userOneOptions.twosBlank);
     console.log("--- threesBlank: " + userOneOptions.threesBlank);
