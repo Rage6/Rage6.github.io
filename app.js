@@ -90,15 +90,15 @@ $(()=>{
   let userTwoTotal = 0;
 
   const blankStatus = ()=>{
-    console.log(currentPlayer.name);
-    console.log("--- acesBlank: " + currentPlayer.acesBlank);
-    console.log("--- twosBlank: " + currentPlayer.twosBlank);
-    console.log("--- threesBlank: " + currentPlayer.threesBlank);
-    console.log("--- foursBlank: " + currentPlayer.foursBlank);
-    console.log("--- fivesBlank: " + currentPlayer.fivesBlank);
-    console.log("--- sixesBlank: " + currentPlayer.sixesBlank);
-    console.log("--- chanceBlank: " + currentPlayer.chanceBlank);
-    console.log("--- yahtzeeBlank: " + currentPlayer.yahtzeeBlank);
+    // console.log(currentPlayer.name);
+    // console.log("--- acesBlank: " + currentPlayer.acesBlank);
+    // console.log("--- twosBlank: " + currentPlayer.twosBlank);
+    // console.log("--- threesBlank: " + currentPlayer.threesBlank);
+    // console.log("--- foursBlank: " + currentPlayer.foursBlank);
+    // console.log("--- fivesBlank: " + currentPlayer.fivesBlank);
+    // console.log("--- sixesBlank: " + currentPlayer.sixesBlank);
+    // console.log("--- chanceBlank: " + currentPlayer.chanceBlank);
+    // console.log("--- yahtzeeBlank: " + currentPlayer.yahtzeeBlank);
     console.log("User One: ")
     console.log("--- acesBlank: " + userOneOptions.acesBlank);
     console.log("--- twosBlank: " + userOneOptions.twosBlank);
@@ -718,7 +718,7 @@ $(()=>{
           console.log("--- checkpoint 1");
           addAndReset();
           console.log("--- checkpoint 2");
-          currentPlayer.acesBlank == true;
+          currentPlayer.acesBlank = true;
           console.log("--- checkpoint 3");
         } else {
           selectedArray = [];
