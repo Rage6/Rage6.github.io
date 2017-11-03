@@ -680,6 +680,7 @@ $(()=>{
     console.log("--- Current Player: " + currentPlayer.name);
     if (choice == 'aces') {
       if (selectedArray.length == 0) {
+        console.log("--- if")
         if (currentPlayer.acesBlank != true) {
           currentPlayer.acesBlank = true;
           addAndReset();
@@ -692,6 +693,7 @@ $(()=>{
         };
         blankStatus();
       } else {
+        console.log("--- else")
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
             alert(selectedArray[i] + " is not an Ace.");
@@ -712,7 +714,7 @@ $(()=>{
           firstSubmit = true;
           resetSelections();
           resetOptions();
-        }
+        };
         blankStatus();
       }
     } else if (choice == 'twos'){
