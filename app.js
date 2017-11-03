@@ -644,14 +644,11 @@ $(()=>{
   const checkValues = ()=>{
     console.log("checkValues activated.");
     if (choice == 'aces') {
-      console.log("--- Comparing to Aces.");
       if (selectedArray.length == 0) {
-        console.log("--- selectedArray is empty");
         if (currentPlayer.acesBlank != true) {
           currentPlayer.acesBlank = true;
           addAndReset();
         } else {
-          alert("The Ace category has already been filled. Please choose a different, available category.");
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
@@ -659,17 +656,14 @@ $(()=>{
           resetOptions();
         }
       } else {
-        console.log("--- selectedArray is " + selectedArray);
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 1) {
-            console.log("--- (if) in (for): " + selectedArray[i]);
             alert(selectedArray[i] + " is not an Ace.");
             checkedArray = [];
             firstSubmit = true;
             resetSelections();
             resetOptions();
           } else {
-            console.log("--- (else) in for: " + selectedArray[i]);
             checkedArray.push(selectedArray[i]);
           }
         };
@@ -688,8 +682,16 @@ $(()=>{
     } else if (choice == 'twos'){
       console.log('Comparing to Twos.');
       if (selectedArray.length == 0) {
-        twosBlank = true;
-        addAndReset();
+        if (currentPlayer.twosBlank != true) {
+          currentPlayer.twosBlank = true;
+          addAndReset();
+        } else {
+          selectedArray = [];
+          checkedArray = [];
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
+        }
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 2) {
@@ -702,9 +704,11 @@ $(()=>{
             checkedArray.push(selectedArray[i]);
           }
         };
-        if (checkedArray.length == selectedArray.length) {
+        if (checkedArray.length == selectedArray.length && currentPlayer.twosBlank == false) {
+          console.log("...and the checkedArray did equal the selectedArray");
           addAndReset();
         } else {
+          console.log('...and the checkedArray did NOT equal the selectedArray.');
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
@@ -715,8 +719,16 @@ $(()=>{
     } else if (choice == 'threes'){
       console.log('Comparing to Threes.');
       if (selectedArray.length == 0) {
-        threesBlank = true;
-        addAndReset();
+        if (currentPlayer.threesBlank != true) {
+          currentPlayer.threesBlank = true;
+          addAndReset();
+        } else {
+          selectedArray = [];
+          checkedArray = [];
+          firstSubmit = true;
+          resetSelections();
+          resetOptions();
+        }
       } else {
         for (let i = 0; i < selectedArray.length; i++){
           if (selectedArray[i] != 3) {
@@ -729,9 +741,11 @@ $(()=>{
             checkedArray.push(selectedArray[i]);
           }
         };
-        if (checkedArray.length == selectedArray.length) {
+        if (checkedArray.length == selectedArray.length && currentPlayer.twosBlank == false) {
+          console.log("...and the checkedArray did equal the selectedArray");
           addAndReset();
         } else {
+          console.log('...and the checkedArray did NOT equal the selectedArray.');
           selectedArray = [];
           checkedArray = [];
           firstSubmit = true;
