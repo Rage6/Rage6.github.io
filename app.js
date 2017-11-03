@@ -706,6 +706,7 @@ $(()=>{
           }
         };
         if (checkedArray.length == selectedArray.length && currentPlayer.acesBlank == false) {
+          console.log("checkpoint 1")
           addAndReset();
           currentPlayer.acesBlank == true;
         } else {
