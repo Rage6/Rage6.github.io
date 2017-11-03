@@ -45,7 +45,7 @@ $(()=>{
   let checkedArray = [];
   let endOfTurn = false;
 
-  const userOneOptions = {
+  let userOneOptions = {
     'name': user1,
     'aces': 0,
     'acesBlank': false,
@@ -67,7 +67,7 @@ $(()=>{
 
   let userOneTotal = 0;
 
-  const userTwoOptions = {
+  let userTwoOptions = {
     'name': user2,
     'aces': 0,
     'acesBlank': false,
