@@ -91,23 +91,23 @@ $(()=>{
 
   const blankStatus = ()=>{
     console.log("User One: ")
-    console.log("--- acesBlank: " + userOneOptions.acesBlank);
-    console.log("--- twosBlank: " + userOneOptions.twosBlank);
-    console.log("--- threesBlank: " + userOneOptions.threesBlank);
-    console.log("--- foursBlank: " + userOneOptions.foursBlank);
-    console.log("--- fivesBlank: " + userOneOptions.fivesBlank);
-    console.log("--- sixesBlank: " + userOneOptions.sixesBlank);
-    console.log("--- chanceBlank: " + userOneOptions.chanceBlank);
-    console.log("--- yahtzeeBlank: " + userOneOptions.yahtzeeBlank);
+    console.log("-- acesBlank: " + userOneOptions.acesBlank);
+    console.log("-- twosBlank: " + userOneOptions.twosBlank);
+    console.log("-- threesBlank: " + userOneOptions.threesBlank);
+    console.log("-- foursBlank: " + userOneOptions.foursBlank);
+    console.log("-- fivesBlank: " + userOneOptions.fivesBlank);
+    console.log("-- sixesBlank: " + userOneOptions.sixesBlank);
+    console.log("-- chanceBlank: " + userOneOptions.chanceBlank);
+    console.log("-- yahtzeeBlank: " + userOneOptions.yahtzeeBlank);
     console.log("User Two: ");
-    console.log("--- acesBlank: " + userTwoOptions.acesBlank);
-    console.log("--- twosBlank: " + userTwoOptions.twosBlank);
-    console.log("--- threesBlank: " + userTwoOptions.threesBlank);
-    console.log("--- foursBlank: " + userTwoOptions.foursBlank);
-    console.log("--- fivesBlank: " + userTwoOptions.fivesBlank);
-    console.log("--- sixesBlank: " + userTwoOptions.sixesBlank);
-    console.log("--- chanceBlank: " + userTwoOptions.chanceBlank);
-    console.log("--- yahtzeeBlank: " + userTwoOptions.yahtzeeBlank);
+    console.log("-- acesBlank: " + userTwoOptions.acesBlank);
+    console.log("-- twosBlank: " + userTwoOptions.twosBlank);
+    console.log("-- threesBlank: " + userTwoOptions.threesBlank);
+    console.log("-- foursBlank: " + userTwoOptions.foursBlank);
+    console.log("-- fivesBlank: " + userTwoOptions.fivesBlank);
+    console.log("-- sixesBlank: " + userTwoOptions.sixesBlank);
+    console.log("-- chanceBlank: " + userTwoOptions.chanceBlank);
+    console.log("-- yahtzeeBlank: " + userTwoOptions.yahtzeeBlank);
   }
 
   //All of these have to follow the two user objects
