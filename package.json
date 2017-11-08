@@ -1,0 +1,14 @@
+{
+  "name": "quick_yahtzee",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specificed\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "dependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.12.1"
+  }
+}

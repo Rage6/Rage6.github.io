@@ -1,0 +1,448 @@
+body {
+  margin: 0;
+  /*border: 1px solid red;*/
+  padding: 0;
+  background-color: green;
+  background-image: url("/images/dark-green-pattern-wallpaper-3.jpg");
+  background-size: cover;
+}
+
+#menu {
+  display: none;
+}
+
+#navBar {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-color: black;
+  color: ivory;
+  height: 40px;
+  width: 100%;
+}
+
+.navButton {
+  margin: 0;
+  border: 1px solid ivory;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  cursor: pointer;
+}
+
+#mediaBox {
+
+}
+
+#modalOverall {
+  border: 1px solid red;
+  display: hide;
+  z-index: 1;
+  position: fixed;
+  background-color: black;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+}
+
+#modalBox {
+  margin: 0;
+  padding: 5px solid gold;
+  padding: 0;
+  background-color: green;
+}
+
+#wholeContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#mainTitle {
+  margin: 0;
+  /*border: 1px solid blue;*/
+  padding: 0;
+  font-size: 2em;
+  text-align: center;
+  color: ivory;
+  width: 80%;
+  min-width: 1100px;
+}
+
+.gameboard {
+  border: 10px solid black;
+  padding: 0;
+  background-color: black;
+  width: 1120px;
+  height: 650px;
+}
+
+#table {
+  margin: 0;
+  /*border:1px solid blue;*/
+  padding: 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+#diceContainer {
+  margin: 0;
+  /*border: 1px solid black;*/
+  padding: 0;
+  display: inline-block;
+  width: 60%;
+  height: 100%;
+}
+
+#diceBox {
+  margin: 0 10px;
+  border: solid 1px black;
+  padding: 0;
+  background-image: url("/images/dice_board.jpg");
+  height: 60%;
+}
+
+.diceRow {
+  margin: 0;
+  /*border: 1px solid black;*/
+  border-radius: 5px;
+  padding:0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50%;
+}
+
+.dice {
+  margin: 20px 0px;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding-left: 0;
+  background-color: white;
+  font-size: 5em;
+  text-align: center;
+  height: 120px;
+  width: 120px;
+}
+
+#first {
+
+}
+
+#second {
+
+}
+
+#third {
+
+}
+
+#fourth {
+
+}
+
+#fifth {
+
+}
+
+#rollSubmitTurn {
+  margin: 0 10px;
+  /*border: 1px solid purple;*/
+  padding: 4px 0px;
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  /*width: 100%;*/
+}
+
+#messageBoard {
+  margin: 0 10px;
+  /*border: 1px solid purple;*/
+  padding: 0;
+  background-image: url("/images/dice1.jpg");
+  background-size: cover;
+  height: 28%;
+  /*width: 100%;*/
+}
+
+#leftMenu {
+  margin: 0;
+  /*border: 1px solid red;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  color: ivory;
+  /*background-color: red;*/
+  height: 10%;
+  width: 100%;
+}
+
+#optionsBox {
+  margin: 0;
+  /*border: 1px solid orange;*/
+  padding: 0;
+  background-image: url("/images/option_board.jpg");
+  height: 100%;
+  width: 30%;
+}
+
+#diceOptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-image: url("/images/option_board.jpg");
+  height: 60%;
+  width: 100%;
+}
+
+button {
+  margin: 0 20%;
+  border: 3px solid black;
+  border-radius: 40%;
+  padding: 0;
+  font-size: 1.5em;
+  background-color: ivory;
+}
+
+.optionButton {}
+
+#roundRollBox {
+  margin: 0;
+  /*border: 1px solid red;*/
+  padding: 0;
+  width: 100%;
+  height: 30%;
+}
+
+#userBox {
+  margin: 0;
+  /*border: 1px solid black;*/
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-image: url("/images/option_board.jpg");
+  min-width: 200px;
+  width: 30%;
+  height: 100%;
+}
+
+.user {
+  margin: 0;
+  /*border: 1px solid yellow;*/
+  padding: 0;
+  background-color: ivory;
+  text-align: center;
+  width: 100%;
+  height: 45%;
+}
+
+.name {
+  /*border: 1px solid red;*/
+  font-size: 2em;
+  font-style: italic;
+}
+
+#name1 {
+  background-color: orange;
+}
+
+#name2 {}
+
+.total {
+  /*border: 1px solid red;*/
+  font-size: 3em;
+}
+
+.userColumn {
+  margin: 0;
+  border: 1px 1px 0 0 dashed black;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+#total1{}
+
+#total2{}
+
+/*.optionLabel {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}*/
+
+.rowOfColumns {
+  display: flex;
+  flex-direction: row;
+}
+
+.subScores {
+  flex-direction: column;
+  font-size: 0.4em;
+}
+
+#shuffle {
+  margin: 0;
+  border: 1px solid black;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: peru;
+  font-size: 2em;
+  text-align: center;
+  height: 100%;
+  width: 30%;
+}
+
+#startButton {
+  margin: 0;
+  border: 1px solid black;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: red;
+  font-size: 2em;
+  text-align: center;
+  height: 100%;
+  width: 30%;
+}
+
+#pointsButton {
+  margin: 0;
+  border: 1px solid black;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: green;
+  font-size: 1.8em;
+  text-align: center;
+  height: 100%;
+  width: 30%;
+}
+
+.showTally {
+  margin: 0;
+  /*border: 1px solid black;*/
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
+}
+
+.tallyName {
+  margin: 0;
+  /*border: 1px solid yellow;*/
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: ivory;
+  width: 50%;
+}
+
+#rolls {
+  margin: 4%;
+  /*border: 1px solid black;*/
+  border-radius: 100%;
+  border: 3px solid black;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-color: ivory;
+  font-size: 2em;
+  height: 65%;
+  width: 50%;
+}
+
+#round {
+  margin: 4%;
+  /*border: 1px solid black;*/
+  border-radius: 100%;
+  border: 3px solid black;
+  padding: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-color: ivory;
+  font-size: 2em;
+  height: 65%;
+  width: 50%;
+}
+
+/*** FOR SMALLER SCREENS ***/
+
+@media (max-device-width: 500px) {
+
+  #wholeContent {
+    /*border: 1px solid red;*/
+  }
+
+  #menuBox {
+    margin: 0;
+    display: block;
+    width: 100%;
+  }
+
+  #menu {
+    border-bottom: 1px solid ivory;
+    display: block;
+    font-size: 80px;
+    color: ivory;
+    text-align: center;
+    background-color: black;
+  }
+
+  #navBar {
+    display: none;
+    background-color: transparent;
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+  }
+
+  .navButton {
+    margin: 0 5%;
+    padding: 40px 0;
+    border: 0px 1px 1px 1px solid ivory;
+    font-size: 70px;
+    background-color: black;
+    width: 90%;
+  }
+
+  #mainTitle {
+    padding: 0px;
+    font-size: 4em;
+  }
+
+  #mediaBox {
+    display: block;
+  }
+
+  .gameboard {
+    border: 10px solid black;
+    padding: 0;
+    background-color: black;
+    width: 90%;
+  }
+
+}
+
+/*BOTTOM*/
