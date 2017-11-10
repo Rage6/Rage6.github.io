@@ -124,6 +124,26 @@ $(()=>{
     console.log("-- yahtzeeBlank: " + userTwoOptions.yahtzeeBlank);
   }
 
+  // This is the button that turns "Rules" on and off
+  const triggerRules = ()=> {
+    $('#rulesBox').toggle();
+    if ($('#howToPlayBox').css('display','block')) {
+      $('#howToPlayBox').css('display','none')
+    }
+  }
+  const ruleButton = $('#rules');
+  ruleButton.on('click',triggerRules);
+
+  //This is the button that turns "How To Play" on and off
+  const triggerHowToPlay = ()=> {
+    $('#howToPlayBox').toggle();
+    if ($('#rulesBox').css('display','block')) {
+      $('#rulesBox').css('display','none')
+    }
+  }
+  const howToPlayButton = $('#howToPlay');
+  howToPlayButton.on('click',triggerHowToPlay);
+
   //All of these have to follow the two user objects
   //Display the names on the website
   $('#name1').text(userOneOptions.name);
