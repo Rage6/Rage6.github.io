@@ -35,6 +35,7 @@ body {
 
 .noteBox {
   margin: 0 10%;
+  border: 5px solid gold;
   padding: 20px 5%;
   display: none;
   color: ivory;
@@ -52,6 +53,10 @@ body {
 
 .noteContent {
   margin: 20px 0;
+}
+
+.categoryColumn {
+  margin: 10px 0 10px 5%;
 }
 
 #mediaBox {
