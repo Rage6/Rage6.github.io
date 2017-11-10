@@ -33,26 +33,29 @@ body {
   cursor: pointer;
 }
 
+.noteBox {
+  margin: 0 10%;
+  padding: 20px 5%;
+  display: none;
+  color: ivory;
+  font-size: 20px;
+  background-color: brown;
+  z-index: 1;
+  position: absolute;
+}
+
+.noteTitle {
+  margin: 15px 0;
+  font-size: 50px;
+  text-align: center;
+}
+
+.noteContent {
+  margin: 20px 0;
+}
+
 #mediaBox {
 
-}
-
-#modalOverall {
-  border: 1px solid red;
-  display: hide;
-  z-index: 1;
-  position: fixed;
-  background-color: black;
-  opacity: 0.5;
-  height: 100%;
-  width: 100%;
-}
-
-#modalBox {
-  margin: 0;
-  padding: 5px solid gold;
-  padding: 0;
-  background-color: green;
 }
 
 #wholeContent {

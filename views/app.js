@@ -31,7 +31,7 @@ $(()=>{
 
   alert("Now we're ready to play! " + user1 + " will go first. During each turn, the player can roll the dice three times. Simply click any die in order to prevent it from being rolled. All selected die will be shaded grey. Once you have selected the dice that you want to use for points, click 'Submit'. When the next player (in this case, " + user2 + ") is ready to start their turn, they need only click 'Next Turn'. Good luck!")
 
-  //'trigger' will is part of clicking on/off of dice
+  //'trigger' involves how dice are clicked on and off
   let trigger = true;
   let pickedFirst = false;
   let pickedSecond = false;
@@ -124,6 +124,26 @@ $(()=>{
     console.log("-- yahtzeeBlank: " + userTwoOptions.yahtzeeBlank);
   }
 
+  // This is the button that turns "Rules" on and off
+  const triggerRules = ()=> {
+    $('#rulesBox').toggle();
+    if ($('#howToPlayBox').css('display','block')) {
+      $('#howToPlayBox').css('display','none')
+    }
+  }
+  const ruleButton = $('#rules');
+  ruleButton.on('click',triggerRules);
+
+  //This is the button that turns "How To Play" on and off
+  const triggerHowToPlay = ()=> {
+    $('#howToPlayBox').toggle();
+    if ($('#rulesBox').css('display','block')) {
+      $('#rulesBox').css('display','none')
+    }
+  }
+  const howToPlayButton = $('#howToPlay');
+  howToPlayButton.on('click',triggerHowToPlay);
+
   //All of these have to follow the two user objects
   //Display the names on the website
   $('#name1').text(userOneOptions.name);
@@ -144,21 +164,6 @@ $(()=>{
     $('#round').text(round);
     // resetAllDice();
   }
-
-  // const resetAllDice = () => {
-  //   console.log("resetAllDice activated")
-  //   pickedFirst = false;
-  //   first.css('background-color','white');
-  //   pickedSecond = false;
-  //   second.css('background-color','white');
-  //   pickedThird = false;
-  //   third.css('background-color','white');
-  //   pickedFourth = false;
-  //   fourth.css('background-color','white');
-  //   pickedFifth = false;
-  //   fifth.css('background-color','white');
-  //   trigger = true;
-  // }
 
   displayTotal1();
   displayTotal2();
@@ -186,6 +191,8 @@ $(()=>{
           hasSubmit = false;
           endOfTurn = false;
         };
+        resetSelections();
+        resetOptions();
         adjustRound();
         choice = 'test';
         firstSubmit = true;
