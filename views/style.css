@@ -43,6 +43,7 @@ body {
   background-color: brown;
   z-index: 1;
   position: absolute;
+  cursor: pointer;
 }
 
 .noteTitle {
@@ -135,6 +136,11 @@ body {
   text-align: center;
   height: 120px;
   width: 120px;
+  cursor: pointer;
+}
+
+.catButton {
+  cursor: pointer;
 }
 
 #first {
@@ -294,6 +300,10 @@ button {
 .subScores {
   flex-direction: column;
   font-size: 0.4em;
+}
+
+.actButton {
+  cursor: pointer;
 }
 
 #shuffle {

@@ -1073,20 +1073,26 @@ $(()=>{
 
   // This is to open and close the Menu options
   let menuOpen = false;
+
   const triggerMenu = () => {
     if (menuOpen == false) {
       $("#navBar").css('display','block');
       menuOpen = true;
     } else {
       $("#navBar").css('display','none');
+      $("#rulesBox").css('display','none');
+      $("#howToPlayBox").css('display','none');
       menuOpen = false;
-    }
+    };
   };
-
   const menu = $("#menu");
   menu.on('click', triggerMenu);
 
-
-
+  const closeBox = () => {
+    $(".noteBox").css('display','none')
+  };
+  const fullBox = $(".noteBox");
+  fullBox.on('click', closeBox);
+  
 })
 // BOTTOM

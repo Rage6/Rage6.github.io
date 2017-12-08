@@ -73,10 +73,13 @@
         <u>ENTER YOUR POINTS</u> - Once your dice and category are chosen, click the 'Enter Points' button. The new category and total scores will be displayed in the player's scoreboard.
       </div>
       <div class="noteContent">
-        <u>MOVE TO NEXT PLAYER</u> - Once a player has entered has their points, their turn is over. To move onto the next player, click 'Next Turn'.
+        <u>MOVE TURN TO NEXT PLAYER</u> - The current player's name will be highlighted in their scorecard. Once you have entered your points, your turn is over. Simply click 'Next Turn' (which will now highlight their name) and then the next player can begin.
       </div>
       <div class="noteContent">
         <u>WHO WINS?</u> - The winner is the player with the highest overall score after the final player enters their points on the 8th round.
+      </div>
+      <div class="noteContent">
+        <u>DID AN UNEXPECTED BOX APPEAR?</u> - This is likely because a dice, category, or action was selected at the inapporpriate time. Please read the explanation on the box, and you can probably find the mistake.
       </div>
     </div>
     <div id="mediaBox">
@@ -91,14 +94,14 @@
                 Choose Your Category
               </div>
               <div id="diceOptions">
-                <button id="aces">Aces</button>
-                <button id="twos">Twos</button>
-                <button id="threes">Threes</button>
-                <button id="fours">Fours</button>
-                <button id="fives">Fives</button>
-                <button id="sixes">Sixes</button>
-                <button id="chance">Chance</button>
-                <button id="yahtzee">Yahtzee</button>
+                <button class="catButton" id="aces">Aces</button>
+                <button class="catButton" id="twos">Twos</button>
+                <button class="catButton" id="threes">Threes</button>
+                <button class="catButton" id="fours">Fours</button>
+                <button class="catButton" id="fives">Fives</button>
+                <button class="catButton" id="sixes">Sixes</button>
+                <button class="catButton" id="chance">Chance</button>
+                <button class="catButton" id="yahtzee">Yahtzee</button>
               </div>
               <div id="roundRollBox">
                 <div class="showTally">
@@ -124,13 +127,13 @@
                 </div>
               </div>
               <div id="rollSubmitTurn">
-                <div id="shuffle">
+                <div class="actButton" id="shuffle">
                   Roll
                 </div>
-                <div id="pointsButton">
+                <div class="actButton" id="pointsButton">
                   Enter Points
                 </div>
-                <div id="startButton">
+                <div class="actButton" id="startButton">
                   Next Turn
                 </div>
               </div>
