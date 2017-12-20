@@ -200,9 +200,14 @@ body {
   margin: 0;
   /*border: 1px solid orange;*/
   padding: 0;
+  display: initial;
   background-image: url("/images/option_board.jpg");
   height: 100%;
   width: 30%;
+}
+
+#mediaOptionsBox {
+  display: none;
 }
 
 #diceOptions {
@@ -303,51 +308,31 @@ button {
 }
 
 .actButton {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 30%;
   cursor: pointer;
 }
 
 #shuffle {
-  margin: 0;
-  border: 1px solid black;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: peru;
   font-size: 2em;
-  text-align: center;
-  height: 100%;
-  width: 30%;
 }
 
 #startButton {
-  margin: 0;
-  border: 1px solid black;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: white;
   background-color: red;
   font-size: 2em;
-  text-align: center;
-  height: 100%;
-  width: 30%;
 }
 
 #pointsButton {
-  margin: 0;
-  border: 1px solid black;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: white;
   background-color: green;
   font-size: 1.8em;
-  text-align: center;
-  height: 100%;
-  width: 30%;
 }
 
 .showTally {
@@ -409,14 +394,9 @@ button {
 
 @media (max-device-width: 500px) {
 
-  #wholeContent {
-    /*border: 1px solid red;*/
-  }
-
   #menuBox {
     margin: 0;
     display: block;
-    width: 100%;
   }
 
   #menu {
@@ -445,20 +425,110 @@ button {
     width: 90%;
   }
 
-  #mainTitle {
-    padding: 0px;
-    font-size: 4em;
+  .noteBox {
+    font-size: 50px;
+    overflow: scroll;
+    height: 90%;
   }
 
-  #mediaBox {
+  #wholeContent {
     display: block;
+    /*border: 1px solid red;*/
+  }
+
+  #mainTitle {
+    margin: 0 10%;
+    padding: 0px;
+    font-size: 4em;
+    min-width: initial;
   }
 
   .gameboard {
+    margin: 0 5%;
     border: 10px solid black;
     padding: 0;
+    display: block;
     background-color: black;
+    height: 100%;
     width: 90%;
+  }
+
+  #table {
+    display: block;
+  }
+
+  #optionsBox {
+    display: none;
+  }
+
+  #diceContainer {
+    display: block;
+    height: 800px;
+    width: 100%;
+  }
+
+  .dice {
+    font-size: 8em;
+    height: 200px;
+    width: 200px;
+  }
+
+  #rollSubmitTurn {
+    font-size: 40px;
+    height: initial;
+  }
+
+  .actButton {
+    margin: 10px 0;
+  }
+
+  #shuffle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: peru;
+    font-size: 2em;
+    text-align: center;
+    height: 100%;
+    width: 30%;
+  }
+
+  #startButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: red;
+    font-size: 2em;
+    text-align: center;
+    height: 100%;
+    width: 30%;
+  }
+
+  #pointsButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: green;
+    font-size: 1.8em;
+    text-align: center;
+    height: 100%;
+    width: 30%;
+  }
+
+  #mediaOptionsBox {
+    margin: 0;
+    /*border: 1px solid orange;*/
+    padding: 0;
+    display: inline-block;
+    background-image: url("/images/option_board.jpg");
+    height: 100%;
+    width: 30%;
+  }
+
+  #messageBoard {
+    display: none;
   }
 
 }
