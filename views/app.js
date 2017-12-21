@@ -1147,7 +1147,6 @@ $(()=>{
   $('#yesReset').on('click',resetGame);
   $('#noReset').on('click', ()=>{
     $('#resetBox').css('display','none');
-    $("#navBar").css('display','none');
   });
 
   // **** IMPORTANT: Everything below is only for mobile devices! ****
