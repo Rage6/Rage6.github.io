@@ -46,6 +46,35 @@ body {
   cursor: pointer;
 }
 
+#resetBox {
+  margin: 25% 10%;
+  border: 1px solid black;
+  padding: 5%;
+  display: none;
+  color: ivory;
+  font-size: 30px;
+  text-align: center;
+  background-color: brown;
+  position: fixed;
+  z-index: 2;
+  cursor: pointer;
+}
+
+#resetQuestion {
+  margin-bottom: 5%;
+}
+
+#resetRow {
+  display: flex;
+  justify-content: space-around;
+}
+
+.resetAnswer {
+  border: 5px solid ivory;
+  padding: 20px;
+  font-size: 2em;
+}
+
 .noteTitle {
   margin: 15px 0;
   font-size: 50px;
@@ -72,26 +101,26 @@ body {
 
 #mainTitle {
   margin: 0;
-  /*border: 1px solid blue;*/
   padding: 0;
   font-size: 2em;
   text-align: center;
   color: ivory;
-  width: 80%;
-  min-width: 1100px;
+  /* width: 100%; */
+  /* min-width: 1100px; */
 }
 
 .gameboard {
-  border: 10px solid black;
+  border-top: 10px solid black;
+  border-bottom: 10px solid black;
   padding: 0;
   background-color: black;
-  width: 1120px;
+  /* width: 1120px; */
+  width: 100%;
   height: 650px;
 }
 
 #table {
   margin: 0;
-  /*border:1px solid blue;*/
   padding: 0;
   display: flex;
   height: 100%;
@@ -100,7 +129,6 @@ body {
 
 #diceContainer {
   margin: 0;
-  /*border: 1px solid black;*/
   padding: 0;
   display: inline-block;
   width: 60%;
@@ -109,7 +137,6 @@ body {
 
 #diceBox {
   margin: 0 10px;
-  border: solid 1px black;
   padding: 0;
   background-image: url("/images/dice_board.jpg");
   height: 60%;
@@ -117,7 +144,6 @@ body {
 
 .diceRow {
   margin: 0;
-  /*border: 1px solid black;*/
   border-radius: 5px;
   padding:0;
   display: flex;
@@ -140,6 +166,7 @@ body {
 }
 
 .catButton {
+  margin: 6px 0;
   cursor: pointer;
 }
 
@@ -165,53 +192,49 @@ body {
 
 #rollSubmitTurn {
   margin: 0 10px;
-  /*border: 1px solid purple;*/
   padding: 4px 0px;
   display: flex;
   justify-content: space-between;
   height: 10%;
-  /*width: 100%;*/
 }
 
 #messageBoard {
   margin: 0 10px;
-  /*border: 1px solid purple;*/
   padding: 0;
   background-image: url("/images/dice1.jpg");
   background-size: cover;
   height: 28%;
-  /*width: 100%;*/
 }
 
 #leftMenu {
-  margin: 0;
-  /*border: 1px solid red;*/
+  margin: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
+  text-align: center;
   color: ivory;
-  /*background-color: red;*/
-  height: 10%;
   width: 100%;
 }
 
 #optionsBox {
   margin: 0;
-  /*border: 1px solid orange;*/
   padding: 0;
+  display: initial;
   background-image: url("/images/option_board.jpg");
-  height: 100%;
   width: 30%;
 }
 
+#mediaOptionsBox {
+  display: none;
+}
+
 #diceOptions {
+  padding: 0 10%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   background-image: url("/images/option_board.jpg");
-  height: 60%;
-  width: 100%;
 }
 
 button {
@@ -227,7 +250,6 @@ button {
 
 #roundRollBox {
   margin: 0;
-  /*border: 1px solid red;*/
   padding: 0;
   width: 100%;
   height: 30%;
@@ -235,12 +257,12 @@ button {
 
 #userBox {
   margin: 0;
-  /*border: 1px solid black;*/
   padding: 0 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   background-image: url("/images/option_board.jpg");
+  background-size: cover;
   min-width: 200px;
   width: 30%;
   height: 100%;
@@ -248,7 +270,6 @@ button {
 
 .user {
   margin: 0;
-  /*border: 1px solid yellow;*/
   padding: 0;
   background-color: ivory;
   text-align: center;
@@ -257,7 +278,6 @@ button {
 }
 
 .name {
-  /*border: 1px solid red;*/
   font-size: 2em;
   font-style: italic;
 }
@@ -269,7 +289,6 @@ button {
 #name2 {}
 
 .total {
-  /*border: 1px solid red;*/
   font-size: 3em;
 }
 
@@ -286,12 +305,6 @@ button {
 
 #total2{}
 
-/*.optionLabel {
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-}*/
-
 .rowOfColumns {
   display: flex;
   flex-direction: row;
@@ -303,56 +316,33 @@ button {
 }
 
 .actButton {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.8em;
+  height: 100%;
+  width: 30%;
   cursor: pointer;
 }
 
 #shuffle {
-  margin: 0;
-  border: 1px solid black;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: peru;
-  font-size: 2em;
-  text-align: center;
-  height: 100%;
-  width: 30%;
 }
 
 #startButton {
-  margin: 0;
-  border: 1px solid black;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: white;
   background-color: red;
-  font-size: 2em;
-  text-align: center;
-  height: 100%;
-  width: 30%;
 }
 
 #pointsButton {
-  margin: 0;
-  border: 1px solid black;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: white;
   background-color: green;
-  font-size: 1.8em;
-  text-align: center;
-  height: 100%;
-  width: 30%;
 }
 
 .showTally {
   margin: 0;
-  /*border: 1px solid black;*/
   padding: 0;
   display: flex;
   flex-direction: row;
@@ -363,7 +353,6 @@ button {
 
 .tallyName {
   margin: 0;
-  /*border: 1px solid yellow;*/
   padding: 0;
   display: flex;
   justify-content: center;
@@ -375,7 +364,6 @@ button {
 
 #rolls {
   margin: 4%;
-  /*border: 1px solid black;*/
   border-radius: 100%;
   border: 3px solid black;
   padding: 0;
@@ -391,7 +379,6 @@ button {
 
 #round {
   margin: 4%;
-  /*border: 1px solid black;*/
   border-radius: 100%;
   border: 3px solid black;
   padding: 0%;
@@ -409,14 +396,9 @@ button {
 
 @media (max-device-width: 500px) {
 
-  #wholeContent {
-    /*border: 1px solid red;*/
-  }
-
   #menuBox {
     margin: 0;
     display: block;
-    width: 100%;
   }
 
   #menu {
@@ -445,20 +427,143 @@ button {
     width: 90%;
   }
 
-  #mainTitle {
-    padding: 0px;
-    font-size: 4em;
+  .noteBox {
+    font-size: 50px;
+    overflow: scroll;
+    height: 90%;
   }
 
-  #mediaBox {
+  #resetBox {
+    font-size: 60px;
+  }
+
+  #resetQuestion {
+    /* padding: 50px 70px; */
+  }
+
+  #resetRow {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .resetAnswer {
+    border: 5px solid ivory;
+    /* padding: 20px; */
+    font-size: 80px;
+  }
+
+  #wholeContent {
     display: block;
   }
 
+  #mainTitle {
+    margin: 0 10%;
+    padding: 0px;
+    font-size: 4em;
+    min-width: initial;
+  }
+
   .gameboard {
+    margin: 0 auto 30px auto;
     border: 10px solid black;
-    padding: 0;
-    background-color: black;
+    height: 100%;
     width: 90%;
+  }
+
+  #table {
+    display: block;
+    height: none;
+  }
+
+  #optionsBox {
+    display: none;
+  }
+
+  #diceContainer {
+    border-top: 10px solid black;
+    display: block;
+    width: 100%;
+  }
+
+  .dice {
+    margin: 60px 0px;
+    font-size: 8em;
+    height: 200px;
+    width: 200px;
+  }
+
+  #rollSubmitTurn {
+    font-size: 40px;
+    height: initial;
+  }
+
+  .actButton {
+    height: 170px;
+  }
+
+  #mediaBottom {
+    border-left: 10px solid black;
+    border-right: 10px solid black;
+    border-bottom: 10px solid black;
+    display: flex;
+    background-image: url("/images/option_board.jpg");
+    background-size: cover;
+  }
+
+  #mediaOptionsBox {
+    margin: 0 2.5%;
+    padding: 0;
+    display: inline-block;
+    background-image: none;
+    width: 45%;
+  }
+
+  #leftMenu {
+    display: none;
+  }
+
+  #diceOptions {
+    margin: 10px 0;
+    background-image: none;
+    font-size: 3em;
+  }
+
+  .catButton {
+    margin: 15px 0;
+    padding: 5px 0;
+  }
+
+  .showTally {
+    font-size: 2em;
+  }
+
+  #messageBoard {
+    display: none;
+  }
+
+  #userBox {
+    margin: 0 2.5% 20px 2.5%;
+    padding: 0;
+    background-image: none;
+    width: 45%;
+  }
+
+  .user {
+    margin: 20px 0;
+    padding-bottom: 20px;
+  }
+
+  .name {
+    padding: 20px 0;
+    font-size: 70px;
+  }
+
+  .total {
+    font-size: 60px;
+  }
+
+  .rowOfColumns {
+    font-size: 2.2em;
   }
 
 }
