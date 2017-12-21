@@ -164,10 +164,15 @@ $(()=>{
     $('#round').text(round);
     // resetAllDice();
   }
+  const displayMediaRound = ()=>{
+    console.log("displayMediaRound activated");
+    $('#mediaRound').text(round);
+  }
 
   displayTotal1();
   displayTotal2();
   displayRound();
+  displayMediaRound();
 
   //This is how to switch between the users' objects.
   const switchPlayers = ()=>{
@@ -318,6 +323,8 @@ $(()=>{
     if (howManyRolls <= 3) {
       const displayRolls = $('#rolls');
       displayRolls.text(howManyRolls);
+      const displayMediaRolls = $('#mediaRolls');
+      displayMediaRolls.text(howManyRolls);
       if (pickedFirst === false) {
         makeNum(first);
       };
@@ -432,6 +439,7 @@ $(()=>{
       round+=1;
       roundReset = 0;
       displayRound();
+      displayMediaRound();
     }
   }
 
@@ -1053,6 +1061,7 @@ $(()=>{
           displayTotal1();
           displayTotal2();
           firstSubmit = false;
+          endOfTurn = true;
           hasSubmit = true;
           selectedArray = [];
           checkedArray = [];
@@ -1097,6 +1106,7 @@ $(()=>{
           displayTotal1();
           displayTotal2();
           firstSubmit = false;
+          endOfTurn = true;
           hasSubmit = true;
           selectedArray = [];
           checkedArray = [];
