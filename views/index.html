@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Quick Yahtzee</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="app.js"></script>
   </head>
   <body>
@@ -24,6 +24,8 @@
         </div>
       </div>
     </div>
+
+    <!-- START "Rules content" -->
     <div class="noteBox" id="rulesBox">
       <div class="noteTitle">
         <u>RULES</u>
@@ -56,24 +58,27 @@
         - <u>It can happen for none of a player's dice to work with any available categories</u>. In a case like this, the player must choose any available category, unselect all of their dice, and click 'Enter Points'. That category will now be considered 'used', even though its score will be 0.
       </div>
     </div>
+    <!-- STOP "Rules" content -->
+
+    <!-- START "How To Play" -->
     <div class="noteBox" id="howToPlayBox">
       <div class="noteTitle">
         HOW TO PLAY
       </div>
       <div class="noteContent">
-        <u>ROLL THE DICE</u> - To roll the dice, click the "Roll" button. Each of the dice will randomly generate a new number between 1 and 6.
+        1) <u>ROLL THE DICE</u> - To roll the dice, click the "Roll" button. Each of the dice will randomly generate a new number between 1 and 6.
       </div>
       <div class="noteContent">
-        <u>CHOOSING DICE</u> - If you double click on a dice and its color is then shades grey, then that dice has been "selected". A selected dice WILL NOT be rolled if the Roll button is used again. Any "unselect" (white-colored) dice WILL be changed during the next roll. Selected/unselected dice can be changed back simply by double clicking them again.
+        2) <u>CHOOSING DICE</u> - If you double click on a dice and its color is then shades grey, then that dice has been "selected". A selected dice WILL NOT be rolled if the Roll button is used again. Any "unselect" (white-colored) dice WILL be changed during the next roll. Selected/unselected dice can be changed back simply by double clicking them again.
       </div>
       <div class="noteContent">
-        <u>CHOOSE THE CATEGORY</u> - Based on the dice that you have selected, click the category that you want to enter your points into. To see the rules of each category, click the 'Rules' button.
+        3) <u>CHOOSE THE CATEGORY</u> - Based on the dice that you have selected, click the category that you want to enter your points into. To see the rules of each category, click the 'Rules' button.
       </div>
       <div class="noteContent">
-        <u>ENTER YOUR POINTS</u> - Once your dice and category are chosen, click the 'Enter Points' button. The new category and total scores will be displayed in the player's scoreboard.
+        4) <u>ENTER YOUR POINTS</u> - Once your dice and category are chosen, click the 'Enter Points' button. The new category and total scores will be displayed in the player's scoreboard.
       </div>
       <div class="noteContent">
-        <u>MOVE TURN TO NEXT PLAYER</u> - The current player's name will be highlighted in their scorecard. Once you have entered your points, your turn is over. Simply click 'Next Turn' (which will now highlight their name) and then the next player can begin.
+        5) <u>MOVE TURN TO NEXT PLAYER</u> - The current player's name will be highlighted in their scorecard. Once you have entered your points, your turn is over. Simply click 'Next Turn' (which will now highlight their name) and then the next player can begin.
       </div>
       <div class="noteContent">
         <u>WHO WINS?</u> - The winner is the player with the highest overall score after the final player enters their points on the 8th round.
@@ -82,6 +87,24 @@
         <u>DID AN UNEXPECTED BOX APPEAR?</u> - This is likely because a dice, category, or action was selected at the inapporpriate time. Please read the explanation on the box, and you can probably find the mistake.
       </div>
     </div>
+    <!-- STOP "How To Play" -->
+
+    <!-- START "Reset" -->
+    <div id="resetBox">
+      <div id="resetQuestion">
+        <b>ARE YOU SURE THAT YOU WANT TO RESET THE GAME?</b>
+      </div>
+      <div id="resetRow">
+        <div id="yesReset" class="resetAnswer">
+          YES
+        </div>
+        <div id="noReset" class="resetAnswer">
+          NO
+        </div>
+    </div>
+    </div>
+    <!-- STOP "Reset" -->
+
     <div id="mediaBox">
       <div id="wholeContent">
         <div id="mainTitle">
@@ -89,6 +112,8 @@
         </div>
         <div class="gameboard">
           <div id="table">
+
+            <!-- START Category box -->
             <div id="optionsBox">
               <div id="leftMenu">
                 Choose Your Category
@@ -114,6 +139,9 @@
                 </div>
               </div>
             </div>
+            <!-- STOP Category box -->
+
+            <!-- START Dice box -->
             <div id="diceContainer">
               <div id="diceBox">
                 <div class="diceRow">
@@ -140,6 +168,42 @@
               <div id="messageBoard">
               </div>
             </div>
+            <!-- STOP Dice Box -->
+
+            <div id="mediaBottom">
+            <!-- START @media Category box -->
+            <div id="mediaOptionsBox">
+              <div id="leftMenu">
+                Choose Your Category
+              </div>
+              <div id="diceOptions">
+                <button class="catButton" id="acesMedia">Aces</button>
+                <button class="catButton" id="twosMedia">Twos</button>
+                <button class="catButton" id="threesMedia">Threes</button>
+                <button class="catButton" id="foursMedia">Fours</button>
+                <button class="catButton" id="fivesMedia">Fives</button>
+                <button class="catButton" id="sixesMedia">Sixes</button>
+                <button class="catButton" id="chanceMedia">Chance</button>
+                <button class="catButton" id="yahtzeeMedia">Yahtzee</button>
+              </div>
+              <div id="roundRollBox">
+                <div class="showTally">
+                  <div class="tallyName">
+                    Roll:
+                  </div>
+                  <div id="rolls"></div>
+                </div>
+                <div class="showTally">
+                  <div class="tallyName">
+                    Round:
+                  </div>
+                  <div id="round"></div>
+                </div>
+              </div>
+            </div>
+            <!-- STOP @media Category box -->
+
+            <!-- START Scores box -->
             <div id="userBox">
               <div class="user">
                 <div class="name" id="name1">
@@ -202,6 +266,9 @@
                 </div>
               </div>
             </div>
+            <!-- STOP Scores box -->
+            </div>
+
           </div>
         </div>
       </div>
