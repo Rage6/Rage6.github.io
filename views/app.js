@@ -1137,8 +1137,17 @@ $(()=>{
   $('#name1').text(user1);
   $('#name2').text(user2);
 
-  $('#reset').on('click',()=>{
-    location.reload(true);
+  //This section is for resetting the game entirely
+  const resetGame = ()=>{
+    location.reload(true)
+  };
+  $('#reset').on('click', ()=>{
+    $('#resetBox').css('display','block')
+  })
+  $('#yesReset').on('click',resetGame);
+  $('#noReset').on('click', ()=>{
+    $('#resetBox').css('display','none');
+    $("#navBar").css('display','none');
   });
 
   // **** IMPORTANT: Everything below is only for mobile devices! ****

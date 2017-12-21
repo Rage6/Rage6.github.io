@@ -46,6 +46,35 @@ body {
   cursor: pointer;
 }
 
+#resetBox {
+  margin: 25% 10%;
+  border: 1px solid black;
+  padding: 5%;
+  display: none;
+  color: ivory;
+  font-size: 30px;
+  text-align: center;
+  background-color: brown;
+  position: fixed;
+  z-index: 2;
+  cursor: pointer;
+}
+
+#resetQuestion {
+  margin-bottom: 5%;
+}
+
+#resetRow {
+  display: flex;
+  justify-content: space-around;
+}
+
+.resetAnswer {
+  border: 5px solid ivory;
+  padding: 20px;
+  font-size: 2em;
+}
+
 .noteTitle {
   margin: 15px 0;
   font-size: 50px;
@@ -76,15 +105,17 @@ body {
   font-size: 2em;
   text-align: center;
   color: ivory;
-  width: 80%;
-  min-width: 1100px;
+  /* width: 100%; */
+  /* min-width: 1100px; */
 }
 
 .gameboard {
-  border: 10px solid black;
+  border-top: 10px solid black;
+  border-bottom: 10px solid black;
   padding: 0;
   background-color: black;
-  width: 1120px;
+  /* width: 1120px; */
+  width: 100%;
   height: 650px;
 }
 
@@ -402,6 +433,25 @@ button {
     height: 90%;
   }
 
+  #resetBox {
+    font-size: 60px;
+  }
+
+  #resetQuestion {
+    /* padding: 50px 70px; */
+  }
+
+  #resetRow {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .resetAnswer {
+    border: 5px solid ivory;
+    /* padding: 20px; */
+    font-size: 80px;
+  }
+
   #wholeContent {
     display: block;
   }
@@ -415,6 +465,7 @@ button {
 
   .gameboard {
     margin: 0 auto 30px auto;
+    border: 10px solid black;
     height: 100%;
     width: 90%;
   }
