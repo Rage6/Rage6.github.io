@@ -407,13 +407,21 @@ $(()=>{
     console.log("resetOptions activities");
     choice = false;
     $('#aces').css('background-color','ivory');
+    $('#acesMedia').css('background-color','ivory');
     $('#twos').css('background-color','ivory');
+    $('#twosMedia').css('background-color','ivory');
     $('#threes').css('background-color','ivory');
+    $('#threesMedia').css('background-color','ivory');
     $('#fours').css('background-color','ivory');
+    $('#foursMedia').css('background-color','ivory');
     $('#fives').css('background-color','ivory');
+    $('#fivesMedia').css('background-color','ivory');
     $('#sixes').css('background-color','ivory');
+    $('#sixesMedia').css('background-color','ivory');
     $('#chance').css('background-color','ivory');
+    $('#chanceMedia').css('background-color','ivory');
     $('#yahtzee').css('background-color','ivory');
+    $('#yahtzeeMedia').css('background-color','ivory');
   }
 
   //This is used in 'switchPlayers' to increase the 'round' when it's supposed to
@@ -622,13 +630,22 @@ $(()=>{
   pointsButton.on('click',blockResubmit);
 
   //These allow the user to choose which option that they want
-  const chooseAces = $('#aces')
+  //There are two functions for each option. The first is used if the screen is >500px, and the second is if <500px
+  const chooseAces = $('#aces');
   chooseAces.on('click', ()=>{
     console.log("Aces chosen.")
     resetOptions();
     choice = 'aces';
     $('#aces').css('background-color','grey');
   });
+  const chooseAcesMedia = $('#acesMedia');
+  chooseAcesMedia.on('click', ()=>{
+    console.log("Aces chosen.")
+    resetOptions();
+    choice = 'aces';
+    $('#acesMedia').css('background-color','grey');
+  });
+
   const chooseTwos = $('#twos');
   chooseTwos.on('click', ()=>{
     console.log("Twos chosen.")
@@ -636,6 +653,14 @@ $(()=>{
     choice = 'twos';
     $('#twos').css('background-color','grey');
   });
+  const chooseTwosMedia = $('#twosMedia');
+  chooseTwosMedia.on('click', ()=>{
+    console.log("Twos chosen.")
+    resetOptions();
+    choice = 'twos';
+    $('#twosMedia').css('background-color','grey');
+  });
+
   const chooseThrees = $('#threes');
   chooseThrees.on('click', ()=>{
     console.log("Threes chosen.")
@@ -643,6 +668,14 @@ $(()=>{
     choice = 'threes';
     $('#threes').css('background-color','grey');
   });
+  const chooseThreesMedia = $('#threesMedia');
+  chooseThreesMedia.on('click', ()=>{
+    console.log("Threes chosen.")
+    resetOptions();
+    choice = 'threes';
+    $('#threesMedia').css('background-color','grey');
+  });
+
   const chooseFours = $('#fours');
   chooseFours.on('click', ()=>{
     console.log("Fours chosen.")
@@ -650,6 +683,14 @@ $(()=>{
     choice = 'fours';
     $('#fours').css('background-color','grey');
   });
+  const chooseFoursMedia = $('#foursMedia');
+  chooseFoursMedia.on('click', ()=>{
+    console.log("Fours chosen.")
+    resetOptions();
+    choice = 'fours';
+    $('#foursMedia').css('background-color','grey');
+  });
+
   const chooseFives = $('#fives');
   chooseFives.on('click', ()=>{
     console.log("Fives chosen.")
@@ -657,6 +698,14 @@ $(()=>{
     choice = 'fives';
     $('#fives').css('background-color','grey');
   });
+  const chooseFivesMedia = $('#fivesMedia');
+  chooseFivesMedia.on('click', ()=>{
+    console.log("Fives chosen.")
+    resetOptions();
+    choice = 'fives';
+    $('#fivesMedia').css('background-color','grey');
+  });
+
   const chooseSixes = $('#sixes');
   chooseSixes.on('click', ()=>{
     console.log("Sixes chosen.")
@@ -664,6 +713,14 @@ $(()=>{
     choice = 'sixes'
     $('#sixes').css('background-color','grey');
   });
+  const chooseSixesMedia = $('#sixesMedia');
+  chooseSixesMedia.on('click', ()=>{
+    console.log("Sixes chosen.")
+    resetOptions();
+    choice = 'sixes';
+    $('#sixesMedia').css('background-color','grey');
+  });
+
   const chooseChance = $('#chance');
   chooseChance.on('click', ()=>{
     console.log("Chances chosen.")
@@ -671,12 +728,27 @@ $(()=>{
     choice = 'chance';
     $('#chance').css('background-color','grey');
   });
+  const chooseChanceMedia = $('#chanceMedia');
+  chooseChanceMedia.on('click', ()=>{
+    console.log("Chances chosen.")
+    resetOptions();
+    choice = 'chance';
+    $('#chanceMedia').css('background-color','grey');
+  });
+
   const chooseYahtzee = $('#yahtzee');
   chooseYahtzee.on('click', ()=>{
     console.log("Yahtzee chosen.")
     resetOptions();
     choice = 'yahtzee';
     $('#yahtzee').css('background-color','grey');
+  });
+  const chooseYahtzeeMedia = $('#yahtzeeMedia');
+  chooseYahtzeeMedia.on('click', ()=>{
+    console.log("Yahtzee chosen.")
+    resetOptions();
+    choice = 'yahtzee';
+    $('#yahtzeeMedia').css('background-color','grey');
   });
 
   //After meeting all the criteria, the collection of following functions in 'addAndReset' will add the appropriates points to the category and reset all of the variables for the next turn
@@ -1093,6 +1165,6 @@ $(()=>{
   };
   const fullBox = $(".noteBox");
   fullBox.on('click', closeBox);
-  
+
 })
 // BOTTOM
