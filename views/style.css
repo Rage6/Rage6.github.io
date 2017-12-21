@@ -81,6 +81,7 @@ body {
 }
 
 .gameboard {
+  border: 10px solid black;
   padding: 0;
   background-color: black;
   width: 1120px;
@@ -97,7 +98,6 @@ body {
 
 #diceContainer {
   margin: 0;
-  border-top: 10px solid black;
   padding: 0;
   display: inline-block;
   width: 60%;
@@ -414,7 +414,7 @@ button {
   }
 
   .gameboard {
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     height: 100%;
     width: 90%;
   }
@@ -429,6 +429,7 @@ button {
   }
 
   #diceContainer {
+    border-top: 10px solid black;
     display: block;
     width: 100%;
   }
