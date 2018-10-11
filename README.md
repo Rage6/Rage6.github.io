@@ -8,4 +8,4 @@
 **Mobile-friendly?:** Yes
 
 "Quick Yahtzee" is the first, independent work that I ever made using Javascript and jQuery. It was truly eye-opening for me as I learned the amazing, interactive capabilities of a modern website's basic tools. This also abruptly taught me many of the common mistakes that a beginner developer makes, as well as how often unpredictable human mistakes cause major bugs. Finally, this game also forced me to thoroughly understand every interaction within its code. 
-<img src="">
+<img src="views/images/dice1.jpg">
