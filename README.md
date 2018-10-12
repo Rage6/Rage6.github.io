@@ -28,6 +28,6 @@ The player should first click the "ROLL" button. This will fill each of the (pre
 
 ***THE CODE***
 
-Of course, it isn't worth trying to explaining ALL of *Quick Yahtzee*'s code. However, it is worth mentioning certain portions of the most interesting/difficult lines.
+Of course, it isn't worth explaining ALL of *Quick Yahtzee*'s code. However, it is worth mentioning some of its most interesting/difficult/noteworthy portions.
 
 <img src="views/images/enter_click.png">
