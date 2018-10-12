@@ -25,6 +25,7 @@ Second, the three buttons (RULES, HOW TO PLAY, and RESET SCORE) along the top of
 
 As soon as the browser recieves the server's response, two prompts take place. This is where each user can enter their desired name. If a player leaves their prompt blank, then their default name will be "Player 1" or "Player 2". An alert then follows with a brief description of how to start the game, after which the first player can begin.
 
-
+***THE CODE***
+Of course, it isn't worth trying to explaining all of *Quick Yahtzee*'s code. However, it is worth mentioning certain portions of the most interesting/difficult lines.
 
 <img src="views/images/enter_click.png">
