@@ -11,7 +11,7 @@
 
 ***SCREEN LAYOUT***
 - Laptop/Desktop: 
-On the top of the screen are three buttons: RULES, HOW TO PLAY, and RESET SCORE. The RESET SCORE button simply refreshes this page which, in the process removes the player names and scores. A box appear after clicking RESET SCORE to confirm that the play does, in fact, want to reset the game.
+On the top of the screen are three buttons: RULES, HOW TO PLAY, and RESET SCORE. The RESET SCORE button simply refreshes this page which, in the process removes the player names and scores. A box appear after clicking RESET SCORE to confirm that the play does, in fact, want to reset the game. In the box to the right of the screen, users can see their name and scoreboards. The player whose turn it is has their name highlighted in orange. The green box in the center of the screen holds the dice. The dice are blank at the beginning of every turn until their first roll. Any selected dice will be shaded with grey. *(NOTE: due to a JS design, it may take one OR two clicks to select a die)* The player can select all or none of the dice. Beneath the dice are three buttons that the current player uses to a) roll their dice, b) accept their selected dice as their score, and c) end their turn in order to "hand the dice" over to the other player.
 
 - Mobile: 
 
