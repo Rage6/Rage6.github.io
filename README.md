@@ -17,6 +17,9 @@ The green box in the center of the screen holds the dice. The dice are blank at 
 In the box on the left of the screen, the eight ovals on top are buttons are where a player chooses which "category" or criteria for gaining points this turn (for more details, see "HOW TO PLAY"). The selected category will be shaded with grey. The two, larger ovals at the bottom of this box show you which turn you are on (max. 8) and how many times you have rolled on this turn (max. 3).
 
 - Mobile: 
+The mobile design is similar to the laptop design with two distinct differences.</br>
+First, the "category" box (previously on the left) and "score" box (on the right) are now side-by-side, both of which are now beneath the "dice" box.</br>
+Second, the three buttons (RULES, HOW TO PLAY, and RESET SCORE) along the top of the laptop design are now replaced with one button: MENU. Clicking on this button makes the three previous buttons slide down and into view.
 
 ***HOW TO PLAY***
 
