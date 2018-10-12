@@ -23,9 +23,11 @@ Second, the three buttons (RULES, HOW TO PLAY, and RESET SCORE) along the top of
 
 ***HOW TO PLAY***
 
-As soon as the browser recieves the server's response, two prompts take place. This is where each user can enter their desired name. If a player leaves their prompt blank, then their default name will be "Player 1" or "Player 2". An alert then follows with a brief description of how to start the game, after which the first player can begin.
+As soon as the browser recieves the server's response, two prompts take place. This is where each user can enter their desired name. If a player leaves their prompt blank, then their default name will be "Player 1" or "Player 2". An alert then follows with a brief description of how to start the game, after which the first player can begin.</br>
+The player should first click the "ROLL" button. This will fill each of the (previously blank) "dice" with random number from 1 to 6. The player can then select any of the dice by clicking on them until they are shaded black. The player can roll their dice a maximum of three times, and shaded dice will not change during a roll. When the player decides to add their turn's score, they must select a category and click "ENTER POINTS". If a) their selected dice meet the criteria of their chosen category and b) that category hasn't been used before, then the score will be added to that player's total score. Finally, the player then clicks "NEXT TURN", which moves onto the next player's turn. When both players have completed a turn, then they have just finished a "round". The game ends when they complete their 8th round, and the winner is the player with the highest total score. For the detailed rules, click on the game's "RULES" button.
 
 ***THE CODE***
-Of course, it isn't worth trying to explaining all of *Quick Yahtzee*'s code. However, it is worth mentioning certain portions of the most interesting/difficult lines.
+
+Of course, it isn't worth trying to explaining ALL of *Quick Yahtzee*'s code. However, it is worth mentioning certain portions of the most interesting/difficult lines.
 
 <img src="views/images/enter_click.png">
