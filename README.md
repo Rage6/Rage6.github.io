@@ -28,6 +28,14 @@ The player should first click the "ROLL" button. This will fill each of the (pre
 
 ***THE CODE***
 
-Of course, it isn't worth explaining ALL of *Quick Yahtzee*'s code. However, it is worth mentioning some of its most interesting/difficult/noteworthy portions.
+Of course, it isn't worth explaining ALL of *Quick Yahtzee*'s code. However, below is a flow diagram depicting the series of functions,variables, etc. that is carried out when the player clicks the "Enter Points" button. This seemingly simple task became much more complex in order to prevent errors that would occur if a player clicks on the wrong buttons or if they click the correct buttons in the wrong order. For a description of the diagram:
+
+1) The player click on the #pointsButton
+2) The blockResubmit function prevents the player from entering points if it already did
+3) The submitValues function enters all of the values of the dice that the player selected
+4) The confirmEmpty function makes sure that the player hasn't already used the category (like "Yahtzee" or "Threes") that he used already
+5) The checkValues function confirms that each selected dice meets the criteria of the chose category. It tallies the number of dice that pass inspection
+6) If the number of accepted dice meets the number of dice that the player selected, then the points are added to the player's score.
+7) All of the variables are now reset for the next player
 
 <img src="views/images/enter_click.png">
